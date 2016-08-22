@@ -1,0 +1,281 @@
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_real_escape_string(): No such file or directory in /home/ubuntu/workspace/php/login.php on line 23
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:23
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/ubuntu/workspace/php/login.php on line 23
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:23
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_real_escape_string(): No such file or directory in /home/ubuntu/workspace/php/login.php on line 24
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:24
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/ubuntu/workspace/php/login.php on line 24
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:24
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/login.php on line 27
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/login.php:27
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/login.php on line 27
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/login.php:27
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/login.php on line 28
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_num_rows() /home/ubuntu/workspace/php/login.php:28
+[18-Sep-2015 18:36:35 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/login.php on line 37
+[18-Sep-2015 18:36:35 UTC] PHP Stack trace:
+[18-Sep-2015 18:36:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:36:35 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:36:35 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/login.php:37
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_real_escape_string(): No such file or directory in /home/ubuntu/workspace/php/login.php on line 23
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:23
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/ubuntu/workspace/php/login.php on line 23
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:23
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_real_escape_string(): No such file or directory in /home/ubuntu/workspace/php/login.php on line 24
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:24
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/ubuntu/workspace/php/login.php on line 24
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_real_escape_string() /home/ubuntu/workspace/php/login.php:24
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/login.php on line 27
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/login.php:27
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/login.php on line 27
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/login.php:27
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/login.php on line 28
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_num_rows() /home/ubuntu/workspace/php/login.php:28
+[18-Sep-2015 18:37:36 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/login.php on line 37
+[18-Sep-2015 18:37:36 UTC] PHP Stack trace:
+[18-Sep-2015 18:37:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:37:36 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:37:36 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/login.php:37
+[18-Sep-2015 18:41:02 UTC] PHP Warning:  mysql_connect(): No such file or directory in /home/ubuntu/workspace/db/connect.php on line 15
+[18-Sep-2015 18:41:02 UTC] PHP Stack trace:
+[18-Sep-2015 18:41:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:41:02 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:41:02 UTC] PHP   3. include() /home/ubuntu/workspace/php/login.php:4
+[18-Sep-2015 18:41:02 UTC] PHP   4. mysql_connect() /home/ubuntu/workspace/db/connect.php:15
+[18-Sep-2015 18:41:02 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /home/ubuntu/workspace/db/connect.php on line 17
+[18-Sep-2015 18:41:02 UTC] PHP Stack trace:
+[18-Sep-2015 18:41:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:41:02 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:41:02 UTC] PHP   3. include() /home/ubuntu/workspace/php/login.php:4
+[18-Sep-2015 18:41:02 UTC] PHP   4. mysql_select_db() /home/ubuntu/workspace/db/connect.php:17
+[18-Sep-2015 18:41:15 UTC] PHP Warning:  mysql_connect(): No such file or directory in /home/ubuntu/workspace/db/connect.php on line 15
+[18-Sep-2015 18:41:15 UTC] PHP Stack trace:
+[18-Sep-2015 18:41:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:41:15 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:41:15 UTC] PHP   3. include() /home/ubuntu/workspace/php/login.php:4
+[18-Sep-2015 18:41:15 UTC] PHP   4. mysql_connect() /home/ubuntu/workspace/db/connect.php:15
+[18-Sep-2015 18:41:15 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /home/ubuntu/workspace/db/connect.php on line 17
+[18-Sep-2015 18:41:15 UTC] PHP Stack trace:
+[18-Sep-2015 18:41:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:41:15 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:41:15 UTC] PHP   3. include() /home/ubuntu/workspace/php/login.php:4
+[18-Sep-2015 18:41:15 UTC] PHP   4. mysql_select_db() /home/ubuntu/workspace/db/connect.php:17
+[18-Sep-2015 18:45:27 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/ubuntu/workspace/php/login.php on line 32
+[18-Sep-2015 18:45:27 UTC] PHP Stack trace:
+[18-Sep-2015 18:45:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:46:20 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/ubuntu/workspace/php/login.php on line 32
+[18-Sep-2015 18:46:20 UTC] PHP Stack trace:
+[18-Sep-2015 18:46:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:47:43 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/ubuntu/workspace/php/login.php on line 32
+[18-Sep-2015 18:47:43 UTC] PHP Stack trace:
+[18-Sep-2015 18:47:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:47:46 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/ubuntu/workspace/php/login.php on line 32
+[18-Sep-2015 18:47:46 UTC] PHP Stack trace:
+[18-Sep-2015 18:47:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:48:18 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/login.php on line 38
+[18-Sep-2015 18:48:18 UTC] PHP Stack trace:
+[18-Sep-2015 18:48:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:48:18 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:48:18 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/login.php:38
+[18-Sep-2015 18:48:18 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:48:18 UTC] PHP Stack trace:
+[18-Sep-2015 18:48:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:48:18 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:48:18 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:48:18 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:48:18 UTC] PHP Stack trace:
+[18-Sep-2015 18:48:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:48:18 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:48:18 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:48:18 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/session.php on line 16
+[18-Sep-2015 18:48:18 UTC] PHP Stack trace:
+[18-Sep-2015 18:48:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:48:18 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:48:18 UTC] PHP   3. mysql_fetch_assoc() /home/ubuntu/workspace/php/session.php:16
+[18-Sep-2015 18:48:18 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/session.php on line 21
+[18-Sep-2015 18:48:18 UTC] PHP Stack trace:
+[18-Sep-2015 18:48:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:48:18 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:48:18 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/session.php:21
+[18-Sep-2015 18:49:17 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/login.php on line 38
+[18-Sep-2015 18:49:17 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:49:17 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:49:17 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/login.php:38
+[18-Sep-2015 18:49:17 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:49:17 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:17 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:17 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:49:17 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:49:17 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:17 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:17 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:49:17 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/session.php on line 16
+[18-Sep-2015 18:49:17 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:17 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:17 UTC] PHP   3. mysql_fetch_assoc() /home/ubuntu/workspace/php/session.php:16
+[18-Sep-2015 18:49:17 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/session.php on line 21
+[18-Sep-2015 18:49:17 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:17 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:17 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/session.php:21
+[18-Sep-2015 18:49:20 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:49:20 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:20 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:20 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:49:20 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:49:20 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:20 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:20 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:49:20 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/session.php on line 16
+[18-Sep-2015 18:49:20 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:20 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:20 UTC] PHP   3. mysql_fetch_assoc() /home/ubuntu/workspace/php/session.php:16
+[18-Sep-2015 18:49:20 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/session.php on line 21
+[18-Sep-2015 18:49:20 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:20 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:20 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/session.php:21
+[18-Sep-2015 18:49:32 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:49:32 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:32 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:32 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:49:32 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:49:32 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:32 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:32 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:49:32 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/session.php on line 16
+[18-Sep-2015 18:49:32 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:32 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:32 UTC] PHP   3. mysql_fetch_assoc() /home/ubuntu/workspace/php/session.php:16
+[18-Sep-2015 18:49:32 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/session.php on line 21
+[18-Sep-2015 18:49:32 UTC] PHP Stack trace:
+[18-Sep-2015 18:49:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:49:32 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:49:32 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/session.php:21
+[18-Sep-2015 18:51:48 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/login.php on line 38
+[18-Sep-2015 18:51:48 UTC] PHP Stack trace:
+[18-Sep-2015 18:51:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:51:48 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:51:48 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/login.php:38
+[18-Sep-2015 18:51:48 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:51:48 UTC] PHP Stack trace:
+[18-Sep-2015 18:51:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:51:48 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:51:48 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:51:48 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:51:48 UTC] PHP Stack trace:
+[18-Sep-2015 18:51:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:51:48 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:51:48 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:51:48 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/session.php on line 16
+[18-Sep-2015 18:51:48 UTC] PHP Stack trace:
+[18-Sep-2015 18:51:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:51:48 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:51:48 UTC] PHP   3. mysql_fetch_assoc() /home/ubuntu/workspace/php/session.php:16
+[18-Sep-2015 18:51:48 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/session.php on line 21
+[18-Sep-2015 18:51:48 UTC] PHP Stack trace:
+[18-Sep-2015 18:51:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:51:48 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:51:48 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/session.php:21
+[18-Sep-2015 18:54:58 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/login.php on line 38
+[18-Sep-2015 18:54:58 UTC] PHP Stack trace:
+[18-Sep-2015 18:54:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:54:58 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:54:58 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/login.php:38
+[18-Sep-2015 18:54:58 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:54:58 UTC] PHP Stack trace:
+[18-Sep-2015 18:54:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:54:58 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:54:58 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:54:58 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:54:58 UTC] PHP Stack trace:
+[18-Sep-2015 18:54:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:54:58 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:54:58 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:54:58 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/session.php on line 16
+[18-Sep-2015 18:54:58 UTC] PHP Stack trace:
+[18-Sep-2015 18:54:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:54:58 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:54:58 UTC] PHP   3. mysql_fetch_assoc() /home/ubuntu/workspace/php/session.php:16
+[18-Sep-2015 18:54:58 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/session.php on line 21
+[18-Sep-2015 18:54:58 UTC] PHP Stack trace:
+[18-Sep-2015 18:54:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:54:58 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:54:58 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/session.php:21
+[18-Sep-2015 18:55:12 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/login.php on line 38
+[18-Sep-2015 18:55:12 UTC] PHP Stack trace:
+[18-Sep-2015 18:55:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/index2.php:0
+[18-Sep-2015 18:55:12 UTC] PHP   2. include() /home/ubuntu/workspace/php/index2.php:6
+[18-Sep-2015 18:55:12 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/login.php:38
+[18-Sep-2015 18:55:12 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:55:12 UTC] PHP Stack trace:
+[18-Sep-2015 18:55:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:55:12 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:55:12 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:55:12 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/session.php on line 14
+[18-Sep-2015 18:55:12 UTC] PHP Stack trace:
+[18-Sep-2015 18:55:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:55:12 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:55:12 UTC] PHP   3. mysql_query() /home/ubuntu/workspace/php/session.php:14
+[18-Sep-2015 18:55:12 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/php/session.php on line 16
+[18-Sep-2015 18:55:12 UTC] PHP Stack trace:
+[18-Sep-2015 18:55:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:55:12 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:55:12 UTC] PHP   3. mysql_fetch_assoc() /home/ubuntu/workspace/php/session.php:16
+[18-Sep-2015 18:55:12 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/php/session.php on line 21
+[18-Sep-2015 18:55:12 UTC] PHP Stack trace:
+[18-Sep-2015 18:55:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/profile.php:0
+[18-Sep-2015 18:55:12 UTC] PHP   2. include() /home/ubuntu/workspace/php/profile.php:2
+[18-Sep-2015 18:55:12 UTC] PHP   3. mysql_close() /home/ubuntu/workspace/php/session.php:21

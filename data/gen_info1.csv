@@ -1,0 +1,2 @@
+AlertStatus,runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,FinalWheelchairLat,FinalWheelchairLong,LeadMaleRunnerLat,LeadMaleRunnerLong,LeadFemaleRunnerLat,LeadFemaleRunnerLong,TurtleLat,TurtleLong,Alert
+1,30000,300,3,25,41.869524,-87.647035,40.450938,-74.493209,41.852944,-87.623808,41.852784,-87.632031,41.857549,-87.64663,41.891665,-87.628073,"456465465"

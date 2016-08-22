@@ -1,0 +1,767 @@
+  body {
+    margin: 0;
+    padding: 0;
+  	font-family: "Helvetica Neue", Geneva, sans-serif;
+
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+  }
+  
+  body div {
+    float: left;
+  }
+  
+  #map {
+    position: absolute;
+    width: 30%;
+    height: 84%;
+    bottom: 0%;
+    /* top: 17%; */
+    float: left;
+    margin-right: 10px;
+  }
+  
+  #topBanner {
+    position: absolute;
+    top: 0%;
+    bottom: 89%;
+    width: 100%;
+    float: left;
+    background-color: #313233;
+    /*background-color: #19bf19;  this is done by javascript reading csv file */
+  }
+  
+ 
+  
+  #pageWrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .green {
+    background: #19bf19;
+    color: white;
+  }
+  
+  .yellow {
+    background: #f2ff00;
+  }
+  
+  .red {
+    background: #ff2000;
+    color: white;
+  }
+  
+  #topBanner.black {
+    background: #000000;
+    color: white;
+  }
+  
+  #alertbar.white {
+    background: white;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+  }
+  
+  #sidebar {
+    position: absolute;
+    top: 16%;
+    bottom: 0;
+    left: 30%;
+    width: 70%;
+    float: right;
+    right: 0;
+    margin-right: auto;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,dddddd+100 */
+    background: #e5e5e5;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #e5e5e5 0%, #dddddd 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #dddddd));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e5e5e5 0%, #dddddd 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e5e5e5 0%, #dddddd 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e5e5e5 0%, #dddddd 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #e5e5e5 0%, #dddddd 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#dddddd', GradientType=0);
+    /* IE6-9 */
+  }
+  
+  #alertbar {
+    position: absolute;
+    top: 11%;
+    height: 5%;
+    width: 100%;
+    /*border: 1px solid black;*/
+    font-weight: bold;
+  }
+  
+  #alertText {
+    font-size: 2vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  #alertStatus {
+    height: 100%;
+    font-size: 300%;
+    float: left;
+    margin-top: 25px;
+  }
+  
+  .aid_station {
+    background-color: transparent;
+    float: right;
+  }
+  
+  .aid_station_mt {
+    position: absolute;
+    margin-left: 5%;
+    background-color: transparent;
+  }
+  
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }
+  
+  .axis text {
+    font-size: 1vw;
+  }
+  
+  .grid .tick {
+    stroke: gray;
+    opacity: 0.7;
+    display: none;
+  }
+  
+  .grid path {
+    stroke-width: 0;
+  }
+  
+  rect {
+    rx: 3;
+    ry: 3;
+  }
+  
+  rect:hover {
+    fill: orange;
+  }
+  
+  #topBanner div {
+    height: 95%;
+    float: left;
+    margin-top: 4px;
+  }
+  
+  #mainInfo {
+    width: 30%;
+    height: 100%;
+    left: 15%;
+  }
+  
+  #Temp {
+    width: 50%;
+    float: none;
+  }
+  
+  #WindHumid {
+    width: 100%;
+  }
+  
+  #timingDiv {
+    width: 40%;
+    height: 80%;
+    position: relative;
+    right: -22%;
+  }
+  
+  #timingDiv div {
+    height: 35%;
+    text-align: center;
+    font-size: 1.4vw;
+  }
+  
+  
+  #timingDiv #timeTitle {
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+  
+  #timingDiv #clock {
+    width: 50%;
+    font-weight: normal;
+    font-size: 1.4vw;
+  }
+  
+  #timingDiv #elapsedTime {
+    width: 50%;
+    font-weight: normal;
+    font-size: 1.4vw;
+  }
+  
+  .SideBarSpace {
+    width: 100%;
+    height: 10%;
+    float: none;
+  }
+  
+  #AidStationTitle {
+    width: 100%;
+    margin: auto;
+    height: 10%;
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  #MarathonName {
+    text-align: left;
+    font-size: 1.6em;
+    margin-left: 3%;
+    height: 100%;
+    width: 35%;
+    top: 3%;
+    left: -1%;
+    z-index: +1;
+  }
+  
+  #MarathonName.white {
+    background-image: url("../img/logo.png");
+    background-size: 100%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    color: white;
+  }
+  
+  #MarathonName.black {
+    background-image: url("../img/logo.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: black;
+  }
+  
+  #NUlogo {
+    text-align: left;
+    font-size: 1.6em;
+    margin-left: 3%;
+    height: 110%;
+    width: 30%;
+    top: 1%;
+    left: -1%;
+    z-index: +1;
+  }
+  
+  #NUlogo.purple {
+    background-image: url("../img/NU_logo_white.png");
+    background-size: 90%;
+    padding: 50px 0;
+    width: 50%;
+    background-repeat: no-repeat;
+  }
+  
+  #NUlogo.white {
+    background-image: url("../img/NU_logo_white.png");
+    background-size: 80%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    color: white;
+  }
+  
+  #Compass {
+    background-image: url("../img/white compass text.png");
+    background-repeat: no-repeat;
+    background-size: 40%;
+    position: absolute;
+    top: 32%;
+    
+    right: 63%;
+    width: 15%;
+    height: 20%;
+    
+  }
+  
+  #InfoBox {
+    position: absolute;
+    top: 17%;
+    width: 27.5%;
+    height: 5%;
+    right: 71%;
+    float: none;
+    color: white;
+    text-align: right;
+  }
+  
+  #InfoBox .infoTxt {
+    height: 70%;
+    width: 100%;
+    /*font-size: 2.2em;*/
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: right;
+    letter-spacing: 1.5px;
+    text-transform: capitalize;
+  }
+  
+  .legend li, .legend{
+    color: black;
+  }
+  
+  .all-legend {
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  #RunnersOnCourse {}
+  
+  #RunnersFinished {}
+  
+  #PatientsSeen {}
+  
+  #HospitalTransports {}
+  
+  #medical {
+    position: absolute;
+    width: 100%;
+    margin-top: 2%;
+  }
+  
+  #medical_tent{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+  
+  #aid_station {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 5px 0 rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+  
+  #densityplotWrap {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 5px 0 rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+  
+  #tooltip {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+  
+  #tooltip.hidden {
+    display: none;
+  }
+  
+  #tooltip p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  
+  svg text {
+    font-family: "Lato", Arial, sans-serif;
+  }
+  /*   WEATHER STUFF */
+  /*
+  Docs at http://http://simpleweatherjs.com
+
+  Look inspired by http://www.degreees.com/
+  Used for demo purposes.
+
+  Weather icon font from http://fonts.artill.de/collection/artill-weather-icons
+
+  DO NOT hotlink the assets/font included in this demo. If you wish to use the same font icon then download it to your local assets at the link above. If you use the links below odds are at some point they will be removed and your version will break.
+*/
+  
+  @font-face {
+    font-family: 'weather';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot');
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  #weather {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+    top: 1%;
+    left: 28%;
+    }
+  
+  
+  i {
+    
+    font-family: weather;
+    font-size: 70px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: .2;
+  }
+  
+  .icon-0:before {
+    content: ":";
+  }
+  
+  .icon-1:before {
+    content: "p";
+  }
+  
+  .icon-2:before {
+    content: "S";
+  }
+  
+  .icon-3:before {
+    content: "Q";
+  }
+  
+  .icon-4:before {
+    content: "S";
+  }
+  
+  .icon-5:before {
+    content: "W";
+  }
+  
+  .icon-6:before {
+    content: "W";
+  }
+  
+  .icon-7:before {
+    content: "W";
+  }
+  
+  .icon-8:before {
+    content: "W";
+  }
+  
+  .icon-9:before {
+    content: "I";
+  }
+  
+  .icon-10:before {
+    content: "W";
+  }
+  
+  .icon-11:before {
+    content: "I";
+  }
+  
+  .icon-12:before {
+    content: "I";
+  }
+  
+  .icon-13:before {
+    content: "I";
+  }
+  
+  .icon-14:before {
+    content: "I";
+  }
+  
+  .icon-15:before {
+    content: "W";
+  }
+  
+  .icon-16:before {
+    content: "I";
+  }
+  
+  .icon-17:before {
+    content: "W";
+  }
+  
+  .icon-18:before {
+    content: "U";
+  }
+  
+  .icon-19:before {
+    content: "Z";
+  }
+  
+  .icon-20:before {
+    content: "Z";
+  }
+  
+  .icon-21:before {
+    content: "Z";
+  }
+  
+  .icon-22:before {
+    content: "Z";
+  }
+  
+  .icon-23:before {
+    content: "Z";
+  }
+  
+  .icon-24:before {
+    content: "E";
+  }
+  
+  .icon-25:before {
+    content: "E";
+  }
+  
+  .icon-26:before {
+    content: "3";
+  }
+  
+  .icon-27:before {
+    content: "a";
+  }
+  
+  .icon-28:before {
+    content: "A";
+  }
+  
+  .icon-29:before {
+    content: "a";
+  }
+  
+  .icon-30:before {
+    content: "A";
+  }
+  
+  .icon-31:before {
+    content: "6";
+  }
+  
+  .icon-32:before {
+    content: "1";
+  }
+  
+  .icon-33:before {
+    content: "6";
+  }
+  
+  .icon-34:before {
+    content: "1";
+  }
+  
+  .icon-35:before {
+    content: "W";
+  }
+  
+  .icon-36:before {
+    content: "1";
+  }
+  
+  .icon-37:before {
+    content: "S";
+  }
+  
+  .icon-38:before {
+    content: "S";
+  }
+  
+  .icon-39:before {
+    content: "S";
+  }
+  
+  .icon-40:before {
+    content: "M";
+  }
+  
+  .icon-41:before {
+    content: "W";
+  }
+  
+  .icon-42:before {
+    content: "I";
+  }
+  
+  .icon-43:before {
+    content: "W";
+  }
+  
+  .icon-44:before {
+    content: "a";
+  }
+  
+  .icon-45:before {
+    content: "S";
+  }
+  
+  .icon-46:before {
+    content: "U";
+  }
+  
+  .icon-47:before {
+    content: "S";
+  }
+  
+  #weather h2 {
+    margin: 0;
+    font-size: 2.6vw;
+    font-weight: 200;
+    text-align: center;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  }
+  
+  #weather ul {
+    margin: auto;
+    padding: 0;
+    width: 100%;
+  }
+  
+  #weather li {
+    background: #fff;
+    color: black;
+    background: rgba(255, 255, 255, 0.90);
+    padding: 4px;
+    display: inline-block;
+    border-radius: 7.5%;
+    text-transform: capitalize;
+    font-size: .85vw;
+  }
+  
+  #weather .currently {
+    margin: 0 5px;
+  }
+  
+  .legend-tracking {
+    position: absolute;
+    left: 10%;
+    top: 70%;
+    width: 35%;
+    float: left;
+    color: black;
+  }
+  
+    .legend-trackingtitle {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1vw;
+    width: 100%;
+    margin-bottom: 3%;
+  }
+  
+  .legend {
+    position: absolute;
+    left: 10%;
+    top: 49%;
+    height: 6%;
+  }
+  
+  .legend .legend-scale ul {
+    margin: 0;
+    padding: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    float: left;
+    list-style: none;
+  }
+  
+  .legend .legend-scale ul li {
+    font-size: .8vw;
+    list-style: none;
+    margin-left: 0;
+    line-height: 20px;
+    margin: 5px;
+    margin-bottom:0px;
+  }
+  
+  .legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 11px;
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 0;
+    border: 1px solid #999;
+    color: white;
+  }
+  
+  .legend ul.aid-legend li span {
+    display: block;
+    float: left;
+    height: 12px;
+    width: 30px;
+    margin-right: 10px;
+    margin-left: 0;
+    border: 1px solid #999;
+  }
+  
+  .legend a {
+    color: #777;
+  }
+  
+  .legend-title {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1vw;
+    width: 100%;
+  }
+  
+  .legend ul.aid-legend {
+    float: left;
+  }
+  
+  .aid-wrapper {
+    width: 40%;
+  }
+  
+  .density-wrapper {
+    width: 40%;
+  }
+  /* icons for html and css */
+  
+  .my-icon {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    font-size: 10px;
+    z-index: 1;
+  }
+  
+  .icon-dc {
+    background: rgba(58, 153, 222, 0.9);
+  }
+  
+  .icon-sf {
+    background: rgba(58, 153, 222, 0.9);
+  }
+  
+  #surveylink {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 93%;
+    width: 50%;
+  }
+  
+  #densityplotWrap {
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    height: 47%;
+    width: 47%;
+  }
+  
+  .sim-minute{
+    float: right;
+  }

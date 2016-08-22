@@ -1,0 +1,70 @@
+
+
+
+
+http://bl.ocks.org/rveciana/8464690
+https://fastly.github.io/epoch/real-time/
+https://groups.google.com/forum/#!topic/d3-js/MlTB72KD4dk
+https://gist.github.com/duopixel/4063326
+
+
+----- done WEDNESDAY
+
+- medical tents show medical tents
+- alert bar changes color to alert status
+- archiving of aid station data and updates
+- archiving of runner data
+-
+** simulating marathon
+- downloaded and compute position of every competitor at every minute
+- computed number of people passing aid station every minute
+
+TO DO
+- ?simulate randomly with the distribution of 2014+2013?
+- ?get corral data
+    -plot where corral people will be 
+    
+---- animate:
+    create a script that will:
+    
+- generate 40000 runners and assign them
+RACE has
+    Temperature
+    Runners
+        $each runner has:
+            expected pace
+            level
+            starting time
+            deviation from the expected pace
+            position
+            injury probability
+                function of time, position, and level
+                injury can be 0 (none), 1(passing through), 2(stay), 3(transport)
+    
+LATER
+    AidStations
+        Each Aid Station has
+            Beds
+            Number of volunteers
+            
+        
+- each minute from 1 to 7 hours:
+    for each runner:
+        move the runners
+        change their pace depending on a function + deviationRandomNumber
+        assign a random number and generate an injury
+        
+BEGIN
+    - just runners, assign pace, deviation, and starting time
+    - make them run 
+    
+THEN
+    - add level
+    - add injury 
+    
+THEN
+    - incorporate aid stations
+    
+THEN
+    - incorporate other factors? weather? etc
+        

@@ -1,0 +1,109 @@
+Lead Male Wheelchair: Lat: 41.8529440, Long: -87.6238080
+Lead Female Wheelchair: Lat: 41.8787420, Long: -87.6765770
+Final Wheelchair: Lat: 41.8575490, Long: -87.6466300
+Lead Male: Lat: 41.8695240, Long: -87.6470350
+Lead Female: Lat: 40.4509380, Long: -87.4932090
+Turtle: Lat: 41.8916650, Long: -87.628073
+
+-----------------------------------------------------
+Remaining Projects:
+
+***
+    When updated, get a link to go back or to not go back
+    Streamline navigation throughout everything
+        All pages lead to home, etc
+    Enable security (show page for public, viewer, admin)
+
+****
+
+Runner Density: linking density thresholds 
+    Figuring out adjustments to 2015 data with 2014 data
+Clean up the files (add folders and organize everything)!!
+Links to entry pages from the main page (or somewhere)
+Append Alerts
+Merge with iems server
+
+- Make update of the map dynamic (no need to refresh page) 
+    (other update done)
+
+
+- Clean up files from desktop versions to match the original - look at functions and updateAll so most functions are present only once
+
+
+-----------------------------------------------------------
+Completed Projects:
+
+Aid Stations x axis
+Formatting of the entire page: improving the look so the design looks good
+Weather
+Make bar charts vertical
+Front End Changes: Formatting of the graphs: titles, axes, all of that
+Simulation Work 
+Front End Changes: Update for Medical tents
+Front End/Back End Changes: Weather
+Archive Aid Station information too 
+    Archive updates whenever updates to the aid stations are made
+Aid Stations: How many do we display at once and how do we decide which to display?
+        Colors on map match the colors of the graph (aid stations)
+Add functionality so default values for AS's are actual values 
+    (displayed if they're currently displayed, etc)
+Alert Bar: switching from white to red in emergency situations
+Fix map so routes are correct
+Fix colors of medical tents (gray, green, yellow, red) --> use status variables
+Change "Visits" to "Treatments"
+Change Labels on axes
+Add Legend for Aid Stations
+Alert Bar: Having alerts come up on the map for the location of the emergency
+Legends
+Add pacers - markers on the map
+Look into the host server (IE computer)
+Improve look of the map
+Order Aid Stations and Medical Tents
+Capcity on forms for aid stations
+Desktop Version
+Update of graphs, banner, every x seconds (set by js and not reload of page)
+--------
+http://codepen.io/fleeting/pen/Idsaj --->> Idea for weather information
+
+
+
+
+----------
+
+Marquee is messed up. Doesn’t display message for entire banner
+
+ No method of resetting general info fields to 0 - DONE
+
+ Finish Line instead of Chicago IL - DONE
+
+ Add race time and clock time to input forms 
+
+ Make a group text on Race Day 
+
+ Mobile version doesn’t auto refresh – add an as of time to the version to indicate the time of the 
+
+data
+
+ Look at mpts to do a run through
+
+ Change turtle to Last Runner - DONE
+
+ Get runner tracking gps from landairsea
+
+ NBC coverage – details on lead runners 
+
+ Alerts on the mobile version
+
+ Sum of treatments - DONE
+
+ After turtle passes, runners behind goes to 0 at each aid station
+
+ Fix cumulative numbers for hospital tents - ?
+
+ Density graph color clarification 
+
+ Find out the times of the aid station closings
+
+o Ask brad that (form of information)
+
+ Things disappear sometimes from the system 
