@@ -16,18 +16,18 @@ if(isset($_SESSION['login_user']))
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bank of America Chicago Marathon 2015</title>
+<title>Bank of America Chicago Marathon 2016</title>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
 
 <link href="css/styled_login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="main">
-<h1>Bank of America Chicago Marathon 2015 </h1>
+<h1>Bank of America Chicago Marathon 2016 </h1>
 <h2 style="font-weight:normal;">Data Visualization System</h2>
 <div id="login">
 <h2>Registration Form for new users</h2>
-<h3>If you forget the password, send an email to bpeynetti@u.northwestern.edu with your username. </h3>
+<h3>If you forget the password, send an email to marathondvs@gmail.com with your username. </h3>
 <h3>There are currently no restrictions on the password (length, caps, special characters, numbers, etc)</h3>
 <form action="" method="post">
 <label>First Name :</label>

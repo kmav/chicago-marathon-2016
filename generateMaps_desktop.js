@@ -1,3 +1,4 @@
+
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnBleW5ldHRpIiwiYSI6IjNjMjQ0NTM4MTE0MmM0ODkwYTA0Mjg0NGYyZGM4MzM5In0.K96jFRdiKaEPadA1IxKoQw';
 var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
     .setView([41.8955, -87.648], 12);

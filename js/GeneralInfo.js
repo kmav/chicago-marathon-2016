@@ -39,13 +39,11 @@ function displayInfo(data){
             }
         });
         
-    d3.select("#alertText")
-        .text(message);
-    
         
-    d3.select("#topBanner")
+        d3.select("#header")
         .attr("class",function(){
-             (Status);
+            //(Status);
+            console.log(Status);
             switch (+Status){
                 case 0:
                     return 'green';
@@ -62,26 +60,10 @@ function displayInfo(data){
             }
         });
         
-    d3.select("#MarathonName")
-        .attr("class",function(){
-            if ((+Status)==1){
-                return 'black';
-            }
-            else{
-                return 'white';
-            }
-        });
-    
-    d3.select("#NUlogo")
-        .attr("class",function(){
-            if ((+Status)==1){
-                return 'purple';
-            }
-            else{
-                return 'white';
-            }
-        });
         
+    d3.select("#alertText")
+        .text(message);
+    
          
     var temp = data[0].temperature;
     var windspeed = data[0].windSpeed;

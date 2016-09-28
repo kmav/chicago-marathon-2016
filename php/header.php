@@ -22,6 +22,8 @@ if ($level_session==0){
     echo "
             <li class='actives'><a class='link' href='input_medical.php'>Medical Input</a></li>
             <li class='actives'><a class='link' href='input_geninfo.php'>General Input</a></li>
+            <li class='actives'><a class='link' href='medicalCheckIn.php'>Medical Check-In Input</a></li>
+
     ";
 }
             

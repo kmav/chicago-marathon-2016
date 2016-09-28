@@ -54,6 +54,8 @@ function drawMedicalTents(data){
 	//padding
 	var p = 30;
 
+	console.log("hi");
+	console.log(w);
 
 	//get the x scale 
 	var yScale = d3.scale.ordinal()
@@ -101,6 +103,7 @@ function drawMedicalTents(data){
 				.attr("id","medical_tent");
 
 		//plot the aid station number on x axis
+	console.log(w+p);
 	
 	svg.selectAll("text")
 		.data(MedicalTentsDataset,function(d){

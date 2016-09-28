@@ -5,7 +5,7 @@ function InsertCheckBoxes(number,Text){
     
     var CheckBoxesHolder = AidBoxes.append("div")
     .attr("class","checkBoxHolder");
-    2
+    
     var CheckBoxes = CheckBoxesHolder.append("input")
     .attr("class","checkBox")
     .attr("type","radio")
@@ -86,12 +86,7 @@ var AidBoxes = d3.select(".inputform")
     .enter()
     .append("div")
     .attr("class",function(d){
-        if (d.Type=="AS"){
             return "AidBox";
-        }
-        else{
-            return "MTBox";
-        }
     })
     .attr("number",function(d,i){ return +i});
     

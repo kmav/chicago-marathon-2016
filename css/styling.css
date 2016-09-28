@@ -143,8 +143,10 @@ div.checkBoxTxt{
     font-weight: lighter;
     text-align: center;
 }
-.CurrentPatients, .CumulativePatients, .Capacity{
+.CurrentPatients, .CumulativePatients, .Capacity, .Profession{
     text-align: center;
     font-weight: lighter;
     margin-bottom: 4px;
 }
+
+

@@ -43,77 +43,30 @@ if ($_SESSION['start'] + (7*60*60) < time()) {
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 
-<link rel='stylesheet' href='css/desktop_marathon.css'>
+<link rel='stylesheet' href='css/newStyle.css'>
 
 
 <script src='js/updateAll.js' type='text/javascript'></script>
 
-<!--href='desktop_marathon.css'-->
-<style>
-
-
-</style>
 </head>
+
+<style>
+  
+  #densityplotWrap{
+    height: 300px;
+  }
+</style>
 <body>
 
 <h1> Admin Dashboard </h1>
 
-
-    <div id = "densityplotWrap" >
-    </div>
-    
-    
-</body>
-
-
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-.ticks {
-  font: 10px sans-serif;
-}
-
-.track,
-.track-inset,
-.track-overlay {
-  stroke-linecap: round;
-}
-
-.track {
-  stroke: #000;
-  stroke-opacity: 0.3;
-  stroke-width: 10px;
-}
-
-.track-inset {
-  stroke: #ddd;
-  stroke-width: 8px;
-}
-
-.track-overlay {
-  pointer-events: stroke;
-  stroke-width: 50px;
-  cursor: crosshair;
-}
-
-.handle {
-  fill: #fff;
-  stroke: #000;
-  stroke-opacity: 0.5;
-  stroke-width: 1.25px;
-}
-
-#densityplotWrap {
-    top: 20%;
-    left: 5%;
-    bottom: 0%;
-}
-
-</style>
-
 <div id="slider">
 </div>
+
+    <div class = "density module" id = "densityplotWrap" >
+    </div>
+    
+
 
 <p>
   <label for="nHeight" 
@@ -123,6 +76,14 @@ if ($_SESSION['start'] + (7*60*60) < time()) {
   <input type="range" min="0" max="500" id="nHeight">
 </p>
 
+<div class="status">
+  <h3> Simulation Status: </h3>
+  <ul>
+    <h2 id="target"> On target! </li>
+    </ul>
+</div>
+
+</body>
 
 <script>
 
@@ -186,17 +147,95 @@ function draw(data){
       .attr("class","densityChart");
       
     // dimple.js chart code
-    
+  
     
     var now = String(minute);
     var later = String(minute+30);
+    var datum = dimple.filterData(data,"Minute",[now]);
+    var before = [];
+    var regular = [];
+    var total = [];
+    var counts = [];
+    var count = 0;
+    var belowCount = 0;
+    var aboveCount = 0;
+    
+    for (var val of datum){
+      before.push(
+        {"Mile": val.Mile, 
+        "Minute": val.Minute, 
+        "Runners": String(parseInt(val.Runners)*2 + 200),
+        "Bound": "Upper Bound"
+      });
+    };
+    
+    for (var val of datum){
+      regular.push(
+        {"Mile": val.Mile, 
+        "Minute": val.Minute, 
+        "Runners": val.Runners,
+        "Bound": "Lower Bound"
+      });
+    };
+    
+    for (var val of datum){
+      counts.push(
+        {"Mile": val.Mile, 
+        "Minute": val.Minute, 
+        "Runners": String(parseInt(val.Runners) + Math.random() * (2000 ) ),
+        "Bound": "5K Counts"
+      });
+    };
+    
+    for (var val of before){
+      total.push(val);
+      aboveCount += parseInt(val.Runners);
+    }
+    
+    for (var val of regular){
+      total.push(val);
+      belowCount += parseInt(val.Runners);
+    }
+  
+    for (var val of counts){
+      total.push(val);
+      count += parseInt(val.Runners);
+    }
+    
+    if (count > aboveCount + 200){
+      $("#target").html("5K counts above simulation bounds: Check simulation!");
+    }
+    else if (count < belowCount - 200){
+      $("#target").html("5K counts below simulation bounds: Check simulation!");
+    }
+    else {
+      $("#target").html("Simulation on target!");
+    }
+    
+    console.log(count, aboveCount, belowCount);
+ 
+ /*
+    var now = String(minute);
+    var later = String(minute+30);
     var datum = dimple.filterData(data,"Minute",[now,later])
-    var myChart = new dimple.chart(svg,datum);
+    
+    console.log(datum);
+    */
+    
+    console.log(total);
+    console.log(before);
+    console.log(datum);
+  
+        
+     var myChart = new dimple.chart(svg,total);
     var x = myChart.addCategoryAxis("x","Mile");
     x.addOrderRule("Mile");
     var y = myChart.addMeasureAxis("y","Runners");
-    var line = myChart.addSeries("Minute",dimple.plot.line);
+    var line = myChart.addSeries("Bound",dimple.plot.line);
+    var myLegend = myChart.addLegend(530, 100, 60, 300, "Right");
+
         myChart.draw();
+        
         
     svg.append("text")
       .attr("x",(width/2)+margin)

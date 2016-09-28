@@ -45,7 +45,7 @@ if(isset($_SESSION['login_user']))
 <h4>Login will last: 2 hours</h4>
 <h4>Not registered? Click <a style="color:blue;" href='newuser.php'>here</a> to make an account</h4>
 <input name="submit" type="submit" value=" Login ">
-<a href='getMobile.php'><div class='pagelink'>Mobile Version <span class='small'>(no login required)</span></div></a>
+<!--<a href='getMobile.php'><div class='pagelink'>Mobile Version <span class='small'>(no login required)</span></div></a>-->
 <br>
 <span style="font-weight:normal;"><?php echo $error; ?></span></form>
 </div>

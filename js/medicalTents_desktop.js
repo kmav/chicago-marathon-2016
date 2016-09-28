@@ -49,10 +49,10 @@ function drawMedicalTents(data){
 			//current, capacity overlayed (on top of each other)
 			//and use Comments or other stuff to figure out how full it is
 
-	var w = document.getElementById('medical').offsetWidth * 0.4;
-	var h = w*0.6;
+	var w = document.getElementById('medical').offsetWidth * 0.93;
+	var h = document.getElementById('medical').offsetHeight*0.70;
 	//padding
-	var p = 10;
+	var p = 5;
 
 
 	//get the x scale 
@@ -108,7 +108,7 @@ function drawMedicalTents(data){
 		.append("text")
 		.attr("class", "text_bar")
 		.text(function(d){
-			return d.Location.substr(0,3);
+			return d.Location;
 		})
 		.attr("y",function(d,i){
 			return yScale(i)-ySpacing;
@@ -117,7 +117,7 @@ function drawMedicalTents(data){
 			return d3.max([xScale(+d.Beds)+1.5*p,xScale(+d.CurrentPatients)+1.5*p]);
 		})
 		.attr("text-anchor","right")
-		.style("font-size", "1vw");
+		.style("font-size", "1.2vw");
 		
 	//add y axis
 	svg.append("g")
@@ -191,7 +191,7 @@ function drawMedicalTents(data){
 						.style("font-weight", "bold")
 						.text(function() {
 							return d.Location;
-						})
+						});
 						//show the tooltip
 					d3.select("#tooltip")
 						.classed("hidden", false);
@@ -218,7 +218,7 @@ function drawMedicalTents(data){
 								return (xScale(0));
 							})
 							.attr("width", function(d) {
-								return (xScale(+d.CurrentPatients) - xScale(0) - Popup);
+								return (xScale(+d.CurrentPatients) - xScale(0));
 							});
 					});		
 		
@@ -250,13 +250,14 @@ function drawMedicalTents(data){
 		});
 	
 	//Medical tents title
+	/*
 	svg.append("text")
 		.attr("id","AidStationTitle")
 		.attr("x",w/2)
 		.attr("y",p*1.5)
 		.text("Medical Tents (Occupancy)")
 		.attr("text-anchor", "middle");
-
+*/
 					
 	//add x axis
 	/*
@@ -275,12 +276,13 @@ function drawMedicalTents(data){
 		);
 	*/
 	
-	/*var legend = svg.append('g')
+	var legend = svg.append('g')
 				.attr("class", "legend")
 				.attr("height", 50)
 				.attr("width", 50)
 				.attr("transform", "translate(50,30)")
-				.call(d3.legend) */
+				.call(d3.legend);
+	legend.selectAll
 	/*
 	svg.append("g")
 		.attr("class","grid")

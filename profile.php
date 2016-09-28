@@ -25,7 +25,7 @@
             if ($_SESSION['firstTime']==true){
                 echo "<h2 style='font-weight: bold; color:#009933'> Welcome to your member portal. Your new account has been created.</h2><br>
                 
-                <h3 style='font-weight: bold'> Please remember that your account is personal and linked to your security level. If you feel like you do not have the correct security access, contact us at marathondvs@gmail.com </h3>";
+                <h3 style='font-weight: bold'> Please remember that your account is personal and linked to your security level. If you believe you do not have the correct security access, contact us at marathondvs@gmail.com </h3>";
             }
         }
     
@@ -33,21 +33,24 @@
     <h3>Click on your browser's back button or on the Chicago Marathon logo at the top left of the displays to come back to this page. Feel free to email comments, complaints, and questions to marathondvs@gmail.com </h3>
     
     <?php
-        if ($mobile){
+       /* if ($mobile){
             echo "<span style='font-weight:bold; color:black'> **You are on a mobile device, therefore you will not have access to the DVS but rather to the mobile-friendly display </span>";
-        }
+        } 
+        */
         //check for mobile version and put the appropriate links
         if ($level_session==2){
-            $mobile = true;
-        }
-        if ($mobile==true){
-            echo "<br><br><span style='font-weight:normal'> After selecting the display, please allow a few seconds for data to load </span>";
-            echo "<a href='getMobile.php'><div class='pagelink'>Mobile Version</div></a>";
+         //   $mobile = true;
+        //}
+        //if ($mobile==true){
+            
+            //echo "<br><br><span style='font-weight:normal'> After selecting the display, please allow a few seconds for data to load </span>";
+            echo "<a href='desktop.php'><div class='pagelink'>Data Visualization System</div></a>";
+
         }
         else {
-            echo "<a href='desktop.php'><div class='pagelink'>Main Display </div></a>";
+            echo "<a href='desktop.php'><div class='pagelink'>Main Display</div></a>";
             //echo "<a href='command.php'><div class='pagelink'>Forward Command Display </div></a>";
-            echo "<a href='medicalCheckIn.php'><div class='pagelink'>Medical Check-In </div></a>";
+            echo "<a href='medicalCheckIn.php'><div class='pagelink'>Medical Check-In</div></a>";
             //echo "<a href='getMobile.php'><div class='pagelink'>Mobile Version</div></a>";
 
         }

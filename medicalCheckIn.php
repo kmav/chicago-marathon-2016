@@ -1,59 +1,147 @@
 <?php 
 session_start(); // Starting Session
-include('session.php');
-if ($mobile==true)
-{
-    //header("location: getMobile.php");
-}
-if ($level_session>1){
-    header("location: index.php");
-}
 if(!isset($_SESSION['login_user'])){
     header("location: index.php");
 }
-//check if it's been active for 1 hour, otherwise close it
-if ($_SESSION['start'] + (7*60*60) < time()) {
-     header("location: php/logout.php");
-  }
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset=utf-8 />
-<title>Bank of America Chicago Marathon</title>
-<?php include('php/getTreatments.php'); ?>
+    <head>
+        <title>Medical CheckIn </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+        <script src="js/googleAnalytics.js"></script>
+     
 
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <script src="js/dimple.js"></script>
+        <link rel='stylesheet' type='text/css' href='css/styling.css'>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel='stylesheet' type='text/css' href='css/menu.css'>
+
+    </head>
+    <body onload="updatePage(); setInterval('updatePage()',1000)">
+            <?php include('php/header.php'); ?>
+
+        <form action='updateMedCheckIn.php' class="inputform" method="post" id="inputform">
+        <script type='text/javascript'>
+        
+        
+            <?php include('db/connect.php'); ?>
+            
+            <?php
+            
+            echo "var Stations = [";
+            
+            $sql = "SELECT * FROM MedCheckIn";
+            $result = $db->query($sql);
+            
+            if ($result->num_rows>0){
+                //output data of each row as a variable in php
+                while ($row = $result -> fetch_assoc()){
+                    echo "{ Type: '".$row['StationType']."' , 
+                            TimeUpdate: '".(string)$row['timeUpdate']."',
+                            Location: '".$row['Location']."',
+                            Display: '".$row['Display']."',
+                            ATC: '".$row['ATC']."',
+                            Attending: ".$row['Attending'].",
+                            Res_Fellow: ".$row['Res_Fellow'].",
+                            EMT: ".$row['EMT'].",
+                            Massage: ".$row['Massage'].",
+                            PA: ".$row['PA'].",
+                            RN_NP: ".$row['RN_NP'].",
+                            DPM: ".$row['DPM'].",
+                            Med_Records: ".$row['Med_Records'].",
+                            PT: ".$row['PT']." ,
+                            Stress: ".$row['Stress']."
+                            }, \n";
+                }
+            }
+            else {
+                echo "0 results";
+            }
+
+            $db->close();
+
+            echo "];"
+            ?>
+        </script>
+        <script type='text/javascript' src='js/medCheckInBoxes.js'></script>
+      
+
+
+
+
+
+<script type="text/javascript">
     
-<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+function updateClock()
+{
+	var currentTime = new Date();
 
-<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+	//make sure we're on the right timezone
+	var offset = currentTime.getTimezoneOffset();
+	// (offset);
+	var difference = offset ;
 
-<script src="js/leaflet.awesome-markers.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<script src="js/googleAnalytics.js"></script>
+	currentTime = new Date(currentTime.getTime());// - difference*60000);
+
+	//now get the actual time at Chicago
+	var currentHours = currentTime.getHours();
+	var currentMinutes = currentTime.getMinutes();
+	var currentSeconds = currentTime.getSeconds();
+
+	//pad the minutes and seconds with leading zeros if needed
+	currentMinutes = (currentMinutes < 10 ? "0" : "")+currentMinutes;
+	currentSeconds = (currentSeconds < 10 ? "0" : "")+currentSeconds;
+
+	//choose AM or PM
+	var timeOfDay = (currentHours < 12) ? "AM" : "PM";
+
+	//convert hours to 12 hour format
+	var currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+
+	//convert hours of 0 to 12
+	if (currentHours ==0){
+		currentHours = 12;
+	}
+
+	//get the string
+	var currentTimeString = currentHours + ":" + currentMinutes + " "+ timeOfDay;
+	//display the string
+	document.getElementById('clock').firstChild.nodeValue = currentTimeString;
 
 
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+	//now get the elapsed time since event started
 
-<link rel='stylesheet' href='css/desktop_marathon.css'>
-<!--href='desktop_marathon.css'-->
-<style>
+	var nowMs = currentTime.getTime();
 
+	var startTime = new Date();
+	startTime.setHours(7);
+	startTime.setMinutes(30);
+	startTime.setSeconds(0);
+	startTime.setMilliseconds(0);
 
-</style>
-</head>
-<body>
+	var startMs = startTime.getTime();
+    var timeMultiplier = 1;
+	//now calculate the millisecond difference from one to other
+	var elapsedMs = (nowMs - startMs)*timeMultiplier;
+	//3600 seconds in an hour
+	var elapsedHours = parseInt(elapsedMs / (3600*1000));
+	elapsedHours = (elapsedHours < 10? "0":"")+elapsedHours;
+	var elapsedMinutes = parseInt((elapsedMs % (3600*1000))/60000);
+	elapsedMinutes = (elapsedMinutes < 10 ? "0": "")+elapsedMinutes;
+	var elapsedSeconds = parseInt((elapsedMs % 60000)/1000);
+	elapsedSeconds = (elapsedSeconds < 10 ? "0":"")+elapsedSeconds;
 
-<h1> Medical Check In </h1>
+	var elapsedTimeString = elapsedHours + ":"+ elapsedMinutes+":"+elapsedSeconds;
+	document.getElementById('elapsedTime').firstChild.nodeValue = elapsedTimeString;
+	 (elapsedTimeString)
+}
 
+////////////////////////////MAIN UPDATE OF THE PAGE
+function updatePage(){
+	updateClock();
+}
+</script>
 
-</body>
+    </form>
+    </body>
 </html>

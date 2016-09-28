@@ -4,7 +4,14 @@ var PageRefresh = 0;
 var MapRefresh = 0;
 var AidStationIndex = -1;
 var AidStations = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-var timeMultiplier = 1;
+var timeMultiplier = 2;
+var yScaleBoth = 0;
+
+var SetHour = 23;
+var SetMinute = 25;
+var SetSecond = 3;
+
+
 function getMinute() {
     
   var currentTime = new Date();
@@ -14,9 +21,9 @@ function getMinute() {
 	
 	var multiplier = 2;
 	
-	startedTime.setHours(11);
-	startedTime.setMinutes(30);
-	startedTime.setSeconds(0);
+	startedTime.setHours(SetHour);
+	startedTime.setMinutes(SetMinute);
+	startedTime.setSeconds(SetSecond);
 	startedTime.setMilliseconds(0);
 
 	var startedMs = startedTime.getTime();
@@ -144,9 +151,9 @@ function updateClock()
 	var nowMs = currentTime.getTime();
 
 	var startTime = new Date();
-	startTime.setHours(0);
-	startTime.setMinutes(30);
-	startTime.setSeconds(0);
+	startTime.setHours(SetHour);
+	startTime.setMinutes(SetMinute);
+	startTime.setSeconds(SetSecond);
 	startTime.setMilliseconds(0);
 
 	var startMs = startTime.getTime();
@@ -166,7 +173,7 @@ function updateClock()
 	////(elapsedTimeString)
 }
 
-
+/*
 
 function redrawAS(data){
 
@@ -191,6 +198,7 @@ function redrawAS(data){
 	//padding
 	var AidStationDataset = [];
 	var AidStationDataset =  data.filter(filterAidStations);
+	console.log(AidStationDataset);
 	
 	if (AidStationDataset.length<3){
 		AidStationDataset = data.filter(easyFilter);
@@ -340,20 +348,67 @@ function redrawAS(data){
 
 }
 
+*/
+
+
+
+function updateDensity()
+{
+	
+	//use d3.csv to re-bind the full marathon data
+	d3.csv("data/RunnerData.csv",function(data){
+		
+		var minute = getMinute();
+  
+		minute = minute - minute%minuteInterval;
+		var margin = 15;
+		var margins = {top: 20, right: 30, bottom: 30, left: 40};
+		    
+		var height= $("#sidebarGraphs").height()-margin;
+		  
+		var y = d3.scale.linear()
+          	.range([height-margins.bottom,2*margin]);
+		
+		var RaceData = data.filter(filterByMinute);
+
+		  y.domain([0,d3.max(RaceData,function(d) {
+    		return (parseInt((+d.Runners)/1000)+1)*1000;
+    	})]);
+		
+		yScaleBoth = d3.max(RaceData,function(d) {return (parseInt((+d.Runners)/1000)+1)*1000;});
+		
+		// debugger;
+		d3.selectAll(".fullBars")
+			.data(RaceData)
+			.attr("y",function(d) {return y(+d.Runners); })
+			.attr("height",function(d) { 
+
+				return height - margins.bottom - y(+d.Runners); })
+	});
+	
+	
+	
+	
+	
+	
+	
+	// d3.csv("data/RunnerDataHalf.csv",drawHalf);
+	//then select with data and update tables
+	
+	//do this for both graphs
+	
+	
+	
+	return;
+}
 
 function redrawMT(data){
 	//(window.location.pathname);
-	if ((window.location.pathname=="/command.php")||(window.location.pathname=="/")){
-		var p=30;
-		var w = $("#medical").width() *0.9;
-		var h = w * 0.8;
-	}
-	else{
-		var p = 10;
-		var w = $("#aid_station").width() - 2*p;
-		var h = w*0.9;
-	}
 
+		var p=5;
+	var w = document.getElementById('medical').offsetWidth * 0.93;
+	var h = document.getElementById('medical').offsetHeight*0.70;
+	
 
 	 //$("#aid_station").height();- 3*p;
 	//("h"+h);
@@ -414,77 +469,89 @@ function redrawMT(data){
 		.transition()
 		.attr("width",function(d){
 			//(d.Location+":"+d.CurrentPatients-p+'setting width');
-			return xScale(+d.CurrentPatients)-p;
+			return xScale(+d.CurrentPatients)-xScale(0);
 		})
 		.attr("fill",function(d){
 			return colorBars(+d.CurrentPatients,+d.Beds,+d.Status);
 		});
 
-		redrawAS(data);
+		//redrawAS(data);
 	
 }
 
-// function displayInfo(data){
-//     //(data);
+function displayInfo(data){
+    //(data);
     
-// 	var run = data[0].runnersOnCourse;
-//     var runnersFinished = data[0].runnersFinished;
-//     var hospitalTransports = data[0].hospitalTransports;
-//     var patientsSeen = data[0].patientsSeen;
-//     var Status = data[0].AlertStatus;
-//     var emergencyCheck = data[0].emergencyCheck;
-//     var AlertLat = data[0].AlertLat; 
-//     var AlertLong = data[0].AlertLong; 
-//     var message = data[0].Alert;
+    console.log("displayInfo");
     
-//     //display runners finished
-//     d3.select("#RunnersOnCourse")
-//     .text("On Course: " + run);
+	var run = data[0].runnersOnCourse;
+    var runnersFinished = data[0].runnersFinished;
+    var hospitalTransports = data[0].hospitalTransports;
+    var patientsSeen = data[0].patientsSeen;
+    var Status = data[0].AlertStatus;
+    var emergencyCheck = data[0].emergencyCheck;
+    var AlertLat = data[0].AlertLat; 
+    var AlertLong = data[0].AlertLong; 
+    var message = data[0].Alert;
     
-//     d3.select("#RunnersFinished")
-//     .text("Finished: " + runnersFinished);
+    //display runners finished
+    d3.select("#RunnersOnCourse")
+    .text("On Course: " + 0);
     
-//     d3.select("#HospitalTransports")
-//     .text("Hospital Transports: " + hospitalTransports);
+    d3.select("#RunnersFinished")
+    .text("Finished: " + runnersFinished);
     
-//     d3.select("#PatientsSeen")
-//     .text("Treatments: " + patientsSeen);
+    d3.select("#HospitalTransports")
+    .text("Hospital Transports: " + hospitalTransports);
+    
+    d3.select("#PatientsSeen")
+    .text("Treatments: " + patientsSeen);
 
-//     d3.select("#alertbar")
-//         .attr("class",function(){
-//             switch (+emergencyCheck){
-//                 case 0:
-//                     return 'white';
-//                     //("alert bar white");
-//                     break;
-//                 case 1:
-//                     return 'red';
-//                     //("alert bar red");
-//                     break;
-//             }
-//         });
+    d3.select("#alertbar")
+        .attr("class",function(){
+            switch (+emergencyCheck){
+                case 0:
+                    return 'white';
+                    //("alert bar white");
+                    break;
+                case 1:
+                    return 'red';
+                    //("alert bar red");
+                    break;
+            }
+        });
         
     
         
-//     d3.select("#topBanner")
-//         .attr("class",function(){
-//             //(Status);
-//             switch (+Status){
-//                 case 0:
-//                     return 'green';
-//                     break;
-//                 case 1:
-//                     return 'yellow';
-//                     break;
-//                 case 2:
-//                     return 'red';
-//                     break;
-//                 case 3:
-//                     return 'black';
-//                     break;
-//             }
-//         });
+    d3.select("#header")
+        .attr("class",function(){
+            //(Status);
+            console.log(Status);
+            switch (+Status){
+                case 0:
+                    return 'green';
+                    break;
+                case 1:
+                    return 'orange';
+                    break;
+                case 2:
+                    return 'red';
+                    break;
+                case 3:
+                    return 'black';
+                    break;
+            }
+        });
         
+        
+        
+            d3.select("#Temp")
+    .text(temp + " °F");
+    
+    d3.select("#WindHumid")
+    .text(windspeed + " mph " + winddirec + ", RH: " + humidity + "%");
+        
+}
 //     d3.select("#MarathonName")
 //         .attr("class",function(){
 //             if ((+Status)==1){
@@ -506,21 +573,17 @@ function redrawMT(data){
 //         });
         
          
-//     var temp = data[0].temperature;
-//     var windspeed = data[0].windSpeed;
-//     var winddirec = data[0].windDirection;
-//     var humidity = data[0].humidity;
+    // var temp = data[0].temperature;
+    // var windspeed = data[0].windSpeed;
+    // var winddirec = data[0].windDirection;
+    // var humidity = data[0].humidity;
 
     
-//     //display runners finished
-//     // //(temp);
-//     // //(windspeed);
+    //display runners finished
+    // //(temp);
+    // //(windspeed);
     
-//     d3.select("#Temp")
-//     .text(temp + " °F");
-    
-//     d3.select("#WindHumid")
-//     .text(windspeed + " mph " + winddirec + ", RH: " + humidity + "%");
+
     
 //     // //(run);
 //     // //(runnersFinished);
@@ -574,12 +637,13 @@ function updateAidStations() {
 	
 }
 
-// function updateWeather() {
-// 	d3.csv("data/gen_info.csv", displayWeather)
-// }
+function updateWeather() {
+	d3.csv("data/gen_info.csv", displayWeather)
+}
 
 function updateGeneral(){
-	d3.csv("data/gen_info.csv",displayInfo);
+	console.log("udpateGEne");
+	d3.csv("../data/gen_info.csv",displayInfo);
 	// d3.csv("data/gen_info.csv",displayAlert);
 
 }
@@ -596,11 +660,19 @@ function updateTrackers(){
 	runnerTracking();
 }
 
+function filterByMinute(obj){
+  var minute = getMinute();
+  minute = minute - minute%minuteInterval;
+  // console.log(obj);
+  // console.log(+obj.Minute+" = "+minute);
+  return (+obj.Minute==minute);
+}
+
 ////////////////////////////MAIN UPDATE OF THE PAGE
 function updatePage(){
 	updateClock();
 	updateAidStationcount++;
-	PageRefresh++;
+	//PageRefresh++;
 	MapRefresh++;
 	
 	//REFRESH PAGE
@@ -615,11 +687,10 @@ function updatePage(){
 	//}
 	
 	if (updateAidStationcount==5){
+		console.log("hi");
 		updateAidStationcount=0;
 		updateAidStations();
-		updateAidStations();
-		//updateWeather();
-		updateGeneral();
+		updateWeather();
 		updateGeneral();
 	}
 	
@@ -636,7 +707,7 @@ function updatePage(){
 	
 	if (MapRefresh==30){
 		updateMap();
-		PageRefresh=0;
+		MapRefresh=0;
 	}
 
 }

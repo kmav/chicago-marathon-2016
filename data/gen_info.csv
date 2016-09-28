@@ -1,2 +1,2 @@
 AlertStatus,temperature,windSpeed,windDirection,humidity,runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,LeadMaleRunnerLat,LeadMaleRunnerLong,LeadFemaleRunnerLat,LeadFemaleRunnerLong,LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,FinalWheelchairLat,FinalWheelchairLong,TurtleLat,TurtleLong,Alert,emergencyCheck,AlertLat,AlertLong
-1,75,10,"E",35,20000,4392,5,1,41.878,-87.63,41.8787,-87.6766,41.8529,-87.6238,41.831,-87.6266,41.8575,-87.6466,41.8917,-87.6281,"",0,41.913,-87.6432
+0,65,10,"E",35,15000,31,11,5,41.878,-87.63,41.8787,-87.6766,41.8529,-87.6238,41.831,-87.6266,41.8575,-87.6466,41.8917,-87.6281,"Good morning, and welcome to our marathon simulation!",0,41.913,-87.6432

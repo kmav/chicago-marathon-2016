@@ -5,7 +5,7 @@ function displayWeather(data) {
   var windSpeed = data[0].windSpeed;
   var humid = data[0].humidity;
   var status = data[0].AlertStatus;
- ("HI I'm the weather!!!!!");
+
   $(document).ready(function() {
     $.simpleWeather({
       location: 'Chicago, IL',
@@ -59,4 +59,5 @@ function displayWeather(data) {
   });
 
 }
-d3.csv("data/gen_info.csv", displayWeather)
+
+d3.csv("data/gen_info.csv", displayWeather);

@@ -105,6 +105,8 @@ if ($_SESSION['start'] + (7*60*60) < time()) {
         <!-- nothing goes here, just space that goes between each of the graphs -->
     </div>
     <div id='weather' class='weather'>
+        <p> dfasd </p>
+        <h1> Weather </h1>
         <script src='js/weather.js' type='text/javascript'></script>
     </div>
     <!--<div id='survey' class='weather'>-->

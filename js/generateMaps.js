@@ -448,9 +448,9 @@ function runnerTracking(){
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnBleW5ldHRpIiwiYSI6IjNjMjQ0NTM4MTE0MmM0ODkwYTA0Mjg0NGYyZGM4MzM5In0.K96jFRdiKaEPadA1IxKoQw';
 
 //if index or normal: 
-if ((window.location.pathname=="/command.php")||(window.location.pathname=="/")){
+if (window.innerWidth < window.innerHeight){
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
-      .setView([41.8955, -87.648], 14);
+      .setView([41.8955, -87.648], 13);
   var size = "large";
 }
 else {
