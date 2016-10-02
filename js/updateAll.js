@@ -7,8 +7,8 @@ var AidStations = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 var timeMultiplier = 2;
 var yScaleBoth = 0;
 
-var SetHour = 23;
-var SetMinute = 25;
+var SetHour = 0;
+var SetMinute = 0;
 var SetSecond = 3;
 
 
@@ -150,11 +150,19 @@ function updateClock()
 
 	var nowMs = currentTime.getTime();
 
+	var minDiff = (currentHours-SetHour)*60+(currentMinutes-SetMinute);
+
+	if ( minDiff > 500 || minDiff < 0 ){
+		SetHour = currentHours;
+		SetMinute = currentMinutes;
+	}
+	
 	var startTime = new Date();
 	startTime.setHours(SetHour);
 	startTime.setMinutes(SetMinute);
 	startTime.setSeconds(SetSecond);
 	startTime.setMilliseconds(0);
+	
 
 	var startMs = startTime.getTime();
 
@@ -370,6 +378,8 @@ function updateDensity()
           	.range([height-margins.bottom,2*margin]);
 		
 		var RaceData = data.filter(filterByMinute);
+		
+		console.log(RaceData);
 
 		  y.domain([0,d3.max(RaceData,function(d) {
     		return (parseInt((+d.Runners)/1000)+1)*1000;
@@ -532,7 +542,7 @@ function displayInfo(data){
                     return 'green';
                     break;
                 case 1:
-                    return 'orange';
+                    return 'yellow';
                     break;
                 case 2:
                     return 'red';
@@ -552,25 +562,27 @@ function displayInfo(data){
     .text(windspeed + " mph " + winddirec + ", RH: " + humidity + "%");
         
 }
-//     d3.select("#MarathonName")
-//         .attr("class",function(){
-//             if ((+Status)==1){
-//                 return 'black';
-//             }
-//             else{
-//                 return 'white';
-//             }
-//         });
+	console.log(+Status);
+    d3.select("#MarathonName")
+        .attr("class",function(){
+            if ((+Status)==1){
+            	console.log("black logo");
+                return 'black';
+            }
+            else{
+                return 'white';
+            }
+        });
     
-//     d3.select("#NUlogo")
-//         .attr("class",function(){
-//             if ((+Status)==1){
-//                 return 'purple';
-//             }
-//             else{
-//                 return 'white';
-//             }
-//         });
+    d3.select("#NUlogo")
+        .attr("class",function(){
+            if ((+Status)==1){
+                return 'purple';
+            }
+            else{
+                return 'white';
+            }
+        });
         
          
     // var temp = data[0].temperature;
@@ -631,7 +643,7 @@ function displayInfo(data){
 // }
 // var alertMarker;
 function updateAidStations() {
-	//("updating aid station");
+	//console.log("updating aid station");
 	d3.csv("data/AidStations.csv",redrawMT);
 	//d3.csv("data/AidStations.csv",redrawAS);
 	
@@ -642,8 +654,8 @@ function updateWeather() {
 }
 
 function updateGeneral(){
-	console.log("udpateGEne");
-	d3.csv("../data/gen_info.csv",displayInfo);
+	console.log("updateGen");
+	d3.csv("data/gen_info.csv",displayInfo);
 	// d3.csv("data/gen_info.csv",displayAlert);
 
 }
@@ -670,6 +682,8 @@ function filterByMinute(obj){
 
 ////////////////////////////MAIN UPDATE OF THE PAGE
 function updatePage(){
+	
+	
 	updateClock();
 	updateAidStationcount++;
 	//PageRefresh++;

@@ -37,6 +37,7 @@ if(!isset($_SESSION['login_user'])){
             border-radius: 10px;
             float: left;
             margin: 10px;
+            margin-bottom: 30px;
         }
         
         .trackingBox {
@@ -88,6 +89,7 @@ if(!isset($_SESSION['login_user'])){
             width: 300px;
             height: 60px;
             font-size: 1.5em;
+            float: left;
         }
         
         
@@ -130,8 +132,8 @@ if(!isset($_SESSION['login_user'])){
         </script>
         
         <div class="genInfoBox">
-        <div class="Titles">Temperature</div>
-        <input type="number" name="temperature" value=0> &deg F
+        <div class="Titles">Temperature (&degF)</div>
+        <input type="number" name="temperature" value=0> 
         </div>
         
         <div class="genInfoBox">
@@ -166,28 +168,28 @@ if(!isset($_SESSION['login_user'])){
             
         <div class="genInfoBox">
         <div class="Titles"># Runners On Course</div>
-        <input type="number" name="runnersOC" value=0>
+        <input type="number" name="runnersOC" id="onCourse" value=0>
         </div>
         
 
         
         <div class="genInfoBox">
         <div class="Titles"># Finished Runners</div>
-        <input type="number" name="finished" value=0>
+        <input type="number" name="finished" id="finished" value=0>
         </div>
         
 
         
         <div class="genInfoBox">
         <div class="Titles"># Hospital Transports</div>
-        <input type="number" name="transports" value=0>
+        <input type="number" name="transports" id="transports" value=0>
         </div>
         
 
-        
+        <!--
         <div class="genInfoBox">
         <div class="Titles"># Patients Seen</div>
-        <input type="number" name="pSeen" value=0>
+        <input type="number" name="pSeen" id="patientsSeen" value=0>
         </div>
         
     
@@ -253,7 +255,7 @@ if(!isset($_SESSION['login_user'])){
         <input type="text" name="longT" value=0>
         </div>
         
-        </div>
+        </div>-->
         
         
         <div class="wrapper">
@@ -283,6 +285,13 @@ if(!isset($_SESSION['login_user'])){
          var check = +data[0].emergencyCheck; 
          var AlertLat = data[0].AlertLat; 
          var AlertLong = data[0].AlertLong;
+         
+         var OnCourse = data[0].runnersOnCourse;
+         var finished = data[0].runnersFinished;
+         var transports = data[0].hospitalTransports;
+         var patients = data[0].patientsSeen;
+         
+         
         var message=data[0].Alert;
          (message+"alert");
         document.getElementById('alert_saved').value=message;
@@ -298,6 +307,10 @@ if(!isset($_SESSION['login_user'])){
         //now put lat/long values in the fields
         document.getElementById("latAl").value = AlertLat;
         document.getElementById("lonAl").value = AlertLong;
+        document.getElementById("onCourse").value = OnCourse;
+        document.getElementById("finished").value = finished;
+        document.getElementById("transports").value = transports;
+        document.getElementById("patientsSeen").value = patients;
         
 
         

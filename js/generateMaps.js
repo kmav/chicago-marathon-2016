@@ -108,6 +108,7 @@ function plotAS(update){
             RaceKM: +d.RaceKM,
             Status: d.Status,
             CurrentPatients: +d.CurrentPatients,
+            CumulativePatients: +d.CumulativePatients,
             Beds: +d.Beds
         };
     },
@@ -160,7 +161,7 @@ function plotAS(update){
                         ]
                     },
                     properties: {
-                        'title': 'Aid Station ' + rows[i].Location +'<br>Current Patients: ' + rows[i].CurrentPatients,
+                        'title': 'Aid Station ' + rows[i].Location +'<br>New Patients: ' + rows[i].CurrentPatients +'<br>Cumulative Patients: ' + rows[i].CumulativePatients,
                         'marker-size': size,
                         'marker-color': '#009933',
                         'marker-symbol': rows[i].Location
@@ -185,9 +186,9 @@ function plotAS(update){
                         ]
                     },
                     properties: {
-                        'title': 'Aid Station ' + rows[i].Location +'<br>Current Patients: ' + rows[i].CurrentPatients,
+                        'title': 'Aid Station ' + rows[i].Location +'<br>New Patients: ' + rows[i].CurrentPatients +'<br>Cumulative Patients: ' + rows[i].CumulativePatients,
                         'marker-size': size,
-                        'marker-color': '#FFDC00',
+                        'marker-color': '#009933',
                         'marker-symbol': rows[i].Location
                     }
                 });
@@ -214,9 +215,9 @@ function plotAS(update){
                         ]
                     },
                     properties: {
-                        'title': 'Aid Station ' + rows[i].Location +'<br>Current Patients: ' + rows[i].CurrentPatients,
-                        'marker-size': 'large',
-                        'marker-color': '#ff0000',
+                        'title': 'Aid Station ' + rows[i].Location +'<br>New Patients: ' + rows[i].CurrentPatients +'<br>Cumulative Patients: ' + rows[i].CumulativePatients,
+                        'marker-size': size,
+                        'marker-color': '#009933',
                         'marker-symbol': rows[i].Location
                     }
                 });

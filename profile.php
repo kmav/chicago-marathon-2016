@@ -45,21 +45,24 @@
             
             //echo "<br><br><span style='font-weight:normal'> After selecting the display, please allow a few seconds for data to load </span>";
             echo "<a href='desktop.php'><div class='pagelink'>Data Visualization System</div></a>";
+            echo "<a href='instructions.php'><div class='pagelink'>Instruction Page</div></a>";
 
         }
         else {
             echo "<a href='desktop.php'><div class='pagelink'>Main Display</div></a>";
             //echo "<a href='command.php'><div class='pagelink'>Forward Command Display </div></a>";
-            echo "<a href='medicalCheckIn.php'><div class='pagelink'>Medical Check-In</div></a>";
             //echo "<a href='getMobile.php'><div class='pagelink'>Mobile Version</div></a>";
 
         }
         
         //check for authorization to input_medical and input_geninfo.php
         if ($level_session<=0){
+            echo "<a href='medicalCheckIn.php'><div class='pagelink'>Medical Check-In</div></a>";
             echo "<a href='input_medical.php'><div class='pagelink'>Medical Input</div></a>";
             echo " <a href='input_geninfo.php'><div class='pagelink'>General Input</div></a>";
+            echo "<a href='inputStress.php'><div class='pagelink'>Stress Level Input</div></a>";
             echo "<a href='adminDashboard.php'><div class='pagelink'>Admin Dashboard</div></a>";
+            echo "<a href='instructions.php'><div class='pagelink'>Instruction Page</div></a>";
         }
         else {
            // echo "<span>If you believe you are authorized to access other pages, please contact bpeynetti@u.northwestern.edu </span>";

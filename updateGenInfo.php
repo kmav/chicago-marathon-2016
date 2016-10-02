@@ -41,7 +41,7 @@
                     $alertStatus = (int)$_POST['AlertStatus']; 
                 }
                 
-                if (((int)$_POST['runnersOC'])==0){
+                if (((int)$_POST['runnersOC'])==$row['RunnersOnCourse']){
                         $runnersOc = $row['RunnersOnCourse'];
                     }
                     else{
@@ -49,14 +49,14 @@
                 }
                 
                 
-                if (((int)$_POST['finished'])==0){
+                if (((int)$_POST['finished'])==$row['FinishedRunners']){
                         $finished = $row['FinishedRunners'];
                     }
                     else{
                         $finished = (int)$_POST['finished']; 
                 }
                 
-                 if (((int)$_POST['transports'])==0)
+                 if (((int)$_POST['transports'])==$row['HospitalTransports'])
                  {
                         $transports = $row['HospitalTransports'];
                     }
@@ -65,7 +65,7 @@
                 }
                 
                 
-                if (((int)$_POST['pSeen'])==0){
+                if (((int)$_POST['pSeen'])==$row['PatientsSeen']){
                         $pSeen = $row['PatientsSeen'];
                     }
                     else{
@@ -175,7 +175,7 @@
                echo "<br>";
                 echo $_POST['temperature'];
                 echo "<br>";
-                 if (($_POST['temperature'])=="0"){
+                 if (($_POST['temperature'])==$row['temperature']){
                     $temperature = $row['temperature'];
                 }
                 else{
@@ -184,7 +184,7 @@
                 
                 
                 //echo $_POST['alert'];
-                 if (($_POST['windSpeed'])=="0"){
+                 if (($_POST['windSpeed'])==$row['windSpeed']){
                     $windSpeed = $row['windSpeed'];
                 }
                 else{
@@ -193,7 +193,7 @@
                 
                 
                 //echo $_POST['alert'];
-                 if (($_POST['windDirection'])=="0"){
+                 if (($_POST['windDirection'])==$row['windDirection']){
                     $windDirection = $row['windDirection'];
                 }
                 else{
@@ -202,7 +202,7 @@
                 
                 
                 //echo $_POST['alert'];
-                 if (($_POST['humidity'])=="0"){
+                 if (($_POST['humidity'])==$row['humidity']){
                     $humidity = $row['humidity'];
                 }
                 else{

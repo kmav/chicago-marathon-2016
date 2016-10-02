@@ -176,8 +176,8 @@ function drawMedicalTents(data){
 				})
 				.attr("height",yScale.rangeBand())
 				.on("mouseover",function(d){
-					var xOffset = document.getElementById("medical").offsetWidth/2;
-					var xPosition = xOffset + parseFloat(d3.select(this).attr("x"));
+					var xOffset = document.getElementById("medical").offsetWidth*1.55;
+					var xPosition = xOffset + parseFloat(d3.select(this).attr("x")) ;
 					var yPosition = parseFloat(d3.select(this).attr("y"))+40; //+ h/2;
 					d3.select("#tooltip")
 						.style("left", xPosition + "px")

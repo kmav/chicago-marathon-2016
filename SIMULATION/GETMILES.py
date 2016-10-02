@@ -29,8 +29,9 @@ altTxt = "Mile,Minute,Runners\n"
 altTxtH = "Mile,Minute,Runners\n"
 
 for minute in range(0,501,minuteInterval):
-	sql = "SELECT * FROM MarathonRunners where dropout=0 and minute="+str(minute)
+	sql = "SELECT * FROM MarathonRunners where minute="+str(minute)
 	print sql
+	
 	cur.execute(sql)
 	rows = cur.fetchall()
 	print "fetching from database ...   ",

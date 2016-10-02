@@ -1,9 +1,0 @@
-5 - 12 - grand & la salle
-10 - 36 - cannon drive
-15 - 54 - fullerton	41.92583136	-87.640665
-20 - 67 - After river : 41.88701762	-87.63551613
-25 - 75 - Jackson/Ashland : 41.87751221	-87.67065008
-30 - 81 - Ashland/south of roosevelt, Hastings : 41.8635316	-87.66619772
-35 -  94- Wentworth & 55 : 41.8468969	-87.63217954
-40 - 107 - Cermak & McCormick Place (using @55&Michigan) : 41.84736751	-87.62369912
-end - last - end: 41.867617	-87.62057661

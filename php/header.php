@@ -14,7 +14,6 @@ if ($mobile==true){
 else {
     echo "
             <li  class='actives'><a class='link' href='desktop.php'>Desktop</a></li>
-            <li class='actives'><a class='link' href='command.php'>Fwd Command</a></li>
     ";
 }
 
@@ -23,6 +22,9 @@ if ($level_session==0){
             <li class='actives'><a class='link' href='input_medical.php'>Medical Input</a></li>
             <li class='actives'><a class='link' href='input_geninfo.php'>General Input</a></li>
             <li class='actives'><a class='link' href='medicalCheckIn.php'>Medical Check-In Input</a></li>
+            <li class='actives'><a class='link' href='inputStress.php'>Stress Level Input</a></li>
+            <li class='actives'><a class='link' href='instructions.php'>Instruction Page</a></li>
+
 
     ";
 }

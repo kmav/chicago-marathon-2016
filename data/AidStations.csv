@@ -1,5 +1,5 @@
 Type,Location,Comments,CurrentPatients,CumulativePatients,Beds,Latitude,Longitude,Km,Status,Display
-AS,1,Closed,5,0,3,41.88392463,-87.62736229,2.6,0,0
+AS,1,Closed,10,0,3,41.88392463,-87.62736229,2.6,0,0
 AS,2,Closed,1,0,3,41.8932313,-87.6317235,5.2,0,1
 AS,3,Closed,1,0,3,41.91638896,-87.63345826,8.1,0,0
 AS,4,Closed,1,0,3,41.92549468,-87.6328202,9.3,0,0

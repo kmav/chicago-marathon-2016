@@ -116,7 +116,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
             <script src='js/GeneralInfo.js' type='text/javascript'></script>
 
 
-
+			
 
 
 
@@ -156,11 +156,14 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 					    </div>
 					</div>
 				
-				
-
-
+			
 				</div>
 
+			</div>
+			
+			<div id="tooltip" class="hidden">
+    			<p><span id="tooltipHeader">Aid Station</span></p>
+    			<p><span id="value">100</span></p>
 			</div>
 
 		</div>

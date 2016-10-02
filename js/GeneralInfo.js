@@ -49,6 +49,7 @@ function displayInfo(data){
                     return 'green';
                     break;
                 case 1:
+                    console.log("yellow alert")
                     return 'yellow';
                     break;
                 case 2:
@@ -60,6 +61,25 @@ function displayInfo(data){
             }
         });
         
+        d3.select("#MarathonName")
+        .attr("class",function(){
+            if ((+Status)==1){
+                return 'black';
+            }
+            else{
+                return 'white';
+            }
+        });
+    
+    d3.select("#NUlogo")
+        .attr("class",function(){
+            if ((+Status)==1){
+                return 'purple';
+            }
+            else{
+                return 'white';
+            }
+        });
         
     d3.select("#alertText")
         .text(message);
