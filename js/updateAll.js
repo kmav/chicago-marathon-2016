@@ -4,10 +4,10 @@ var PageRefresh = 0;
 var MapRefresh = 0;
 var AidStationIndex = -1;
 var AidStations = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-var timeMultiplier = 2;
+var timeMultiplier = 1;
 var yScaleBoth = 0;
 
-var SetHour = 0;
+var SetHour = 1;
 var SetMinute = 0;
 var SetSecond = 3;
 
@@ -49,7 +49,7 @@ function filterAidStations(obj){
 };
 
 function filterMedicalTents2(obj){
-	return ((obj.Type=="MT")&&obj.Location!="Ambulance");
+	return ((obj.Type=="MT")&&obj.Location!="Ambulance"&&obj.Location!="Indiana");
 };
 
 var key = function(d){
@@ -152,10 +152,12 @@ function updateClock()
 
 	var minDiff = (currentHours-SetHour)*60+(currentMinutes-SetMinute);
 
-	if ( minDiff > 500 || minDiff < 0 ){
-		SetHour = currentHours;
-		SetMinute = currentMinutes;
-	}
+	// if ( minDiff > 500 || minDiff < 0 ){
+	// 	SetHour = currentHours;
+	// 	SetMinute = currentMinutes;
+	// }
+	
+	// console.log(SetHour);
 	
 	var startTime = new Date();
 	startTime.setHours(SetHour);

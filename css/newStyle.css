@@ -211,7 +211,7 @@
   }
   
   .red {
-  	background-color: red;
+  	background-color: rgb(150, 10, 10);
   }
   
   .black{
@@ -280,13 +280,13 @@ h1 {
     width: 120px;
     height: auto;
     padding: 10px;
-    background-color: #c6c6ec;
+    background-color: white;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
     pointer-events: none;
   }
   
@@ -447,7 +447,7 @@ h3{
 
 #info {
   width: 100%;
-  height: 25%;
+  height: 40%;
   position: absolute;
   top: 10;
   right: 20;
@@ -459,15 +459,41 @@ h3{
 #info p{
 	font-family: Lato, Helvetica, sans-serif;
 	color:white;
-	font-size: 1.6em;
+	font-size: 1.5em;
 	text-align: right;
 	margin-bottom: 1%;
 }
 
+#runners_box{
+	width: 43%;
+  position: absolute;
+  bottom: 10;
+  right: -10;
+  border: 1px solid white;
+	padding: 1%;
+}
+
+#runners_box p{
+	font-family: Lato, Helvetica, sans-serif;
+	color:white;
+	font-size: 1.5em;
+	text-align: right;
+	margin-bottom: 1%;
+	margin-right: 3%;
+}
+
+#RunnersOnCourse{
+	margin-left:3%;
+	border-top: 1px solid white;
+}
 #chart{
 	width: 100%;
-	height: 100%;
-	padding: 2%;
+	height: 90%;
+}
+
+#chart2{
+	width: 100%;
+	height: 30%;
 }
 
 #map_legend {

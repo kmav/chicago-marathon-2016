@@ -22,14 +22,14 @@ function filterHour(data){
 
 
 function drawMedCheckIn(data){
-var margin = { top: 50, right: 0, bottom: 0, left:100 },
-          width = document.getElementById('chart').offsetWidth - margin.left - margin.right,
-          height = document.getElementById('chart').offsetHeight - margin.top - margin.bottom,
-          gridSize = Math.floor(height / 16 ),
+var margin = { top: 25, right: 0, bottom: 0, left:100 },
+          width = document.getElementById('chart2').offsetWidth - margin.left - margin.right,
+          height = document.getElementById('chart2').offsetHeight,
+          gridSize = Math.floor(height / 5 ),
           legendElementWidth = gridSize*2,
           buckets = 2,
           colors = ['#990000', '#ffff00','#009933' ], // alternatively colorbrewer.YlGnBu[9]
-          professional= ['ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records', 'Stress'],
+          professional= ['Stress'],
           aidStation = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
           //datasets = ["../data/MedCheckInTest.csv"];
           data = data.filter(filterAS_CheckIn);
@@ -39,9 +39,9 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
 
           //datasets = data.filterAS_CheckIn("../data/MedCheckInTest.csv");
           //aidStation = data.filter(getLocation)
-      var profesh = ['ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records', 'Stress'];
+      var profesh = ['Stress'];
 
-      var svg = d3.select("#chart").append("svg")
+      var svg = d3.select("#chart2").append("svg")
           .attr("width", width + margin.right + margin.left)
           .attr("height", height)
           .append("g")
@@ -57,7 +57,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
           cards.append("title");
 
           cards.enter().append("rect")
-              .attr("x", function(d, i) { return Math.floor(i/11) * gridSize1; })
+              .attr("x", function(d, i) { return i * gridSize1; })
               .attr("y", function(d) { return (d.day - 1) * gridSize; })
               .attr("rx", 4)
               .attr("ry", 4)
@@ -73,6 +73,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
           
           cards.exit().remove();
 
+
           var legend = svg.selectAll(".legend")
               .data([0].concat(colorScale.quantiles()), function(d) { return d; });
 
@@ -86,13 +87,9 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
             .attr("height", gridSize / 2)
             .style("fill", function(d, i) { return colors[i]; });
 
-/*
-          legend.append("text")
-            .attr("class", "mono")
-            .text(function(d) { return "< " + 66 + "%"; })
-            .attr("x", function(d, i) { return legendElementWidth * i + 30; })
-            .attr("y", height + gridSize - 40);
-            */
+
+
+
             svg.append("text")
             .attr("class", "mono")
             .text(function() { return "Percentage Checked In"; })
@@ -121,7 +118,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
           
 
           legend.exit().remove();
-          
+
           
           var dayLabels = svg.selectAll(".dayLabel")
           .data(professional)
@@ -135,20 +132,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
 
 
         
-        var timeLabels = svg.selectAll(".timeLabel")
-          .data(hours)
-          .enter().append("text")
-            .text(function(d) {
-              return (d); 
-            })
-            .attr("x", function(d, i) { return i * gridSize1 - 5; })
-            .attr("y", -25)
-            .style("text-anchor", "middle")
-            .style("font-size" , "9")
-            .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-            .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
-
     
 };
 
-d3.csv('data/MedCheckInTest.csv',drawMedCheckIn);
+d3.csv('data/stress.csv',drawMedCheckIn);

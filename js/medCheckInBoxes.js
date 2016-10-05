@@ -70,7 +70,7 @@ var Titles = AidBoxes.append("div")
         }
     });
     
-var names = ['ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records', 'Stress'];
+var names = ['ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records'];
 
 for (var i =0; i< names.length; i++){
     

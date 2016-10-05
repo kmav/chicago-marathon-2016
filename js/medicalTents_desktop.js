@@ -1,5 +1,5 @@
 function filterMedicalTents(obj){
-	return ((obj.Type=="MT")&&obj.Location!="Ambulance");
+	return ((obj.Type=="MT")&&obj.Location!="Ambulance"&&obj.Location!="Indiana");
 };
 
 function colorBars(current,beds){
@@ -178,7 +178,7 @@ function drawMedicalTents(data){
 				.on("mouseover",function(d){
 					var xOffset = document.getElementById("medical").offsetWidth*1.55;
 					var xPosition = xOffset + parseFloat(d3.select(this).attr("x")) ;
-					var yPosition = parseFloat(d3.select(this).attr("y"))+40; //+ h/2;
+					var yPosition = parseFloat(d3.select(this).attr("y"))+50; //+ h/2;
 					d3.select("#tooltip")
 						.style("left", xPosition + "px")
 						.style("top", yPosition + "px")

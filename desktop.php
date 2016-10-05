@@ -53,7 +53,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 	</head>
 
 
-	<body onload="updatePage(); setInterval('updatePage()',1000)">
+	<body onload="mediaQueries(); updatePage(); setInterval('updatePage()',1000)">
 
 		<div id="header">
 		 
@@ -96,12 +96,20 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 			<div id="map">
 				
 				<div id="info">
-			        <p id='RunnersOnCourse'>&nbsp</p>
-			        <p id='RunnersFinished'>&nbsp</p>
+			        <!--<p id='RunnersOnCourse'>&nbsp</p>
+			        <p id='RunnersFinished'>&nbsp</p>-->
 			        <p id='HospitalTransports'>&nbsp</p>
 			        <p id='PatientsSeen'>&nbsp</p>
+				
+					<div id="runners_box">
+						<p>Started: [ ]</p>
+						<p>&#8722 Drops: [ ]</p>
+						<p>&#8722 In Medical: [ ]</p>
+			        	<p id='RunnersFinished'>&nbsp</p>
+			        	<p id='RunnersOnCourse'>&nbsp</p>
+					</div>
 				</div>
-
+				
 				<div id="map_legend">
 					<p> Runners: </p>
 			        <p>0-2000 <span class="boxes green"></span></p>
@@ -144,7 +152,6 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 						<h4> Medical Check In </h4>
 							<div id="chart"></div>
 						<script src = "js/cells.js" type = "text/javascript"></script>
-
 					</div>
 
 					<div class="module" id="mod4">
@@ -175,6 +182,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 
 	function mediaQueries() {
 
+		//First is FC, Second is Desktop
 		if (window.innerWidth < window.innerHeight){
 			document.getElementById('map').style.width = '48%';
 			document.getElementById('sidebar').style.width = '52%';
@@ -185,7 +193,20 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 			document.getElementById('MarathonName').style.width= '497px';
 			document.getElementById('MarathonName').style.backgroundSize =  '80%';
 			document.getElementById('NUlogo').style.display = 'none';
+			document.getElementById('raceTime').style.fontSize = '150%';
+			document.getElementById('clockTime').style.fontSize = '150%';
+			document.getElementById('alertText').style.fontSize = '200%';
+			document.getElementById('info').style.fontSize = '150%';
+			setTimeout(function(){
+							var text = document.getElementsByTagName("text");
+			for (var i=0; i<text.length; i++){
+				text[i].style.fontSize = '3vw';
+			}
+				
+				
+			}, 500);
 
+			console.log('bleh');
 		}
 		else{
 			document.getElementById('map').style.width = '33%';
@@ -197,13 +218,25 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 			document.getElementById('MarathonName').style.width= '20%';
 			document.getElementById('MarathonName').style.backgroundSize = '100%';
 			document.getElementById('NUlogo').style.display = 'inline-block';
+			document.getElementById('raceTime').style.fontSize = '100%';
+			document.getElementById('clockTime').style.fontSize = '100%';
+			document.getElementById('alertText').style.fontSize = '100%';
+			document.getElementById('info').style.fontSize = '100%';
+			setTimeout(function(){
+							var text = document.getElementsByTagName("text");
+			for (var i=0; i<text.length; i++){
+				text[i].style.fontSize = '1vw';
+			}
+				
+				
+			}, 500);
+
 		}
 	}
 
 	mediaQueries();
 
 	window.addEventListener("resize", mediaQueries);
-
 
 
 	</script>

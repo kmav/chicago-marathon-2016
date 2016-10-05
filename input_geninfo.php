@@ -133,12 +133,12 @@ if(!isset($_SESSION['login_user'])){
         
         <div class="genInfoBox">
         <div class="Titles">Temperature (&degF)</div>
-        <input type="number" name="temperature" value=0> 
+        <input type="number" name="temperature" id="temperature" value=0> 
         </div>
         
         <div class="genInfoBox">
         <div class="Titles">Wind Speed</div>
-        <input type="number" name="windSpeed" value=0> mph
+        <input type="number" name="windSpeed" id="windSpeed" value=0> mph
         </div>
         
         <div class="genInfoBox">
@@ -159,7 +159,7 @@ if(!isset($_SESSION['login_user'])){
         
         <div class="genInfoBox">
         <div class="Titles">Humidity</div>
-        <input type="number" name="humidity" value=0>
+        <input type="number" name="humidity" id="humidity" value=0>
         </div>
         
         </div>
@@ -291,9 +291,13 @@ if(!isset($_SESSION['login_user'])){
          var transports = data[0].hospitalTransports;
          var patients = data[0].patientsSeen;
          
+         var temperature = data[0].temperature;
+         var windSpeed = data[0].windSpeed;
+         var humidity = data[0].humidity;
+         
          
         var message=data[0].Alert;
-         (message+"alert");
+
         document.getElementById('alert_saved').value=message;
         //get the true/false of the check for the emergency
         if (check==1){
@@ -304,16 +308,17 @@ if(!isset($_SESSION['login_user'])){
             $("#emerg").prop('checked',false); 
         }
         
+        document.getElementById("temperature").value = temperature;
+        document.getElementById("windSpeed").value = windSpeed;
+        document.getElementById("humidity").value = humidity;
         //now put lat/long values in the fields
         document.getElementById("latAl").value = AlertLat;
         document.getElementById("lonAl").value = AlertLong;
         document.getElementById("onCourse").value = OnCourse;
         document.getElementById("finished").value = finished;
-        document.getElementById("transports").value = transports;
-        document.getElementById("patientsSeen").value = patients;
-        
 
-        
+        document.getElementById("transports").value = transports;
+
     }
     d3.csv('data/gen_info.csv',getAlerts);    
     </script>

@@ -1,5 +1,7 @@
 var minuteInterval = 2;
 
+
+
 function plotSegment(segmentNumber, PolylineStyling, runners) {
     var polyline = d3.csv('data/milemarkers/milemarkers/mile' + (segmentNumber + 1) + '.csv', function(error, data) {
         var i = 0
@@ -23,13 +25,25 @@ function plotSegment(segmentNumber, PolylineStyling, runners) {
 
 
 function generateLines() {
+  
+    var roadsClosed = [];
+
+    for (var i = 0; i<26; i++){
+      roadsClosed.push(0);
+    }
     
+    for (var i = 0; i<0; i++){
+      roadsClosed[i] = 1;
+    }    
+
+
     pathsLayer.clearLayers();
     returnArray = [];
     
     var runnerData = d3.csv('data/Densities.csv', function(error, data) {
 
         var minute = getMinute();
+        console.log("Minute: " + minute);
         minute = minute;
         var data = data[parseInt(minute/2)];
         //(data);
@@ -47,28 +61,43 @@ function generateLines() {
 
             var runners = +data[i+2];
             //set properties of that segment i
+            console.log("runners" + runners);
             var segmentStyle = {
                 number: i + 1,
                 color: 'green',
                 weight: '5',
                 opacity: 1
             }
-            switch (Math.floor(runners / 2000)) {
-                case 0:
-                    break;
-                case 1:
-                    segmentStyle.color = 'yellow';
-                    break;
-                case 2:
-                    segmentStyle.color = 'orange';
-                    segmentStyle.weight = '7';
-                    break;
-                case 3:
-                    segmentStyle.color = 'red';
-                    segmentStyle.weight = '8';
-                default:
-                    segmentStyle.color = 'red';
-                    segmentStyle.weight = '10';
+            
+            if (roadsClosed[i] != 1){
+              switch (Math.floor(runners / 2000)) {
+                  case 0:
+                      break;
+                  case 1:
+                      segmentStyle.color = 'yellow';
+                      break;
+                  case 2:
+                      segmentStyle.color = 'orange';
+                      segmentStyle.weight = '7';
+                      break;
+                  case 3:
+                      segmentStyle.color = 'red';
+                      segmentStyle.weight = '8';
+                      break;
+                  case 4:
+                      segmentStyle.color = 'red';
+                      segmentStyle.weight = '10';
+                      break;
+                  case 5:
+                      segmentStyle.color = 'red';
+                      segmentStyle.weight = '11';
+                      break;
+                  default:
+                      segmentStyle.color = 'green';
+              }
+            }
+            else{
+              segmentStyle.color = 'gray';
             }
             
             //(segmentStyle);
@@ -451,13 +480,13 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYnBleW5ldHRpIiwiYSI6IjNjMjQ0NTM4MTE0MmM0ODkwY
 //if index or normal: 
 if (window.innerWidth < window.innerHeight){
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
-      .setView([41.8955, -87.648], 13);
+      .setView([41.8955, -87.626], 13); //OLD for both desktop/vertical is .setView([41.8955, -87.648], 13);
   var size = "large";
 }
 else {
   //if desktop or desktop2:
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
-      .setView([41.8955, -87.648], 12);
+      .setView([41.8955, -87.626], 12);
   var size = "medium";
 }
 

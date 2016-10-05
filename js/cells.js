@@ -24,7 +24,7 @@ function filterHour(data){
 function drawMedCheckIn(data){
 var margin = { top: 50, right: 0, bottom: 0, left:100 },
           width = document.getElementById('chart').offsetWidth - margin.left - margin.right,
-          height = document.getElementById('chart').offsetHeight - margin.top - margin.bottom,
+          height = document.getElementById('chart').offsetHeight,
           gridSize = Math.floor(height / 16 ),
           legendElementWidth = gridSize*2,
           buckets = 2,
@@ -58,16 +58,56 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
 
           cards.enter().append("rect")
               .attr("x", function(d, i) { return Math.floor(i/11) * gridSize1; })
-              .attr("y", function(d) { return (d.day - 1) * gridSize; })
+              .attr("y", function(d) { 
+                if (d.day != 10){
+                return (d.day - 1) * gridSize; 
+                }
+                else{
+                  return d.day*gridSize;
+                }
+                
+              })
               .attr("rx", 4)
               .attr("ry", 4)
               .attr("class", "hour bordered")
               .attr("width", gridSize1)
               .attr("height", gridSize)
-              .style("fill", colors[0]);
-
+              .style("fill", colors[0])//; //old stuff up to here
+              .on("mouseover",function(d){
+					var xOffset = document.getElementById("mod3").offsetWidth*2.8;
+					var xPosition = xOffset + parseFloat(d3.select(this).attr("x")) ;
+					var yPosition = parseFloat(d3.select(this).attr("y"))+150; //+ h/2;
+					d3.select("#tooltip")
+						.style("left", xPosition + "px")
+						.style("top", yPosition + "px")
+						.select("#value")
+						.text(function() {
+							return d3.format(".0%")(+d.value) +" " + d.professional + " Coverage"; //d3.format(".0%") or (".1f")
+						});
+					d3.select("#tooltip")
+						.select("#tooltipHeader")
+						.style("font-weight", "bold")
+						.text(function() {
+							return "Aid Station " + d.hour;
+						});
+						//show the tooltip
+					d3.select("#tooltip")
+						.classed("hidden", false);
+					})
+					.on("mouseout", function() {
+						d3.select("#tooltip")
+							.classed("hidden", true);
+					});	
+					//old stuff below
+					
           cards.transition().duration(1000)
-              .style("fill", function(d) { return colorScale(d.value); });
+              .style("fill", function(d) { 
+                var colorIndex=2;
+                
+                if(+d.value<0.33) {colorIndex=0;}
+                else if(+d.value<0.66){colorIndex=1;}
+                
+                return colorScale(colorIndex); });
 
           cards.select("title").text(function(d) { return d.value; });
           
@@ -81,7 +121,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
 
           legend.append("rect")
             .attr("x", function(d, i) { return legendElementWidth * i + 30; })
-            .attr("y", height-90)
+            .attr("y", height-95)
             .attr("width", legendElementWidth)
             .attr("height", gridSize / 2)
             .style("fill", function(d, i) { return colors[i]; });
@@ -128,10 +168,18 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
           .enter().append("text")
             .text(function (d,i) { return d; })
             .attr("x", 0)
-            .attr("y", function (d, i) { return i * gridSize -25; })
+            .attr("y", function (d, i) { 
+              if (i != 10){
+              return i * gridSize -25; 
+              }
+              else{
+                return (i+1)*gridSize - 25;
+              }
+              
+            })
             .style("text-anchor", "end")
             .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
-            .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+            .attr("class", function (d, i) { return ((true) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
 
 
         
@@ -141,12 +189,12 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
             .text(function(d) {
               return (d); 
             })
-            .attr("x", function(d, i) { return i * gridSize1 - 5; })
+            .attr("x", function(d, i) { return i * gridSize1 ; })
             .attr("y", -25)
             .style("text-anchor", "middle")
             .style("font-size" , "9")
             .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-            .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+            .attr("class", function(d, i) { return ((true) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
     
 };

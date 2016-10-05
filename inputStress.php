@@ -20,7 +20,7 @@ if(!isset($_SESSION['login_user'])){
     <body onload="updatePage(); setInterval('updatePage()',1000)">
             <?php include('php/header.php'); ?>
 
-        <form action='updateMedCheckIn.php' class="inputform" method="post" id="inputform">
+        <form action='updateStress.php' class="inputform" method="post" id="inputform">
         <script type='text/javascript'>
         
         
@@ -39,7 +39,6 @@ if(!isset($_SESSION['login_user'])){
                     echo "{ Type: '".$row['StationType']."' , 
                             TimeUpdate: '".(string)$row['timeUpdate']."',
                             Location: '".$row['Location']."',
-                            Display: '".$row['Display']."',
                             Stress: ".$row['Stress']."
                             }, \n";
                 }

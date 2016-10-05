@@ -17,7 +17,7 @@ function displayInfo(data){
     .text("On Course: " + run);
     
     d3.select("#RunnersFinished")
-    .text("Finished: " + runnersFinished);
+    .text("\u2212 Finishers: " + runnersFinished);
     
     d3.select("#HospitalTransports")
     .text("Hospital Transports: " + hospitalTransports);
