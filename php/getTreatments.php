@@ -13,4 +13,13 @@ if ($result->num_rows==1){
 }
 echo "<script> var totalTreatments = $treatments; </script>";
 
+$sql_current = "select sum(CurrentPatients) currentTreatments from AidStations;";
+
+$result_current = $db->query($sql_current);
+if ($result_current->num_rows==1){
+    $row = $result_current -> fetch_assoc();
+    $treatments_current =$row['currentTreatments'];
+}
+echo "<script> var inMedical = $treatments_current; </script>";
+
 ?>

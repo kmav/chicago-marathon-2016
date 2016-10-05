@@ -48,6 +48,13 @@
                         $runnersOc = (int)$_POST['runnersOC']; 
                 }
                 
+                if (((int)$_POST['started'])==$row['StartedRunners']){
+                        $started = $row['StartedRunners'];
+                    }
+                    else{
+                        $started = (int)$_POST['started']; 
+                }
+                
                 
                 if (((int)$_POST['finished'])==$row['FinishedRunners']){
                         $finished = $row['FinishedRunners'];
@@ -238,7 +245,7 @@
         
         
         $sql = "INSERT INTO GeneralInformation (time, AlertStatus, temperature, windSpeed, windDirection, 
-            humidity,RunnersOnCourse, FinishedRunners, HospitalTransports,
+            humidity,StartedRunners, RunnersOnCourse, FinishedRunners, HospitalTransports,
             PatientsSeen, LeadMaleLat, LeadMaleLong, LeadFemaleLat, LeadFemaleLong, LeadWheelchairMaleLat,
             LeadWheelchairMaleLong, LeadWheelchairFemaleLat, LeadWheelchairFemaleLong,
             FinalWheelchairLat,FinalWheelchairLong, TurtleLat, TurtleLong, Alert,emergencyCheck, AlertLat, AlertLong)
@@ -249,6 +256,7 @@
                 ".$windSpeed.",
                 \"".$windDirection."\",
                 ".$humidity.",
+                ".$started.",
                 ".$runnersOc.",
                 ".$finished.",
                 ".$transports.",
@@ -283,7 +291,7 @@
         $myfile = fopen("data/gen_info.csv","w") or die("Error opening file");
         
         $txt = "AlertStatus,temperature,windSpeed,windDirection,humidity,";
-        $txt = $txt."runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,";
+        $txt = $txt."runnersStarted,runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,";
         $txt = $txt."LeadMaleRunnerLat,LeadMaleRunnerLong,LeadFemaleRunnerLat,LeadFemaleRunnerLong,";
         $txt = $txt."LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,";
         $txt = $txt."FinalWheelchairLat,FinalWheelchairLong,";
@@ -294,6 +302,7 @@
         $txt = $txt.$windSpeed.",";
         $txt = $txt."\"".$windDirection."\",";
         $txt = $txt.$humidity.",";
+        $txt = $txt.$started.",";
         $txt = $txt.$runnersOc.",";
         $txt = $txt.$finished.",";
         $txt = $txt.$transports.",";

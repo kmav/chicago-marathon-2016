@@ -2,6 +2,7 @@ var alertMarker=0;
 function displayInfo(data){
      (data);
     
+    var started = data[0].runnersStarted;
 	var run = data[0].runnersOnCourse;
     var runnersFinished = data[0].runnersFinished;
     var hospitalTransports = data[0].hospitalTransports;
@@ -13,6 +14,9 @@ function displayInfo(data){
     var message = data[0].Alert;
     
     //display runners finished
+    d3.select("#RunnersStarted")
+    .text("Started: " + started);
+    
     d3.select("#RunnersOnCourse")
     .text("On Course: " + run);
     
@@ -23,8 +27,11 @@ function displayInfo(data){
     .text("Hospital Transports: " + hospitalTransports);
     
     d3.select("#PatientsSeen")
-    .text("Treatments: " + totalTreatments);
-
+    .text("Total Treatments: " + totalTreatments);
+    
+    d3.select("#InMedical")
+    .text("In-Treatment: " + inMedical);
+    
     d3.select("#alertbar")
         .attr("class",function(){
             switch (+emergencyCheck){

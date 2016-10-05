@@ -165,7 +165,7 @@ function plotAS(update){
                     },
                     properties: {
                         'title': 'Closed',
-                        'marker-size': size,
+                        'marker-size': "small",
                         'marker-color': '#878787',
                         'marker-symbol': rows[i].Location
                     }
@@ -191,7 +191,7 @@ function plotAS(update){
                     },
                     properties: {
                         'title': 'Aid Station ' + rows[i].Location +'<br>New Patients: ' + rows[i].CurrentPatients +'<br>Cumulative Patients: ' + rows[i].CumulativePatients,
-                        'marker-size': size,
+                        'marker-size': "small",
                         'marker-color': '#009933',
                         'marker-symbol': rows[i].Location
                     }
@@ -216,7 +216,7 @@ function plotAS(update){
                     },
                     properties: {
                         'title': 'Aid Station ' + rows[i].Location +'<br>New Patients: ' + rows[i].CurrentPatients +'<br>Cumulative Patients: ' + rows[i].CumulativePatients,
-                        'marker-size': size,
+                        'marker-size': "small",
                         'marker-color': '#009933',
                         'marker-symbol': rows[i].Location
                     }
@@ -245,7 +245,7 @@ function plotAS(update){
                     },
                     properties: {
                         'title': 'Aid Station ' + rows[i].Location +'<br>New Patients: ' + rows[i].CurrentPatients +'<br>Cumulative Patients: ' + rows[i].CumulativePatients,
-                        'marker-size': size,
+                        'marker-size': "small",
                         'marker-color': '#009933',
                         'marker-symbol': rows[i].Location
                     }
@@ -269,19 +269,15 @@ function plotAS(update){
           //add medical tent markers (only show Balbo, not both Balbo/Pod) 
           for(var i=21; i<26; i++){ 
               ////(rows[i].Longitude);
-              if (size=="medium"){
-                var class_size = "fa-2x";
-              }
-              else{
-                var class_size = "fa-3x";
-              }
+              var class_size = "fa-1x";
+             
               L.marker([rows[i].Latitude, rows[i].Longitude], {
                 icon: L.divIcon({
                   // specify a class name that we can refer to in styles, as we
                   // do above.
                   className: 'fa-icon',
                   // html here defines what goes in the div created for each marker
-                  html: '<i class="fa fa-plus-square '+class_size+'" style = "color:red"></i>',
+                  html: '<i class="fa fa-plus-square '+class_size+'" style = "color:#c12c2c"></i>',
   
                   // and the marker width and height
                   iconSize: [60, 60]
@@ -480,14 +476,14 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYnBleW5ldHRpIiwiYSI6IjNjMjQ0NTM4MTE0MmM0ODkwY
 //if index or normal: 
 if (window.innerWidth < window.innerHeight){
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
-      .setView([41.8955, -87.626], 13); //OLD for both desktop/vertical is .setView([41.8955, -87.648], 13);
-  var size = "large";
+      .setView([41.8955, -87.643], 12); //OLD for both desktop/vertical is .setView([41.8955, -87.648], 13);
+  var size = "medium";
 }
 else {
   //if desktop or desktop2:
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
       .setView([41.8955, -87.626], 12);
-  var size = "medium";
+  var size = "small";
 }
 
 //properties of the map

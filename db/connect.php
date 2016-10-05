@@ -15,9 +15,9 @@
 
     $serverName = $_SERVER['SERVER_NAME'];
     if (strcmp($serverName,'marathon.iems.northwestern.edu')==0){
-        include('/home/numarathon/marathon2015/Chicago2015/connectHere.php');
+         include('/home/numarathon/connectHere/chicago2016.php');
     }
-    
+
     else {
           // Create connection
         $db = new mysqli($servername, $username, $password, $database, $dbport);

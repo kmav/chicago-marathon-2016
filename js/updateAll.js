@@ -4,10 +4,10 @@ var PageRefresh = 0;
 var MapRefresh = 0;
 var AidStationIndex = -1;
 var AidStations = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-var timeMultiplier = 1;
+var timeMultiplier = 2;
 var yScaleBoth = 0;
 
-var SetHour = 1;
+var SetHour = 17;
 var SetMinute = 0;
 var SetSecond = 3;
 
@@ -518,7 +518,7 @@ function displayInfo(data){
     
     d3.select("#PatientsSeen")
     .text("Treatments: " + patientsSeen);
-
+    
     d3.select("#alertbar")
         .attr("class",function(){
             switch (+emergencyCheck){

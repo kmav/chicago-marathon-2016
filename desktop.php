@@ -70,12 +70,10 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
               <div id='timingDiv'>
                     <div id='clockTime'>
                         <p>Clock Time</p>
-                        <br>
                         <div id='clock'>&nbsp</div>
                     </div>
                     <div id='raceTime'>
                         <p>Race Time</p>
-                        <br>
                         <div id='elapsedTime'>&nbsp</div>
                     </div>
                 </div>
@@ -100,11 +98,11 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 			        <p id='RunnersFinished'>&nbsp</p>-->
 			        <p id='HospitalTransports'>&nbsp</p>
 			        <p id='PatientsSeen'>&nbsp</p>
-				
+					<p id='InMedical'>&nbsp</p>
+					
 					<div id="runners_box">
-						<p>Started: [ ]</p>
+						<p id='RunnersStarted'>&nbsp</p>
 						<p>&#8722 Drops: [ ]</p>
-						<p>&#8722 In Medical: [ ]</p>
 			        	<p id='RunnersFinished'>&nbsp</p>
 			        	<p id='RunnersOnCourse'>&nbsp</p>
 					</div>
@@ -218,8 +216,8 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 			document.getElementById('MarathonName').style.width= '20%';
 			document.getElementById('MarathonName').style.backgroundSize = '100%';
 			document.getElementById('NUlogo').style.display = 'inline-block';
-			document.getElementById('raceTime').style.fontSize = '100%';
-			document.getElementById('clockTime').style.fontSize = '100%';
+			document.getElementById('raceTime').style.fontSize = '150%';
+			document.getElementById('clockTime').style.fontSize = '150%';
 			document.getElementById('alertText').style.fontSize = '100%';
 			document.getElementById('info').style.fontSize = '100%';
 			setTimeout(function(){

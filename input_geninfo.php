@@ -165,13 +165,16 @@ if(!isset($_SESSION['login_user'])){
         </div>
         
         <div class="wrapper">
-            
+ 
+        <div class="genInfoBox">
+        <div class="Titles"># Runners Started: </div>
+        <input type="number" name="started" id="started" value=0>
+        </div>
+        
         <div class="genInfoBox">
         <div class="Titles"># Runners On Course</div>
         <input type="number" name="runnersOC" id="onCourse" value=0>
         </div>
-        
-
         
         <div class="genInfoBox">
         <div class="Titles"># Finished Runners</div>
@@ -286,10 +289,11 @@ if(!isset($_SESSION['login_user'])){
          var AlertLat = data[0].AlertLat; 
          var AlertLong = data[0].AlertLong;
          
+         var started = data[0].runnersStarted;
          var OnCourse = data[0].runnersOnCourse;
          var finished = data[0].runnersFinished;
          var transports = data[0].hospitalTransports;
-         var patients = data[0].patientsSeen;
+         //var patients = data[0].patientsSeen;
          
          var temperature = data[0].temperature;
          var windSpeed = data[0].windSpeed;
@@ -315,6 +319,7 @@ if(!isset($_SESSION['login_user'])){
         document.getElementById("latAl").value = AlertLat;
         document.getElementById("lonAl").value = AlertLong;
         document.getElementById("onCourse").value = OnCourse;
+        document.getElementById("started").value = started;
         document.getElementById("finished").value = finished;
 
         document.getElementById("transports").value = transports;
