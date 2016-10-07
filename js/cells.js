@@ -29,7 +29,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
           legendElementWidth = gridSize*2,
           buckets = 2,
           colors = ['#990000', '#ffff00','#009933' ], // alternatively colorbrewer.YlGnBu[9]
-          professional= ['ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records', 'Stress'],
+          professional= ['Stress' , 'ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records'],
           aidStation = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
           //datasets = ["../data/MedCheckInTest.csv"];
           data = data.filter(filterAS_CheckIn);
@@ -55,15 +55,14 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
               .data(data, function(d) {return d.day+':'+d.hour;});
 
           cards.append("title");
-
           cards.enter().append("rect")
               .attr("x", function(d, i) { return Math.floor(i/11) * gridSize1; })
               .attr("y", function(d) { 
-                if (d.day != 10){
-                return (d.day - 1) * gridSize; 
+                if (d.day != 0){
+                return d.day * gridSize; 
                 }
                 else{
-                  return d.day*gridSize;
+                  return (d.day-1)*gridSize;
                 }
                 
               })
@@ -72,7 +71,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
               .attr("class", "hour bordered")
               .attr("width", gridSize1)
               .attr("height", gridSize)
-              .style("fill", colors[0])//; //old stuff up to here
+              .style("fill", colors[0])
               .on("mouseover",function(d){
 					var xOffset = document.getElementById("mod3").offsetWidth*2.8;
 					var xPosition = xOffset + parseFloat(d3.select(this).attr("x")) ;
@@ -98,7 +97,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
 						d3.select("#tooltip")
 							.classed("hidden", true);
 					});	
-					//old stuff below
+
 					
           cards.transition().duration(1000)
               .style("fill", function(d) { 
@@ -169,11 +168,11 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
             .text(function (d,i) { return d; })
             .attr("x", 0)
             .attr("y", function (d, i) { 
-              if (i != 10){
-              return i * gridSize -25; 
+              if (i != 0){
+              return (i+1) * gridSize -25; 
               }
               else{
-                return (i+1)*gridSize - 25;
+                return (i)*gridSize - 25;
               }
               
             })

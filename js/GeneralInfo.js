@@ -1,10 +1,77 @@
 var alertMarker=0;
+
+function getRunners(data){
+    var counter = -2;
+    var started_sim = 0;
+    var drops = 0;
+    var finished_sim = 0;
+    var onCourse_sim = 0;
+    var elaspedMinutes = getMinute();
+
+    console.log(elaspedMinutes);
+    
+    if (elaspedMinutes > 0 && elaspedMinutes <= 500){
+        
+        while(counter <= 250){
+            //get started and finish numbers (simulation adjusted for race day numbers)
+           if ((2 * counter) == elaspedMinutes) {
+               started_sim = data[counter].started;
+               finished_sim = data[counter].finished;
+           }
+            
+           
+           counter++; 
+           //console.log(counter);
+        }
+        
+        var dropsFactor = (0.00001 * elaspedMinutes);
+        //console.log(Math.round(dropsFactor + 0.0075));
+        
+        dropsFactor = Math.round(dropsFactor);
+        
+        console.log(drops)
+           if (elaspedMinutes > 400) {
+               drops = data[250].started - data[250].finished;
+           }
+           else if (elaspedMinutes > 350) {
+               drops = data[elaspedMinutes/2].started * (0.015 + dropsFactor); //approx 25k mark
+           }
+           else if (elaspedMinutes > 300){
+               drops = data[elaspedMinutes/2].started * (0.0075 + dropsFactor); //approx 20k mark
+           }
+           else if (elaspedMinutes > 250){
+               drops = data[elaspedMinutes/2].started * (0.003 + dropsFactor); //approx 15k mark
+           }
+           else if (elaspedMinutes > 50){
+               //console.log("Counter:"+counter)
+               drops = data[elaspedMinutes/2].started * (0.0005 + dropsFactor);
+           }
+        
+    }
+    /*else{
+        started = data[250].started;
+        finished = data[250].finished;
+    }*/
+    
+    onCourse_sim = started_sim - drops - finished_sim;
+    
+    d3.select("#RunnersStarted")
+    .text("Started: " + started_sim);
+    
+    d3.select("#RunnersDropped")
+    .text("\u2212 Drops: " + drops);
+    
+    d3.select("#RunnersFinished")
+    .text("\u2212 Finishers: " + finished_sim);
+    
+    d3.select("#RunnersOnCourse")
+    .text("On Course: " + onCourse_sim);
+}
+
 function displayInfo(data){
      (data);
     
-    var started = data[0].runnersStarted;
 	var run = data[0].runnersOnCourse;
-    var runnersFinished = data[0].runnersFinished;
     var hospitalTransports = data[0].hospitalTransports;
     var patientsSeen = data[0].patientsSeen;
     var Status = data[0].AlertStatus;
@@ -13,16 +80,13 @@ function displayInfo(data){
     var AlertLong = data[0].AlertLong; 
     var message = data[0].Alert;
     
+    var shelterDisplay = data[0].shelterDisplay;
+    
     //display runners finished
-    d3.select("#RunnersStarted")
-    .text("Started: " + started);
     
-    d3.select("#RunnersOnCourse")
-    .text("On Course: " + run);
-    
-    d3.select("#RunnersFinished")
-    .text("\u2212 Finishers: " + runnersFinished);
-    
+    /*d3.select("#RunnersOnCourse")
+    .text("On Course: " + run);*/
+    console.log(hospitalTransports)
     d3.select("#HospitalTransports")
     .text("Hospital Transports: " + hospitalTransports);
     
@@ -153,9 +217,85 @@ alertMarker = L.marker([AlertLat, AlertLong], {
 alertMarker.addTo(map);
     
 }
+
+if (shelterDisplay==1){
+    console.log("now I'll put the dots on the map");
+
+
+//// shelters
+    // Setup our svg layer that we can manipulate with d3
+    var svg = d3.select(map.getPanes().overlayPane)
+      .append("svg");
+    var g = svg.append("g").attr("class", "leaflet-zoom-hide");
+    
+    function project(ll) {
+        //console.log('projecting:');
+      // our data came from csv, make it Leaflet friendly
+      var a = [+ll.lat, +ll.lon]; 
+      // convert it to pixel coordinates
+      var point = map.latLngToLayerPoint(L.latLng(ll))
+      return point;
+    }
+    
+    d3.csv("data/shelters.csv", function(err, data) {
+      var dots = g.selectAll("circle.dot")
+        .data(data)
+      console.log("data on shelters:")
+      console.table(data);
+      dots.enter().append("circle").classed("dot", true)
+      .attr("r", 1)
+      .style({
+        fill: "#FFFFFF",
+        "fill-opacity": 0.9,
+        stroke: "#004d60",
+        "stroke-width": 1
+      })
+      .transition().duration(1000)
+      .attr("r", 6)
+      
+      
+      function render() {
+        // We need to reposition our SVG and our containing group when the map
+        // repositions via zoom or pan
+        // https://github.com/zetter/voronoi-maps/blob/master/lib/voronoi_map.js
+        var bounds = map.getBounds();
+        var topLeft = map.latLngToLayerPoint(bounds.getNorthWest())
+        var bottomRight = map.latLngToLayerPoint(bounds.getSouthEast())
+        svg.style("width", map.getSize().x + "px")
+          .style("height", map.getSize().y + "px")
+          .style("left", topLeft.x + "px")
+          .style("top", topLeft.y + "px");
+        g.attr("transform", "translate(" + -topLeft.x + "," + -topLeft.y + ")")
+        g.attr("z-index",10);
+
+        // We reproject our data with the updated projection from leaflet
+        g.selectAll("circle.dot")
+        .attr({
+          cx: function(d) { return project(d).x},
+          cy: function(d) { return project(d).y},
+        })
+        // .call(function(d){
+        //     d3.select(this).moveToFront();
+        // })
+
+      };
+
+      // re-render our visualization whenever the view changes
+      map.on("viewreset", function() {
+        render();
+      })
+      map.on("move", function() {
+        render();
+      })
+
+      // render our initial visualization
+      render();
+    });
 }
 
+}
 
+d3.csv("data/Densities.csv",getRunners);
 d3.csv("data/gen_info.csv",displayInfo);
 
 //may make new general info file with runners on course, runners finished, hospital transports, and patients seen

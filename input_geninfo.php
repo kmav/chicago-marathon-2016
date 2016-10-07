@@ -165,27 +165,25 @@ if(!isset($_SESSION['login_user'])){
         </div>
         
         <div class="wrapper">
- 
+            
         <div class="genInfoBox">
+        <div class="Titles"># Hospital Transports</div>
+        <input type="number" name="transports" id="transports" value=0>
+        </div>
+ 
+        <div class="genInfoBox" style = "visibility: hidden">
         <div class="Titles"># Runners Started: </div>
         <input type="number" name="started" id="started" value=0>
         </div>
         
-        <div class="genInfoBox">
+        <div class="genInfoBox" style = "visibility: hidden">
         <div class="Titles"># Runners On Course</div>
         <input type="number" name="runnersOC" id="onCourse" value=0>
         </div>
         
-        <div class="genInfoBox">
+        <div class="genInfoBox" style = "visibility: hidden">
         <div class="Titles"># Finished Runners</div>
         <input type="number" name="finished" id="finished" value=0>
-        </div>
-        
-
-        
-        <div class="genInfoBox">
-        <div class="Titles"># Hospital Transports</div>
-        <input type="number" name="transports" id="transports" value=0>
         </div>
         
 
@@ -278,6 +276,14 @@ if(!isset($_SESSION['login_user'])){
         </div>
         </div>
    
+          <div class='wrapper'>
+            
+            <div class='emergBox' style='height:auto;'>
+                <div class='Titles'>Shelter Display</div>
+                    <input type='checkbox' id='shelterDisplay' name='shelterDisplay'>Display ALL shelters.
+            </div>
+        </div>
+   
         <input type="submit" class='submitButton' value="Submit Data">
         
     </form>
@@ -288,6 +294,7 @@ if(!isset($_SESSION['login_user'])){
          var check = +data[0].emergencyCheck; 
          var AlertLat = data[0].AlertLat; 
          var AlertLong = data[0].AlertLong;
+         var shelterDisplay = data[0].shelterDisplay;
          
          var started = data[0].runnersStarted;
          var OnCourse = data[0].runnersOnCourse;
@@ -310,6 +317,13 @@ if(!isset($_SESSION['login_user'])){
         else{
             //set checked=false
             $("#emerg").prop('checked',false); 
+        }
+        if (shelterDisplay==1)
+        {
+            $("#shelterDisplay").prop('checked',true);
+        }
+        else{
+            $("#shelterDisplay").prop('checked',false);
         }
         
         document.getElementById("temperature").value = temperature;

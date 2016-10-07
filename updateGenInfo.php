@@ -55,7 +55,6 @@
                         $started = (int)$_POST['started']; 
                 }
                 
-                
                 if (((int)$_POST['finished'])==$row['FinishedRunners']){
                         $finished = $row['FinishedRunners'];
                     }
@@ -237,6 +236,13 @@
                 else{
                     $longAl = floatval($_POST['longAl']); 
                 }
+                
+                if (($_POST['shelterDisplay'])){
+                    $shelterDisplay = 1;
+                }
+                else{
+                    $shelterDisplay = 0;
+                }
             }
         }
         else {
@@ -248,7 +254,7 @@
             humidity,StartedRunners, RunnersOnCourse, FinishedRunners, HospitalTransports,
             PatientsSeen, LeadMaleLat, LeadMaleLong, LeadFemaleLat, LeadFemaleLong, LeadWheelchairMaleLat,
             LeadWheelchairMaleLong, LeadWheelchairFemaleLat, LeadWheelchairFemaleLong,
-            FinalWheelchairLat,FinalWheelchairLong, TurtleLat, TurtleLong, Alert,emergencyCheck, AlertLat, AlertLong)
+            FinalWheelchairLat,FinalWheelchairLong, TurtleLat, TurtleLong, Alert,emergencyCheck, AlertLat, AlertLong, shelterDisplay)
             VALUES (
                 NOW(),
                 ".$alertStatus.",
@@ -276,7 +282,8 @@
                 \"".$alert."\" ,
                 ".$emergencyCheck.",
                 ".$latAl.",
-                ".$longAl."
+                ".$longAl.",
+                ".$shelterDisplay."
                 );";
                 
                     
@@ -295,7 +302,7 @@
         $txt = $txt."LeadMaleRunnerLat,LeadMaleRunnerLong,LeadFemaleRunnerLat,LeadFemaleRunnerLong,";
         $txt = $txt."LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,";
         $txt = $txt."FinalWheelchairLat,FinalWheelchairLong,";
-        $txt = $txt."TurtleLat,TurtleLong,Alert,emergencyCheck,AlertLat,AlertLong\n";
+        $txt = $txt."TurtleLat,TurtleLong,Alert,emergencyCheck,AlertLat,AlertLong,shelterDisplay\n";
         
         $txt = $txt.$alertStatus.",";
         $txt = $txt.$temperature.",";
@@ -322,7 +329,8 @@
         $txt = $txt."\"".$alert."\",";
         $txt = $txt.$emergencyCheck.",";
         $txt = $txt.$latAl.",";
-        $txt = $txt.$longAl;
+        $txt = $txt.$longAl.",";
+        $txt = $txt.$shelterDisplay;
         
         echo $txt;
         

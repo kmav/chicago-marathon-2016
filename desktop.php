@@ -26,7 +26,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
         <meta charset=utf-8 />
         <title>Bank of America Chicago Marathon</title>
         <?php include('php/getTreatments.php'); ?>
-        
+
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
@@ -102,7 +102,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 					
 					<div id="runners_box">
 						<p id='RunnersStarted'>&nbsp</p>
-						<p>&#8722 Drops: [ ]</p>
+						<p id='RunnersDropped'>&nbsp</p>
 			        	<p id='RunnersFinished'>&nbsp</p>
 			        	<p id='RunnersOnCourse'>&nbsp</p>
 					</div>
@@ -147,7 +147,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 				<div id="col2">
 
 					<div class="module" id="mod3">
-						<h4> Medical Check In </h4>
+						<h4> Medical Staffing </h4>
 							<div id="chart"></div>
 						<script src = "js/cells.js" type = "text/javascript"></script>
 					</div>

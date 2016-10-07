@@ -105,21 +105,23 @@ if(!isset($_SESSION['login_user'])){
     
         <h1 style="text-align: center; text-decoration: underline">Data Visualization User Guide</h1>
         <h4 style="text-align: center">Below are a list of features supported by our system, and how to interpret the information</h4>
+        <h4 style="text-align: center">We recommend you use <span style="font-weight: bold">Google Chrome with full screen</span> to access the app</h4>
         
-        <ul style="margin-right: 5%; margin-left:5%">
-            <li>Top Bar: The color of the top bar reflects the current event alert status level 
+        <ul class="inst-list" style="margin-right: 5%; margin-left:5%">
+            <li><span style="font-weight: bold">Top Bar</span>: The color of the top bar reflects the current event alert status level 
             (e.g. if the top bar is green, the alert level is green)</li>
-            <li>Logos: Click on the BACCM logo to redirect back to the main menu, 
+            <li><span style="font-weight: bold">Logos</span>: Click on the BACCM logo to redirect back to the main menu, 
             and clicking on the Northwestern logo directs to the Northwestern Industrial Engineering homepage</li>
-            <li>Weather: The top bar will display the Wet Bulb Globe Temperature, updated hourly</li>
-            <li>Clock: Current time and the race gun time, both updated in real-time</li>
-            <li>Alert Bar: The white message bar displays race-related messages and general notifications as the race progresses 
+            <li><span style="font-weight: bold">Weather</span>: The top bar will display the Wet Bulb Globe Temperature, updated hourly</li>
+            <li><span style="font-weight: bold">Clock</span>: Current time and the race gun time, both updated in real-time</li>
+            <li><span style="font-weight: bold">Alert Bar</span>: The white message bar displays race-related messages and general notifications as the race progresses 
             (e.g. “All corrals have started”, “The lead runner has crossed the finish line”). 
             If you have any notifications you would like to relay to the Forward Command tent, 
             please speak to a member of the data visualization team and we can add it to the display.</li>
-            <li>Course Map:
+            <br>
+            <li><span style="font-weight: bold">Course Map</span>:
             <ul>
-                <li>Mile Segments:
+                <li><span style = "text-decoration: underline">Mile Segments</span>:
                 <ul>
                     <li>The course is separated into colored mile-long segments. 
                     The colors represent the segment’s current density of runners. 
@@ -130,25 +132,26 @@ if(!isset($_SESSION['login_user'])){
                     <li>The key for the range of runners corresponding to each color 
                     can be found in the legend on the bottom right.</li>
                 </ul></li>
-                <li>Aid Station Markers: 
+                <li><span style = "text-decoration: underline">Aid Station Markers</span>: 
                 <ul>
                     <li>Each teardrop-shaped symbol represents an aid station along the course, 
                     and its current bed occupancy level in relation to its total capacity. </li>
                     <li>Clicking on the markers will display the current number of patients at the aid station</li>
                 </ul></li>
-                <li>"Red Plusses"/Medical Symbols: 
+                <li><span style = "text-decoration: underline">"Red Plusses"/Medical Symbols</span>: 
                 <ul>
                     <li>Each red square symbol represents a medical tent along the course route </li>
                     <li>Current bed occupancy in each medical tent is shown in the medical tents graph to the right of the map</li>
                 </ul></li>
-                <li>GPS Trackers: 
+                <li><span style = "text-decoration: underline">GPS Trackers</span>: 
                 <ul>
                     <li>The blue circles along the course represent runners designated to hold GPS units.</li>
                     <li>GPS units will track the lead runner, lead female runner, last runner, 
                     as well as designated pacers to contextualize runner density</li>
                     </ul></li>
                 </ul></li>
-                <li>Medical Tents Graph: 
+                <br>
+                <li><span style="font-weight: bold">Medical Tents Graph</span>: 
                 <ul>
                     <li>The bar chart displays the current bed occupancy for each of the medical tents along the course 
                     and at the finish line. Grey bars represent the total number of beds held by the medical tent 
@@ -160,7 +163,8 @@ if(!isset($_SESSION['login_user'])){
                     hover over each colored bar to display the name of the medical tent 
                     and the exact number of patients currently checked in.</li>
                 </ul></li>
-                <li>Runners Per Mile Graph: 
+                <br>
+                <li><span style="font-weight: bold">Runners Per Mile Graph</span>: 
                 <ul>
                     <li>The two line graphs visualize where the runners are along the course. 
                     The values correspond to the colored segments on the course map 
@@ -175,9 +179,10 @@ if(!isset($_SESSION['login_user'])){
                     This information is also shown when clicking on a colored mile segment 
                     along the course map on the lefthand side.</li>
                 </ul></li>
-                <li>Medical Check-in: 
+                <br>
+                <li><span style="font-weight: bold">Medical Check-In</span>: 
                 <ul>
-                    <li>Volunteer Staffing: 
+                    <li><span style = "text-decoration: underline">Volunteer Staffing</span>: 
                     <ul>
                         <li>A new feature for the 2016 marathon, the “Medical Check In” section contains
                         information regarding the medical professional staffing at each aid station, 
@@ -191,7 +196,7 @@ if(!isset($_SESSION['login_user'])){
                         at the aid station. (E.g. Hovering over the box for ‘Attending’ in the first column will show 
                         the number of Attending Physicians at Aid Station 1).</li>
                     </ul></li>
-                    <li>Stress Level: 
+                    <li><span style = "text-decoration: underline">Stress Level</span>: 
                     <ul>
                         <li>The last row of the medical check in section displays the stress level at each aid station. 
                         The stress levels are updated every 30 minutes, and take into patient load, staffing and supplies. 
