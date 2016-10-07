@@ -177,6 +177,8 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 
 
 	<script>
+	
+	
 
 	function mediaQueries() {
 
@@ -188,13 +190,13 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 			document.getElementById('col2').style.width = '100%';
 			document.getElementById('col1').style.height = '50%';
 			document.getElementById('col2').style.height = '50%';
-			document.getElementById('MarathonName').style.width= '497px';
+			document.getElementById('MarathonName').style.width= '300px';
 			document.getElementById('MarathonName').style.backgroundSize =  '80%';
 			document.getElementById('NUlogo').style.display = 'none';
-			document.getElementById('raceTime').style.fontSize = '150%';
-			document.getElementById('clockTime').style.fontSize = '150%';
-			document.getElementById('alertText').style.fontSize = '200%';
-			document.getElementById('info').style.fontSize = '150%';
+			document.getElementById('raceTime').style.fontSize = '175%';
+			document.getElementById('clockTime').style.fontSize = '175%';
+			document.getElementById('alertText').style.fontSize = '150%';
+			document.getElementById('info').style.fontSize = '125%';
 			setTimeout(function(){
 							var text = document.getElementsByTagName("text");
 			for (var i=0; i<text.length; i++){
