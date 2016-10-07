@@ -117,7 +117,33 @@ include('php/isMobile.php');
             //echo $counter;
             //write a new line
             $txt = "";
-            for ($x = 0; $x < count($profesh); $x++ ){
+            
+            $stressPercentage = 1;
+            
+            if($station["Stress"]==1){
+                $stressPercentage = 1;
+            }
+            elseif($station["Stress"] <= 3){
+                $stressPercentage = 0.75;
+            }
+            else{
+                $stressPercentage = 0;
+            }
+            
+            
+            $x = 0;
+            $txt = "";
+            $txt = $txt."Stress,";
+            $txt = $txt.$x.",";
+            $txt = $txt.$counter.",";
+            $txt = $txt.$stressPercentage.",";
+
+            $txt = $txt.$station['Display']."\n";
+            
+
+            fwrite($myfile,$txt);
+            
+            for ($x = 1; $x < count($profesh) + 1; $x++ ){
                     // $txt = $counter."\t";
                     // $txt = $txt.$x."\t";
                     $txt = "";
@@ -144,32 +170,7 @@ include('php/isMobile.php');
             }
             
             
-            $txt = "";
-            
-            $stressPercentage = 1;
-            
-            if($station["Stress"]==1){
-                $stressPercentage = 1;
-            }
-            elseif($station["Stress"] <= 3){
-                $stressPercentage = 0.75;
-            }
-            else{
-                $stressPercentage = 0;
-            }
-            
-            
-            $x = 10;
-            $txt = "";
-            $txt = $txt."Stress,";
-            $txt = $txt.$x.",";
-            $txt = $txt.$counter.",";
-            $txt = $txt.$stressPercentage.",";
 
-            $txt = $txt.$station['Display']."\n";
-            
-
-            fwrite($myfile,$txt);
 
                 $counter++;   
             
