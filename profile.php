@@ -50,7 +50,7 @@
         }
         else {
             echo "<a href='desktop.php'><div class='pagelink'>Main Display</div></a>";
-            echo "<a href='AllMedCheckIn.php'><div class='pagelink'>Medical Status</div></a>";
+            echo "<a href='AllMedCheckIn.php'><div class='pagelink'>Medical Staffing</div></a>";
             echo "<a href='instructions.php'><div class='pagelink'>Instruction Page</div></a>";
 
             //echo "<a href='command.php'><div class='pagelink'>Forward Command Display </div></a>";

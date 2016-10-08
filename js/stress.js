@@ -22,7 +22,7 @@ function filterHour(data){
 
 
 function drawMedCheckIn(data){
-var margin = { top: 25, right: 0, bottom: 0, left:100 },
+var margin = { top: 50, right: 0, bottom: 0, left:100 },
           width = document.getElementById('chart').offsetWidth - margin.left - margin.right,
           height = document.getElementById('chart').offsetHeight,
           gridSize = Math.floor(height / 6 ),
@@ -78,22 +78,6 @@ var margin = { top: 25, right: 0, bottom: 0, left:100 },
 
           legend.enter().append("g")
               .attr("class", "legend");
-
-          legend.append("rect")
-            .attr("x", function(d, i) { return gridSize1 * (i-1) ; })
-            .attr("y", height-90)
-            .attr("width", gridSize1)
-            .attr("height", gridSize / 2)
-            .style("fill", function(d, i) { return colors[i]; });
-
-          legend.append("text")
-            .attr("x", function(d, i) { return gridSize1 * (i-1) + (gridSize1/2); })
-            .attr("y", height-70)
-            .text(function(d,i) { return i; })
-            .attr("height", gridSize / 2)
-            .attr("class", "axis-worktime")
-            .style("text-anchor", "middle")
-            .style("font-size" , "9")
   
 
 
@@ -129,14 +113,21 @@ var margin = { top: 25, right: 0, bottom: 0, left:100 },
             .text(function(d) {
               return (d.aidStation); 
             })
-              .attr("x", function(d, i) { return ((d.aidStation -1) % 5) * gridSize1; })
+              .attr("x", function(d, i) { return ((d.aidStation -1) % 5) * gridSize1 - 2; })
               .attr("y", function(d) { 
                 return (d.zone) * gridSize + (gridSize/1.5); 
               })
             .style("text-anchor", "middle")
-            .style("font-size" , "9")
+            .style("font-size" , "15")
             .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-            .attr("class", function(d, i) { return ((true) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+            .style("fill", function(d,i){
+              if (d.stress==2){
+                return '#000000';
+              }
+              else{
+                return '#FFFFFF';
+              }
+            })
 
     
 

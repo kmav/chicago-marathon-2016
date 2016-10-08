@@ -79,7 +79,7 @@
                 }
                 
                 
-                if ((floatval($_POST['latLM'])==0)){
+                /*if ((floatval($_POST['latLM'])==0)){
                         $latLM = $row['LeadMaleLat'];
                     }
                     else{
@@ -166,7 +166,7 @@
                     }
                     else{
                         $longFW = floatval($_POST['longFW']); 
-                }
+                }*/
                 
                 //echo $_POST['alert'];
                  if (($_POST['alert'])=="0"){
@@ -283,9 +283,8 @@
         
         
         $sql = "INSERT INTO GeneralInformation (time, AlertStatus, temperature, windSpeed, windDirection, 
-            humidity,StartedRunners, RunnersOnCourse, FinishedRunners, HospitalTransports,
-            PatientsSeen, 
-            LeadMaleLat, LeadMaleLong, LeadFemaleLat, LeadFemaleLong, TurtleLat, TurtleLong,
+            humidity, StartedRunners, RunnersOnCourse, FinishedRunners, HospitalTransports,
+            PatientsSeen, LeadMaleLat, LeadMaleLong, LeadFemaleLat, LeadFemaleLong, TurtleLat, TurtleLong,
             LeadWheelchairMaleLat,LeadWheelchairMaleLong, LeadWheelchairFemaleLat, LeadWheelchairFemaleLong,
             FinalWheelchairLat, FinalWheelchairLong,
             pace350Lat, pace350Long, pace355Lat, pace355Long,
@@ -300,7 +299,7 @@
                 \"".$windDirection."\",
                 ".$humidity.",
                 ".$started.",
-                ".$runnersOC.",
+                ".$runnersOc.",
                 ".$finished.",
                 ".$transports.",
                 ".$pSeen.",
@@ -343,21 +342,24 @@
                     
         if ($db->query($sql) === TRUE) {
             echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        } 
+        else {
+            //echo "Error: " . $sql . "<br>" . $conn->error;
+            echo $sql. "Update Failed:" . "<br>" . mysqli_error($db);
         }
         
         $db->close();
         
         $myfile = fopen("data/gen_info.csv","w") or die("Error opening file");
         
-        $txt = "AlertStatus,temperature,windSpeed,windDirection,humidity,runnersStarted,";
+        $txt = "Time,AlertStatus,temperature,windSpeed,windDirection,humidity,runnersStarted,";
         $txt = $txt."runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,";
-        $txt = $txt."LeadMaleRunnerLat,LeadMaleRunnerLong,LeadFemaleRunnerLat,LeadFemaleRunnerLong,";
-        $txt = $txt."FinalRunnerLat,FinalRunnerLong,";
+        $txt = $txt."LeadMaleLat,LeadMaleLong,LeadFemaleLat,LeadFemaleLong,";
+        $txt = $txt."TurtleLat,TurtleLong,";
         $txt = $txt."LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,FinalWheelchairLat,FinalWheelchairLong,";
         $txt = $txt."pace350Lat,pace350Long,pace355Lat,pace355Long,pace425Lat,pace425Long,pace430Lat,pace430Long,pace500Lat,pace500Long,pace510Lat,pace510Long,Alert,emergencyCheck,AlertLat,AlertLong,shelterDisplay,shelterGP\n";
         
+        $txt = $txt.$time.",";
         $txt = $txt.$alertStatus.",";
         $txt = $txt.$temperature.",";
         $txt = $txt.$windSpeed.",";
@@ -400,13 +402,13 @@
         $txt = $txt.$emergencyCheck.",";
         $txt = $txt.$latAl.",";
         $txt = $txt.$longAl.",";
-        $txt = $txt.$shelter.",";
+        $txt = $txt.$shelterDisplay.",";
         $txt = $txt.$shelterGP;
         
         echo $txt;
         
         fwrite($myfile,$txt);
-        fclose($myfile);
+        fclose($myfile); 
 
         
         ?> 

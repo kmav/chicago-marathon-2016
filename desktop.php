@@ -147,7 +147,7 @@ if ($_SESSION['start'] + (7*60*60) < time()) {
 				<div id="col2">
 
 					<div class="module" id="mod3">
-						<h4> Stress Levels </h4>
+						<h4> Aid Station Stress Levels </h4>
 							<div id="chart"></div>
 						<script src = "js/stress.js" type = "text/javascript"></script>
 					</div>
@@ -194,15 +194,17 @@ if ($_SESSION['start'] + (7*60*60) < time()) {
                         document.getElementById('MarathonName').style.width= '400px';
                         document.getElementById('MarathonName').style.backgroundSize =  '80%';
                         document.getElementById('NUlogo').style.display = 'none';
-                        document.getElementById('raceTime').style.fontSize = '275%';
-                        document.getElementById('clockTime').style.fontSize = '275%';
+                        document.getElementById('raceTime').style.fontSize = '240%';
+                        document.getElementById('clockTime').style.fontSize = '240%';
                         document.getElementById('alertText').style.fontSize = '170%';
-                        document.getElementById('info').style.fontSize = '225%';
-                        document.getElementById('runners_box').style.width = '75%';
+                        document.getElementById('info').style.fontSize = '190%';
+                        document.getElementById('runners_box').style.width = '65%';
+                        document.getElementById('map_legend').style.right = '340';
+                        document.getElementById('map_legend').style.bottom = '-140';
                         setTimeout(function(){
                                                         var text = document.getElementsByTagName("text");
                         for (var i=0; i<text.length; i++){
-                                text[i].style.fontSize = '2.2vw';
+                                text[i].style.fontSize = '2.4vw';
                         }
 
 

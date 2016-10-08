@@ -290,7 +290,7 @@ function plotAS(update){
 function runnerTracking(){
       //plot runner tracking on map
       var runLoc = [];
-      d3.csv("data/gen_info.csv", function(d) {
+      d3.csv("data/gps.csv", function(d) {
           // Add a LatLng object to each item in the dataset
           runLoc = d;
           return {
@@ -308,18 +308,18 @@ function runnerTracking(){
               latT: +d.TurtleLat,
               longT: +d.TurtleLong,
               
-              lat350: +pace350Lat,
-              long350: +pace350Long,
-              lat355: +pace355Lat,
-              long355: +pace355Long,
-              lat425: +pace425Lat,
-              long425: +pace425Long,
-              lat430: +pace430Lat,
-              long430: +pace430Long,
-              lat500: +pace500Lat,
-              long500: +pace500Long,
-              lat510: +pace510Lat,
-              long510: +pace510Long
+              lat350: +d.pace350Lat,
+              long350: +d.pace350Long,
+              lat355: +d.pace355Lat,
+              long355: +d.pace355Long,
+              lat425: +d.pace425Lat,
+              long425: +d.pace425Long,
+              lat430: +d.pace430Lat,
+              long430: +d.pace430Long,
+              lat500: +d.pace500Lat,
+              long500: +d.pace500Long,
+              lat510: +d.pace510Lat,
+              long510: +d.pace510Long
           };
       
       }, function(error, rows) {
@@ -529,7 +529,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYnBleW5ldHRpIiwiYSI6IjNjMjQ0NTM4MTE0MmM0ODkwY
 //if index or normal: 
 if (window.innerWidth < window.innerHeight){
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
-      .setView([41.8955, -87.643], 13); //OLD for both desktop/vertical is .setView([41.8955, -87.648], 13);
+      .setView([41.9050, -87.653], 13); //OLD for both desktop/vertical is .setView([41.8955, -87.648], 13);
   var size = "medium";
 }
 else {

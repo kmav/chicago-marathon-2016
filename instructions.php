@@ -202,20 +202,20 @@ if(!isset($_SESSION['login_user'])){
                         The stress levels are updated every 30 minutes, and take into patient load, staffing and supplies. 
                         Hovering over each box will display the exact stress level of the aid station.</li>
                         <ul>
-                        <li>Stress Level 1 - No stress: 
+                        <li>Stress Level 1 - No stress (<span style= "color:green">Green</span>): 
                             Handling patient load, plenty of available beds; plenty of staff; plenty of supplies.</li>
  
-                            <li>Stress Level 2 – Slight stress: 
+                            <li>Stress Level 2 – Slight stress (<span style="color:	#CCCC00">Yellow</span>): 
                             Handling patient load, available beds; staff available; good supplies. </li>
  
-                            <li>Stress Level 3 – Feeling pressure: 
+                            <li>Stress Level 3 – Feeling pressure (<span style="color:#F19132">Light Orange</span>): 
                             No available beds, patients spilling into street; all staff with patients, 
                             but have support (ambulance nearby); supplies getting thin. </li>
  
-                            <li>Stress Level 4 – Feeling much pressure: 
+                            <li>Stress Level 4 – Feeling much pressure (<span style="color:#ee7600">Dark Orange</span>): 
                             No available beds, patients in street; not enough staff, no support (no ambulance); diminishing supplies.</li>
  
-                            <li>Stress Level 5 – Overwhelmed: 
+                            <li>Stress Level 5 – Overwhelmed (Red): 
                             Too many patients, no available beds and patients crowding street; not enough staff, no support (no ambulance); some supplies depleted.</li>
                         </ul>
                     </ul></li>

@@ -147,6 +147,7 @@
                 var_dump($row);
                 
                 $alertStatus=$row['AlertStatus'];
+                $started = $row['StartedRunners'];
                 $runnersOc = $row['RunnersOnCourse'];
                 $finished = $row['FinishedRunners'];
                 $transports = $row['HospitalTransports'];
@@ -166,7 +167,7 @@
                 $shelter = $row['shelterDisplay'];
                 $shelterGP = $row['shelterGP'];
                 
-                echo "<br> Pace 6 hours: $pace600 <br> ";
+                echo "<br> Pace 5:10 hours: $pace510 <br> ";
                 foreach ($devices as $key => $value){
                     $id = $value["id"];
                     $name = $value["name"];
@@ -205,7 +206,7 @@
                             $long350 = $lon;
                             break;
                         case $pace355:
-                            $lat355= $lat;
+                            $lat355 = $lat;
                             $long355 = $lon;
                             break;
                         case $pace425:
@@ -245,7 +246,7 @@
         //and we also put the updated for the d3 lecture of information so it all works fine
                 
         $sql = "INSERT INTO GeneralInformation (time, AlertStatus, temperature, windSpeed, windDirection, 
-            humidity,RunnersOnCourse, FinishedRunners, HospitalTransports,
+            humidity,StartedRunners,RunnersOnCourse, FinishedRunners, HospitalTransports,
             PatientsSeen, 
             LeadMaleLat, LeadMaleLong, LeadFemaleLat, LeadFemaleLong, TurtleLat, TurtleLong,
             LeadWheelchairMaleLat,LeadWheelchairMaleLong, LeadWheelchairFemaleLat, LeadWheelchairFemaleLong,
@@ -260,6 +261,7 @@
                 ".$temperature.",
                 ".$windSpeed.",
                 \"".$windDirection."\",
+                ".$started.",
                 ".$humidity.",
                 ".$runnersOc.",
                 ".$finished.",
@@ -310,24 +312,26 @@
         
         $db->close();
         
-        $myfile = fopen("data/gen_info.csv","w") or die("Error opening file");
+        $myfile = fopen("data/gps.csv","w") or die("Error opening file");
         
-        $txt = "AlertStatus,temperature,windSpeed,windDirection,humidity,";
-        $txt = $txt."runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,";
-        $txt = $txt."LeadMaleRunnerLat,LeadMaleRunnerLong,LeadFemaleRunnerLat,LeadFemaleRunnerLong,";
-        $txt = $txt."FinalRunnerLat,FinalRunnerLong,";
+        //$txt = "AlertStatus,temperature,windSpeed,windDirection,humidity,";
+        //$txt = $txt."runnersStarted,runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,";
+        $txt = "LeadMaleLat,LeadMaleLong,LeadFemaleLat,LeadFemaleLong,";
+        $txt = $txt."TurtleLat,TurtleLong,";
         $txt = $txt."LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,FinalWheelchairLat,FinalWheelchairLong,";
-        $txt = $txt."pace350Lat,pace350Long,pace355Lat,pace355Long,pace425Lat,pace425Long,pace430Lat,pace430Long,pace500Lat,pace500Long,pace510Lat,pace510Long,Alert,emergencyCheck,AlertLat,AlertLong,shelterDisplay,shelterGP\n";
+        $txt = $txt."pace350Lat,pace350Long,pace355Lat,pace355Long,pace425Lat,pace425Long,pace430Lat,pace430Long,pace500Lat,pace500Long,pace510Lat,pace510Long\n";
+        //$txt = $txt.",Alert,emergencyCheck,AlertLat,AlertLong,shelterDisplay,shelterGP\n";
         
-        $txt = $txt.$alertStatus.",";
+       /* $txt = $txt.$alertStatus.",";
         $txt = $txt.$temperature.",";
         $txt = $txt.$windSpeed.",";
         $txt = $txt."\"".$windDirection."\",";
         $txt = $txt.$humidity.",";
+        $txt = $txt.$started.",";
         $txt = $txt.$runnersOc.",";
         $txt = $txt.$finished.",";
         $txt = $txt.$transports.",";
-        $txt = $txt.$pSeen.",";
+        $txt = $txt.$pSeen.","; */
         
         $txt = $txt.$latLM.",";
         $txt = $txt.$longLM.",";
@@ -356,12 +360,12 @@
         $txt = $txt.$lat510.",";
         $txt = $txt.$long510.",";
         
-        $txt = $txt."\"".$alert."\",";
+       /* $txt = $txt."\"".$alert."\",";
         $txt = $txt.$emergencyCheck.",";
         $txt = $txt.$latAl.",";
         $txt = $txt.$longAl.",";
         $txt = $txt.$shelter.",";
-        $txt = $txt.$shelterGP;
+        $txt = $txt.$shelterGP; */
         
         echo $txt;
         
