@@ -104,7 +104,7 @@ if(!isset($_SESSION['login_user'])){
     <?php include('php/header.php'); ?>
     
         <h1 style="text-align: center; text-decoration: underline">Data Visualization User Guide</h1>
-        <h4 style="text-align: center">Below are a list of features supported by our system, and how to interpret the information</h4>
+        <h4 style="text-align: center">Below is a list of features supported by our system, and how to interpret the information</h4>
         <h4 style="text-align: center">We recommend you use <span style="font-weight: bold">Google Chrome with full screen</span> to access the app</h4>
         
         <ul class="inst-list" style="margin-right: 5%; margin-left:5%">
@@ -201,6 +201,23 @@ if(!isset($_SESSION['login_user'])){
                         <li>The last row of the medical check in section displays the stress level at each aid station. 
                         The stress levels are updated every 30 minutes, and take into patient load, staffing and supplies. 
                         Hovering over each box will display the exact stress level of the aid station.</li>
+                        <ul>
+                        <li>Stress Level 1 - No stress: 
+                            Handling patient load, plenty of available beds; plenty of staff; plenty of supplies.</li>
+ 
+                            <li>Stress Level 2 – Slight stress: 
+                            Handling patient load, available beds; staff available; good supplies. </li>
+ 
+                            <li>Stress Level 3 – Feeling pressure: 
+                            No available beds, patients spilling into street; all staff with patients, 
+                            but have support (ambulance nearby); supplies getting thin. </li>
+ 
+                            <li>Stress Level 4 – Feeling much pressure: 
+                            No available beds, patients in street; not enough staff, no support (no ambulance); diminishing supplies.</li>
+ 
+                            <li>Stress Level 5 – Overwhelmed: 
+                            Too many patients, no available beds and patients crowding street; not enough staff, no support (no ambulance); some supplies depleted.</li>
+                        </ul>
                     </ul></li>
                 </ul></li>
         </ul>

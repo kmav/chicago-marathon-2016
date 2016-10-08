@@ -108,6 +108,20 @@
                     else{
                         $longLF = floatval($_POST['longLF']); 
                 }
+                
+                if ((floatval($_POST['latT'])==0)){
+                        $latLF = $row['TurtleLat'];
+                    }
+                    else{
+                        $latLF = floatval($_POST['latT']); 
+                }
+                
+                if ((floatval($_POST['longT'])==0)){
+                        $longLF = $row['TurtleLong'];
+                    }
+                    else{
+                        $longLF = floatval($_POST['longT']); 
+                }
 
                 if ((floatval($_POST['latLMW'])==0)){
                         $latLMW = $row['LeadWheelchairMaleLat'];
@@ -152,21 +166,6 @@
                     }
                     else{
                         $longFW = floatval($_POST['longFW']); 
-                }
-                
-                if (floatval($_POST['latT'])==0){
-                    $latT = $row['TurtleLat'];
-                }
-                else{
-                    $latT = floatval($_POST['latT']); 
-                }
-                
-                
-                if (floatval($_POST['longT'])==0){
-                    $longT = $row['TurtleLong'];
-                }
-                else{
-                    $longT = floatval($_POST['longT']); 
                 }
                 
                 //echo $_POST['alert'];
@@ -243,6 +242,39 @@
                 else{
                     $shelterDisplay = 0;
                 }
+                
+                if (($_POST['shelterGP'])){
+                    $shelterGP = 1;
+                }
+                else{
+                    $shelterGP = 0;
+                }
+                
+                $latLM = $row['LeadMaleLat'];
+                $longLM = $row['LeadMaleLong'];
+                $latLF = $row['LeadFemaleLat'];
+                $longLF = $row['LeadFemaleLong'];
+                $latT = $row['TurtleLat'];
+                $longT = $row['TurtleLong'];
+                $latLWM = $row['LeadWheelchairMaleLat'];
+                $longLWM = $row['LeadWheelchairMaleLong'];
+                $latLWF = $row['LeadWheelchairFemaleLat'];
+                $longLWF = $row['LeadWheelchairFemaleLong'];
+                $latFW = $row['FinalWheelchairLat'];
+                $longFW = $row['FinalWheelchairLong'];
+                $lat350 = $row['pace350Lat'];
+                $long350 = $row['pace350Long'];
+                $lat355 = $row['pace355Lat'];
+                $long355 = $row['pace355Long'];
+                $lat425 = $row['pace425Lat'];
+                $long425 = $row['pace425Long'];
+                $lat430 = $row['pace430Lat'];
+                $long430 = $row['pace430Long'];
+                $lat500 = $row['pace500Lat'];
+                $long500 = $row['pace500Long'];
+                $lat510 = $row['pace510Lat'];
+                $long510 = $row['pace510Long'];
+                
             }
         }
         else {
@@ -252,9 +284,14 @@
         
         $sql = "INSERT INTO GeneralInformation (time, AlertStatus, temperature, windSpeed, windDirection, 
             humidity,StartedRunners, RunnersOnCourse, FinishedRunners, HospitalTransports,
-            PatientsSeen, LeadMaleLat, LeadMaleLong, LeadFemaleLat, LeadFemaleLong, LeadWheelchairMaleLat,
-            LeadWheelchairMaleLong, LeadWheelchairFemaleLat, LeadWheelchairFemaleLong,
-            FinalWheelchairLat,FinalWheelchairLong, TurtleLat, TurtleLong, Alert,emergencyCheck, AlertLat, AlertLong, shelterDisplay)
+            PatientsSeen, 
+            LeadMaleLat, LeadMaleLong, LeadFemaleLat, LeadFemaleLong, TurtleLat, TurtleLong,
+            LeadWheelchairMaleLat,LeadWheelchairMaleLong, LeadWheelchairFemaleLat, LeadWheelchairFemaleLong,
+            FinalWheelchairLat, FinalWheelchairLong,
+            pace350Lat, pace350Long, pace355Lat, pace355Long,
+            pace425Lat, pace425Long, pace430Lat, pace430Long, 
+            pace500Lat, pace500Long, pace510Lat, pace510Long,
+            Alert,emergencyCheck, AlertLat, AlertLong,shelterDisplay,shelterGP)
             VALUES (
                 NOW(),
                 ".$alertStatus.",
@@ -263,27 +300,44 @@
                 \"".$windDirection."\",
                 ".$humidity.",
                 ".$started.",
-                ".$runnersOc.",
+                ".$runnersOC.",
                 ".$finished.",
                 ".$transports.",
                 ".$pSeen.",
+                
                 ".$latLM.",
                 ".$longLM.",
                 ".$latLF.",
                 ".$longLF.",
-                ".$latLMW.",
-                ".$longLMW.",
-                ".$latLFW.",
-                ".$longLFW.",
-                ".$latFW.",
-                ".$longFW.",
                 ".$latT.",
                 ".$longT.",
+                
+                ".$latLWM.",
+                ".$longLWM.",
+                ".$latLWF.",
+                ".$longLWF.",
+                ".$latFW.",
+                ".$longFW.",
+                
+                ".$lat350.",
+                ".$long350.",
+                ".$lat355.",
+                ".$long355.",
+                ".$lat425.",
+                ".$long425.",
+                ".$lat430.",
+                ".$long430.",
+                ".$lat500.",
+                ".$long500.",
+                ".$lat510.",
+                ".$long510.",
+                
                 \"".$alert."\" ,
                 ".$emergencyCheck.",
                 ".$latAl.",
                 ".$longAl.",
-                ".$shelterDisplay."
+                ".$shelterDisplay.",
+                ".$shelterGP."
                 );";
                 
                     
@@ -297,12 +351,12 @@
         
         $myfile = fopen("data/gen_info.csv","w") or die("Error opening file");
         
-        $txt = "AlertStatus,temperature,windSpeed,windDirection,humidity,";
-        $txt = $txt."runnersStarted,runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,";
+        $txt = "AlertStatus,temperature,windSpeed,windDirection,humidity,runnersStarted,";
+        $txt = $txt."runnersOnCourse,runnersFinished,hospitalTransports,patientsSeen,";
         $txt = $txt."LeadMaleRunnerLat,LeadMaleRunnerLong,LeadFemaleRunnerLat,LeadFemaleRunnerLong,";
-        $txt = $txt."LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,";
-        $txt = $txt."FinalWheelchairLat,FinalWheelchairLong,";
-        $txt = $txt."TurtleLat,TurtleLong,Alert,emergencyCheck,AlertLat,AlertLong,shelterDisplay\n";
+        $txt = $txt."FinalRunnerLat,FinalRunnerLong,";
+        $txt = $txt."LeadWheelchairMaleLat,LeadWheelchairMaleLong,LeadWheelchairFemaleLat,LeadWheelchairFemaleLong,FinalWheelchairLat,FinalWheelchairLong,";
+        $txt = $txt."pace350Lat,pace350Long,pace355Lat,pace355Long,pace425Lat,pace425Long,pace430Lat,pace430Long,pace500Lat,pace500Long,pace510Lat,pace510Long,Alert,emergencyCheck,AlertLat,AlertLong,shelterDisplay,shelterGP\n";
         
         $txt = $txt.$alertStatus.",";
         $txt = $txt.$temperature.",";
@@ -314,23 +368,40 @@
         $txt = $txt.$finished.",";
         $txt = $txt.$transports.",";
         $txt = $txt.$pSeen.",";
+        
         $txt = $txt.$latLM.",";
         $txt = $txt.$longLM.",";
         $txt = $txt.$latLF.",";
         $txt = $txt.$longLF.",";
-        $txt = $txt.$latLMW.",";
-        $txt = $txt.$longLMW.",";
-        $txt = $txt.$latLFW.",";
-        $txt = $txt.$longLFW.",";
-        $txt = $txt.$latFW.",";
-        $txt = $txt.$longFW.",";
         $txt = $txt.$latT.",";
         $txt = $txt.$longT.",";
+
+        $txt = $txt.$latLWM.",";
+        $txt = $txt.$longLWM.",";
+        $txt = $txt.$latLWF.",";
+        $txt = $txt.$longLWF.",";
+        $txt = $txt.$latFW.",";
+        $txt = $txt.$longFW.",";
+        
+        $txt = $txt.$lat350.",";
+        $txt = $txt.$long350.",";
+        $txt = $txt.$lat355.",";
+        $txt = $txt.$long355.",";
+        $txt = $txt.$lat425.",";
+        $txt = $txt.$long425.",";
+        $txt = $txt.$lat430.",";
+        $txt = $txt.$long430.",";
+        $txt = $txt.$lat500.",";
+        $txt = $txt.$long500.",";
+        $txt = $txt.$lat510.",";
+        $txt = $txt.$long510.",";
+        
         $txt = $txt."\"".$alert."\",";
         $txt = $txt.$emergencyCheck.",";
         $txt = $txt.$latAl.",";
         $txt = $txt.$longAl.",";
-        $txt = $txt.$shelterDisplay;
+        $txt = $txt.$shelter.",";
+        $txt = $txt.$shelterGP;
         
         echo $txt;
         

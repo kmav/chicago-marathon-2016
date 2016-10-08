@@ -82,6 +82,7 @@ function displayInfo(data){
     var message = data[0].Alert;
     
     var shelterDisplay = data[0].shelterDisplay;
+    var shelterGP = data[0].shelterGP;
     
     //display runners finished
     
@@ -239,6 +240,81 @@ if (shelterDisplay==1){
     }
     
     d3.csv("data/shelters.csv", function(err, data) {
+      var dots = g.selectAll("circle.dot")
+        .data(data)
+      //("data on shelters:")
+      console.table(data);
+      dots.enter().append("circle").classed("dot", true)
+      .attr("r", 1)
+      .style({
+        fill: "#FFFFFF",
+        "fill-opacity": 0.9,
+        stroke: "#004d60",
+        "stroke-width": 1
+      })
+      .transition().duration(1000)
+      .attr("r", 6)
+      
+      
+      function render() {
+        // We need to reposition our SVG and our containing group when the map
+        // repositions via zoom or pan
+        // https://github.com/zetter/voronoi-maps/blob/master/lib/voronoi_map.js
+        var bounds = map.getBounds();
+        var topLeft = map.latLngToLayerPoint(bounds.getNorthWest())
+        var bottomRight = map.latLngToLayerPoint(bounds.getSouthEast())
+        svg.style("width", map.getSize().x + "px")
+          .style("height", map.getSize().y + "px")
+          .style("left", topLeft.x + "px")
+          .style("top", topLeft.y + "px");
+        g.attr("transform", "translate(" + -topLeft.x + "," + -topLeft.y + ")")
+        g.attr("z-index",10);
+
+        // We reproject our data with the updated projection from leaflet
+        g.selectAll("circle.dot")
+        .attr({
+          cx: function(d) { return project(d).x},
+          cy: function(d) { return project(d).y},
+        })
+        // .call(function(d){
+        //     d3.select(this).moveToFront();
+        // })
+
+      };
+
+      // re-render our visualization whenever the view changes
+      map.on("viewreset", function() {
+        render();
+      })
+      map.on("move", function() {
+        render();
+      })
+
+      // render our initial visualization
+      render();
+    });
+}
+
+if (shelterGP==1){
+    //("now I'll put the dots on the map");
+
+
+//// shelters
+    // Setup our svg layer that we can manipulate with d3
+    var svg = d3.select(map.getPanes().overlayPane)
+      .append("svg");
+    var g = svg.append("g").attr("class", "leaflet-zoom-hide");
+    
+    function project(ll) {
+        ////('projecting:');
+      // our data came from csv, make it Leaflet friendly
+      var a = [+ll.lat, +ll.lon]; 
+      // convert it to pixel coordinates
+      var point = map.latLngToLayerPoint(L.latLng(ll))
+      return point;
+    }
+    
+    d3.csv("data/shelters_gp.csv", function(err, data) {
       var dots = g.selectAll("circle.dot")
         .data(data)
       //("data on shelters:")

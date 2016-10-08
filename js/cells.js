@@ -75,7 +75,14 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
 					var xPosition = xOffset + parseFloat(d3.select(this).attr("x")) ;
 					var yPosition = parseFloat(d3.select(this).attr("y"))+150; //+ h/2;
 					d3.select("#tooltip")
-						.style("left", d3.event.pageX + "px")
+						.style("left", function(){
+						  if(d3.event.pageX>1000){
+						  return d3.event.pageX - gridSize*8
+						  }
+						  else{
+						  return d3.event.pageX + "px"
+						  }
+						})
 						.style("top", d3.event.pageY + "px")
 						.select("#value")
 						.text(function() {
@@ -196,7 +203,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
             .style("text-anchor", "middle")
             .style("font-size" , "9")
             .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-            .attr("class", function(d, i) { return ((true) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+            .attr("class", function(d, i) { return ((true) ? "timeLabel axis-worktime" : "timeLabel mono axis"); });
 
     
 };

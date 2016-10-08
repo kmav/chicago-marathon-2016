@@ -280,7 +280,8 @@ if(!isset($_SESSION['login_user'])){
             
             <div class='emergBox' style='height:auto;'>
                 <div class='Titles'>Shelter Display</div>
-                    <input type='checkbox' id='shelterDisplay' name='shelterDisplay'>Display ALL shelters.
+                    <input type='checkbox' id='shelterDisplay' name='shelterDisplay'>Course shelters <br>
+                    <input type='checkbox' id='shelterGP' name='shelterGP'>Grant Park shelters
             </div>
         </div>
    

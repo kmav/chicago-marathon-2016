@@ -298,20 +298,28 @@ function runnerTracking(){
               longLWM: +d.LeadWheelchairMaleLong,
               latLWF: +d.LeadWheelchairFemaleLat,
               longLWF: +d.LeadWheelchairFemaleLong,
-              FWLat: +d.FinalWheelchairLat,
-              FWLong: +d.FinalWheelchairLong,
-              LMRLat: +d.LeadMaleRunnerLat,
-              LMRLong: +d.LeadMaleRunnerLong,
-              LFRLat: +d.LeadFemaleRunnerLat,
-              LFRLong: +d.LeadFemaleRunnerLong,
-              TurtleLat: +d.TurtleLat,
-              TurtleLong: +d.TurtleLong,
-              pace310Lat: +d.pace310Lat,
-              pace310Long: +d.pace310Long,
-              pace410Lat: +d.pace410Lat,
-              pace410Long: +d.pace410Long,
-              pace510Lat: +d.pace510Lat,
-              pace510Long: +d.pace510Long
+              latFW: +d.FinalWheelchairLat,
+              longFW:+d.FinalWheelchairLong,
+              
+              latLM: +d.LeadMaleLat,
+              longLM: +d.LeadMaleLong,
+              latLF: +d.LeadFemaleLat,
+              longLF: +d.LeadFemaleLong,
+              latT: +d.TurtleLat,
+              longT: +d.TurtleLong,
+              
+              lat350: +pace350Lat,
+              long350: +pace350Long,
+              lat355: +pace355Lat,
+              long355: +pace355Long,
+              lat425: +pace425Lat,
+              long425: +pace425Long,
+              lat430: +pace430Lat,
+              long430: +pace430Long,
+              lat500: +pace500Lat,
+              long500: +pace500Long,
+              lat510: +pace510Lat,
+              long510: +pace510Long
           };
       
       }, function(error, rows) {
@@ -354,7 +362,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].FWLong,rows[0].FWLat]
+          "coordinates": [rows[0].longFW,rows[0].latFW]
         },
         "properties": {
           "icon": {
@@ -369,7 +377,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].LMRLong,rows[0].LMRLat]
+          "coordinates": [rows[0].longLM,rows[0].latLM]
         },
         "properties": {
           "icon": {
@@ -385,7 +393,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].LFRLong,rows[0].LFRLat]
+          "coordinates": [rows[0].longLF,rows[0].latLF]
         },
         "properties": {
           "icon": {
@@ -400,7 +408,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].TurtleLong,rows[0].TurtleLat]
+          "coordinates": [rows[0].longT,rows[0].latT]
         },
         "properties": {
           "icon": {
@@ -415,12 +423,12 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].pace310Long,rows[0].pace310Lat]
+          "coordinates": [rows[0].long350,rows[0].lat350]
         },
         "properties": {
           "icon": {
             "className": "my-icon icon-dc", // class name to style
-            "html": "3:10", // add content inside the marker
+            "html": "3:50", // add content inside the marker
             "iconSize": null // size of icon, use null to set the size in CSS
           }
         }
@@ -430,12 +438,12 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].pace410Long,rows[0].pace410Lat]
+          "coordinates": [rows[0].long355,rows[0].lat355]
         },
         "properties": {
           "icon": {
             "className": "my-icon icon-dc", // class name to style
-            "html": "4:10", // add content inside the marker
+            "html": "3:55", // add content inside the marker
             "iconSize": null // size of icon, use null to set the size in CSS
           }
         }
@@ -445,7 +453,52 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].pace510Long,rows[0].pace510Lat]
+          "coordinates": [rows[0].long425,rows[0].lat425]
+        },
+        "properties": {
+          "icon": {
+            "className": "my-icon icon-dc", // class name to style
+            "html": "4:25", // add content inside the marker
+            "iconSize": null // size of icon, use null to set the size in CSS
+          }
+        }
+        };
+        geojson[9]=
+        {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [rows[0].long430,rows[0].lat430]
+        },
+        "properties": {
+          "icon": {
+            "className": "my-icon icon-dc", // class name to style
+            "html": "4:30", // add content inside the marker
+            "iconSize": null // size of icon, use null to set the size in CSS
+          }
+        }
+        };
+        geojson[10]=
+        {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [rows[0].long500,rows[0].lat500]
+        },
+        "properties": {
+          "icon": {
+            "className": "my-icon icon-dc", // class name to style
+            "html": "5:00", // add content inside the marker
+            "iconSize": null // size of icon, use null to set the size in CSS
+          }
+        }
+        };
+        geojson[11]=
+        {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [rows[0].long510,rows[0].lat510]
         },
         "properties": {
           "icon": {
@@ -625,6 +678,34 @@ var geojson = [
     }
   },
   {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-77.031952,38.913184]
+    },
+    "properties": {
+      "icon": {
+        "className": "my-icon icon-dc", // class name to style
+        "html": "&#9733;", // add content inside the marker
+        "iconSize": null // size of icon, use null to set the size in CSS
+      }
+    }
+  },
+    {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-77.031952,38.913184]
+    },
+    "properties": {
+      "icon": {
+        "className": "my-icon icon-dc", // class name to style
+        "html": "&#9733;", // add content inside the marker
+        "iconSize": null // size of icon, use null to set the size in CSS
+      }
+    }
+  },
+    {
     "type": "Feature",
     "geometry": {
       "type": "Point",

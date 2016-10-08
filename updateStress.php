@@ -105,8 +105,8 @@ include('php/isMobile.php');
         //$txt = "Location,StationType,timeUpdate,ATC,Attending,Res_Fellow,EMT,Massage,PA,PT,RN_NP,DPM,Med_Records,Display,ATC_Recruit,Attending_Recruit,Res_Fellow_Recruit,EMT_Recruit,Massage_Recruit,PA_Recruit,PT_Recruit,RN_NP_Recruit,DPM_Recruit,Med_Records_Recruit,Stress\n";
         $profesh = array('ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records');
 
-        $txt = "professional,day,hour,value,display\n";
-        $myfile = fopen("data/MedCheckInTest.csv","w") or die("unable to open file!");
+        $txt = "aidStation,zone,stress\n";
+        $myfile = fopen("data/allStress.csv","w") or die("unable to open file!");
         fwrite($myfile,$txt);
         $counter=1;
 
@@ -116,62 +116,26 @@ include('php/isMobile.php');
             //echo $station["Key"];
             //echo $counter;
             //write a new line
+            
+            $stressPercentage = $station["Stress"];
+            
+            
+            $x = 1;
             $txt = "";
-            
-            $stressPercentage = 1;
-            $stressPercentage = 1 - $station["Stress"]/5;
-            
-            // if($station["Stress"]==1){
-            //     $stressPercentage = 1;
-            // }
-            // elseif($station["Stress"] <= 3){
-            //     $stressPercentage = 0.75;
-            // }
-            // else{
-            //     $stressPercentage = 0;
-            // }
-            
-            
-            $x = 0;
-            $txt = "";
-            $txt = $txt."Stress,";
-            $txt = $txt.$x.",";
             $txt = $txt.$counter.",";
-            $txt = $txt.$stressPercentage.",";
+            
+            $zone = floor(($counter-1) / 5);
+            
+            $txt = $txt.$zone.",";
 
-            $txt = $txt.$station['Display']."\n";
+            $txt = $txt.$stressPercentage."\n";
             
 
             fwrite($myfile,$txt);
             
-            for ($x = 1; $x < count($profesh) + 1; $x++ ){
-                    // $txt = $counter."\t";
-                    // $txt = $txt.$x."\t";
-                    $txt = "";
-                    $txt = $txt.$profesh[$x-1].",";
-                    $txt = $txt.$x.",";
-                    $txt = $txt.$counter.",";
-                    
-                    $recruit = $station[$profesh[$x-1]."_Recruit"];
-                    $type = $station[$profesh[$x-1]];
-                    
-                    if ($recruit == 0){
-                        $recruitPercentage = 1;
-                    }
-                    else{
-                        $recruitPercentage = $type / $recruit;
-                    }
-                    
-                    
-                    $txt = $txt.$recruitPercentage.",";
-                    $txt = $txt.$station['Display']."\n";
-                    
-                    
-                    fwrite($myfile,$txt);
-            }
-            
             
 
+        
 
                 $counter++;   
             

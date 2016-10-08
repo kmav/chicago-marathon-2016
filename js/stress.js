@@ -23,116 +23,125 @@ function filterHour(data){
 
 function drawMedCheckIn(data){
 var margin = { top: 25, right: 0, bottom: 0, left:100 },
-          width = document.getElementById('chart2').offsetWidth - margin.left - margin.right,
-          height = document.getElementById('chart2').offsetHeight,
-          gridSize = Math.floor(height / 5 ),
+          width = document.getElementById('chart').offsetWidth - margin.left - margin.right,
+          height = document.getElementById('chart').offsetHeight,
+          gridSize = Math.floor(height / 6 ),
           legendElementWidth = gridSize*2,
           buckets = 2,
-          colors = ['#990000', '#ffff00','#009933' ], // alternatively colorbrewer.YlGnBu[9]
+          colors = ['white','green','yellow','#ff6600', '#cc3300', 'red'], // alternatively colorbrewer.YlGnBu[9]
           professional= ['Stress'],
           aidStation = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
           //datasets = ["../data/MedCheckInTest.csv"];
-          data = data.filter(filterAS_CheckIn);
           
       var hours = filterHour(data);
-      var gridSize1 = Math.floor(width / (hours.length * 1.25));
+      var gridSize1 = Math.floor(width / 6);
 
           //datasets = data.filterAS_CheckIn("../data/MedCheckInTest.csv");
           //aidStation = data.filter(getLocation)
       var profesh = ['Stress'];
 
-      var svg = d3.select("#chart2").append("svg")
+      var svg = d3.select("#chart").append("svg")
           .attr("width", width + margin.right + margin.left)
           .attr("height", height)
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
           
-          var colorScale = d3.scale.quantile()
-              .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
-              .range(colors);
-
+          
           var cards = svg.selectAll(".hour")
-              .data(data, function(d) {return d.day+':'+d.hour;});
+              .data(data);
 
           cards.append("title");
 
           cards.enter().append("rect")
-              .attr("x", function(d, i) { return i * gridSize1; })
-              .attr("y", function(d) { return (d.day - 1) * gridSize; })
+              .attr("x", function(d, i) { return ((d.aidStation -1) % 5) * gridSize1; })
+              .attr("y", function(d) { 
+                console.log(d.zone);
+                return (d.zone) * gridSize; 
+              })
               .attr("rx", 4)
               .attr("ry", 4)
               .attr("class", "hour bordered")
               .attr("width", gridSize1)
               .attr("height", gridSize)
-              .style("fill", colors[0]);
+              .style("fill", function(d) {return colors[parseInt(d.stress)]; });
 
           cards.transition().duration(1000)
-              .style("fill", function(d) { return colorScale(d.value); });
+              .style("fill", function(d) { return colors[parseInt(d.stress)]; });
 
-          cards.select("title").text(function(d) { return d.value; });
+          cards.select("title").text(function(d) { return d.stress; });
           
           cards.exit().remove();
 
 
           var legend = svg.selectAll(".legend")
-              .data([0].concat(colorScale.quantiles()), function(d) { return d; });
+              .data([0,1,2,3,4,5]);
 
           legend.enter().append("g")
               .attr("class", "legend");
 
           legend.append("rect")
-            .attr("x", function(d, i) { return legendElementWidth * i + 30; })
+            .attr("x", function(d, i) { return gridSize1 * (i-1) ; })
             .attr("y", height-90)
-            .attr("width", legendElementWidth)
+            .attr("width", gridSize1)
             .attr("height", gridSize / 2)
             .style("fill", function(d, i) { return colors[i]; });
 
+          legend.append("text")
+            .attr("x", function(d, i) { return gridSize1 * (i-1) + (gridSize1/2); })
+            .attr("y", height-70)
+            .text(function(d,i) { return i; })
+            .attr("height", gridSize / 2)
+            .attr("class", "axis-worktime")
+            .style("text-anchor", "middle")
+            .style("font-size" , "9")
+  
 
 
+          //   svg.append("text")
+          //   .attr("class", "mono")
+          //   .text(function() { return "Percentage Checked In"; })
+          //   .attr("x", function() { return legendElementWidth * 0 + 35; })
+          //   .attr("y", height + gridSize - 120 );
+            
 
-            svg.append("text")
-            .attr("class", "mono")
-            .text(function() { return "Percentage Checked In"; })
-            .attr("x", function() { return legendElementWidth * 0 + 35; })
-            .attr("y", height + gridSize - 120 );
-            
-            
-          svg.append("text")
-            .attr("class", "mono")
-            .text(function() { return "< " + 33 + "%"; })
-            .attr("x", function() { return legendElementWidth * 0 + 30; })
-            .attr("y", height + gridSize - 90);
-
-            
-          svg.append("text")
-            .attr("class", "mono")
-            .text(function() { return "< " + 66 + "%"; })
-            .attr("x", function() { return legendElementWidth * 1 + 30; })
-            .attr("y", height + gridSize - 90);
-            
-          svg.append("text")
-            .attr("class", "mono")
-            .text(function() { return "< " + 100 + "%"; })
-            .attr("x", function() { return legendElementWidth * 2 + 30; })
-            .attr("y", height + gridSize - 90);    
-          
 
           legend.exit().remove();
-
           
-          var dayLabels = svg.selectAll(".dayLabel")
-          .data(professional)
+        var zones = ['Zone A', 'Zone B', 'Zone C', 'Zone D'];
+
+        var dayLabels = svg.selectAll(".dayLabel")
+          .data(zones)
           .enter().append("text")
             .text(function (d,i) { return d; })
             .attr("x", 0)
-            .attr("y", function (d, i) { return i * gridSize -25; })
+            .attr("y", function (d, i) { 
+              return (i) * gridSize - 0; 
+              
+            })
             .style("text-anchor", "end")
             .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
-            .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+            .attr("class", function (d, i) { return ((true) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
 
+
+        var timeLabels = svg.selectAll(".timeLabel")
+          .data(data)
+          .enter().append("text")
+            .text(function(d) {
+              return (d.aidStation); 
+            })
+              .attr("x", function(d, i) { return ((d.aidStation -1) % 5) * gridSize1; })
+              .attr("y", function(d) { 
+                return (d.zone) * gridSize + (gridSize/1.5); 
+              })
+            .style("text-anchor", "middle")
+            .style("font-size" , "9")
+            .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+            .attr("class", function(d, i) { return ((true) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+
+    
 
         
     
 };
 
-d3.csv('data/stress.csv',drawMedCheckIn);
+d3.csv('data/allStress.csv',drawMedCheckIn);
