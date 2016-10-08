@@ -66,7 +66,7 @@ function draw(data){
 
     //now
     svg.append("text")
-      .attr("x",width-20)
+      .attr("x",width-45)
       .attr("y",margin-30)
       .attr("text-anchor","left")
       .attr("font-size",'12px')
@@ -74,15 +74,15 @@ function draw(data){
       
     //30 min
     svg.append("text")
-      .attr("x",width-20)
+      .attr("x",width-45)
       .attr("y",margin-13)
       .attr("text-anchor","left")
-      .attr("font-size",'12px')
+      .attr("font-size",'1px')
       .text("In 30 minutes");
     
     //blue
     svg.append("rect")
-      .attr("x",width-50)
+      .attr("x",width-70)
       .attr("y",margin-40)
       .attr("width",20)
       .attr("height",10)
@@ -90,7 +90,7 @@ function draw(data){
     
     //red
     svg.append("rect")
-      .attr("x",width-50)
+      .attr("x",width-70)
       .attr("y",margin-22)
       .attr("width",20)
       .attr("height",10)

@@ -43,7 +43,7 @@ function generateLines() {
     var runnerData = d3.csv('data/Densities.csv', function(error, data) {
 
         var minute = getMinute();
-        console.log("Minute: " + minute);
+        //("Minute: " + minute);
         minute = minute;
         var data = data[parseInt(minute/2)];
         //(data);
@@ -61,7 +61,7 @@ function generateLines() {
 
             var runners = +data[i+2];
             //set properties of that segment i
-            console.log("runners" + runners);
+            //("runners" + runners);
             var segmentStyle = {
                 number: i + 1,
                 color: 'green',
@@ -476,13 +476,13 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYnBleW5ldHRpIiwiYSI6IjNjMjQ0NTM4MTE0MmM0ODkwY
 //if index or normal: 
 if (window.innerWidth < window.innerHeight){
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
-      .setView([41.8955, -87.643], 12); //OLD for both desktop/vertical is .setView([41.8955, -87.648], 13);
+      .setView([41.8955, -87.643], 13); //OLD for both desktop/vertical is .setView([41.8955, -87.648], 13);
   var size = "medium";
 }
 else {
   //if desktop or desktop2:
   var map = L.mapbox.map('map', 'bpeynetti.ed1c07fe')
-      .setView([41.8955, -87.626], 12);
+      .setView([41.8955, -87.616], 12);
   var size = "small";
 }
 

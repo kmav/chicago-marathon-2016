@@ -8,7 +8,7 @@ function drawFull(data){
   var minute = getMinute();
   
   minute = minute - minute%minuteInterval;
-  console.log(minute);
+  //(minute);
  var margin = 15;
  var margins = {top: 20, right: 30, bottom: 30, left: 40};
     
@@ -38,7 +38,7 @@ function drawFull(data){
     
   var barWidth = 10;
   
-  console.log("Width is "+barWidth);
+  //("Width is "+barWidth);
   barWidth = 1;
 
   y.domain([0,d3.max(RaceData,function(d) {
@@ -123,7 +123,7 @@ function drawHalf(data){
   var minute = getMinute();
   
   minute = minute - minute%minuteInterval;
-  console.log(minute);
+  //(minute);
  var margin = 15;
  var margins = {top: 20, right: 0, bottom: 30, left: 40};
     
@@ -150,11 +150,11 @@ function drawHalf(data){
     .domain(data.map(function(d) { return d.Mile; }))
     .rangeRoundBands([margins.left,width], 0.1);
  
-  console.log("return value for 1:"+x(1));
-  console.log("return value for 9" +x("9"));
+  //("return value for 1:"+x(1));
+  //("return value for 9" +x("9"));
 
-  console.log(yScaleBoth);
-  console.log("\n\n\n\n\n\n\n\n\n")
+  //(yScaleBoth);
+  //("\n\n\n\n\n\n\n\n\n")
   y.domain([0,yScaleBoth]);
 
   var barWidth = width/RaceData.length;

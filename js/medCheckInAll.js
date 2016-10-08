@@ -22,7 +22,7 @@ function filterHour(data){
 
 
 function drawMedCheckIn(data){
-var margin = { top: 50, right: 0, bottom: 0, left:100 },
+var margin = { top: 50, right: 0, bottom: 0, left:document.getElementById('chart').offsetWidth*.15 },
           width = document.getElementById('chart').offsetWidth - margin.left - margin.right,
           height = document.getElementById('chart').offsetHeight,
           gridSize = Math.floor(height / 16 ),
@@ -32,8 +32,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
           professional= ['Stress' , 'ATC', 'Attending', 'Res/Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN/NP', 'DPM', 'Records'],
           aidStation = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
           //datasets = ["../data/MedCheckInTest.csv"];
-          data = data.filter(filterAS_CheckIn);
-          
+
       var hours = filterHour(data);
       var gridSize1 = Math.floor(width / (hours.length * 1.25));
 
@@ -74,6 +73,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
 					var xOffset = document.getElementById("mod3").offsetWidth*2.8;
 					var xPosition = xOffset + parseFloat(d3.select(this).attr("x")) ;
 					var yPosition = parseFloat(d3.select(this).attr("y"))+150; //+ h/2;
+					
 					d3.select("#tooltip")
 						.style("left", d3.event.pageX + "px")
 						.style("top", d3.event.pageY + "px")
@@ -122,7 +122,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
               .attr("class", "legend");
 
           legend.append("rect")
-            .attr("x", function(d, i) { return legendElementWidth * i + 30; })
+            .attr("x", function(d, i) { return legendElementWidth * i + document.getElementById('chart').offsetWidth*.0; })
             .attr("y", height-95)
             .attr("width", legendElementWidth)
             .attr("height", gridSize / 2)
@@ -138,8 +138,8 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
             svg.append("text")
             .attr("class", "mono")
             .text(function() { return "Percentage Checked In"; })
-            .attr("x", function() { return legendElementWidth * 0 + 35; })
-            .attr("y", height + gridSize - 120 );
+            .attr("x", function() { return legendElementWidth * 0.5; })
+            .attr("y", height + gridSize - 150 );
             
             
           svg.append("text")

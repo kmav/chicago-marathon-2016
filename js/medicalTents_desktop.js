@@ -50,9 +50,9 @@ function drawMedicalTents(data){
 			//and use Comments or other stuff to figure out how full it is
 
 	var w = document.getElementById('medical').offsetWidth * 0.93;
-	var h = document.getElementById('medical').offsetHeight*0.70;
+	var h = document.getElementById('medical').offsetHeight*0.75;
 	//padding
-	var p = 5;
+	var p = 10;
 
 
 	//get the x scale 
@@ -180,8 +180,8 @@ function drawMedicalTents(data){
 					var xPosition = xOffset + parseFloat(d3.select(this).attr("x")) ;
 					var yPosition = parseFloat(d3.select(this).attr("y"))+50; //+ h/2;
 					d3.select("#tooltip")
-						.style("left", xPosition + "px")
-						.style("top", yPosition + "px")
+						.style("left", d3.event.pageX + "px")
+						.style("top", (d3.event.pageY-100) + "px")
 						.select("#value")
 						.text(function() {
 							return "Current: " + d.CurrentPatients + "/"+d.Beds + " Total: " + d.CumulativePatients + " ";

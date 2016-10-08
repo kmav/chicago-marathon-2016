@@ -50,6 +50,13 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 
         <script src='js/updateAll.js' type='text/javascript'></script>
         
+        <style>
+          
+          #mod3{
+            height: 85%;
+          }
+        </style>
+        
 	</head>
 
 
@@ -91,80 +98,15 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 		
 		<div class="content">
 
-			<div id="map">
-				
-				<div id="info">
-			        <!--<p id='RunnersOnCourse'>&nbsp</p>
-			        <p id='RunnersFinished'>&nbsp</p>-->
-			        <p id='HospitalTransports'>&nbsp</p>
-			        <p id='PatientsSeen'>&nbsp</p>
-					<p id='InMedical'>&nbsp</p>
-					
-					<div id="runners_box">
-						<p id='RunnersStarted'>&nbsp</p>
-						<p id='RunnersDropped'>&nbsp</p>
-			        	<p id='RunnersFinished'>&nbsp</p>
-			        	<p id='RunnersOnCourse'>&nbsp</p>
-					</div>
-				</div>
-				
-				<div id="map_legend">
-					<p> Runners: </p>
-			        <p>0-2000 <span class="boxes green"></span></p>
-			        <p >2000-4000 <span class="boxes yellow"> </p>
-			        <p>4000-6000 <span class="boxes orange"> </p>
-			        <p>6000+ <span class="boxes red"> </p>
-				</div>
-				
-			</div>
-			
-			<script src='js/generateMaps.js' type='text/javascript'></script>
-            <script src='js/GeneralInfo.js' type='text/javascript'></script>
+    <script src='js/GeneralInfo.js' type='text/javascript'></script>
 
-
-			
-
-
-
-			<div id="sidebar">
-
-				<div id="col1">
-
-
-					<div class="medical module" id="medical">
-					    <h4> Medical Tents</h4>
-					</div>
-
-					   <script src='js/medicalTents_desktop.js' type='text/javascript'></script>
-
-					<div class="density module" id="densityplotWrap">
-						<h4> Runners Per Mile </h4>
-                         <script src='js/densityLine.js' type='text/javascript'></script>
-					</div>
-
-				</div>
-
-				<div id="col2">
 
 					<div class="module" id="mod3">
 						<h4> Medical Staffing </h4>
 							<div id="chart"></div>
-						<script src = "js/cells.js" type = "text/javascript"></script>
-					</div>
-
-					<div class="module" id="mod4">
-						
-						<h4> Weather </h4>
-						<div id="weather">
-
-					    <script src="js/weather.js"></script>
-					    </div>
+						<script src = "js/medCheckInAll.js" type = "text/javascript"></script>
 					</div>
 				
-			
-				</div>
-
-			</div>
 			
 			<div id="tooltip" class="hidden">
     			<p><span id="tooltipHeader">Aid Station</span></p>
@@ -184,20 +126,12 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 
 		//First is FC, Second is Desktop
 		if (window.innerWidth < window.innerHeight){
-			document.getElementById('map').style.width = '48%';
-			document.getElementById('sidebar').style.width = '52%';
-			document.getElementById('col1').style.width = '100%';
-			document.getElementById('col2').style.width = '100%';
-			document.getElementById('col1').style.height = '50%';
-			document.getElementById('col2').style.height = '50%';
 			document.getElementById('MarathonName').style.width= '400px';
 			document.getElementById('MarathonName').style.backgroundSize =  '80%';
 			document.getElementById('NUlogo').style.display = 'none';
 			document.getElementById('raceTime').style.fontSize = '350%';
 			document.getElementById('clockTime').style.fontSize = '350%';
 			document.getElementById('alertText').style.fontSize = '170%';
-			document.getElementById('info').style.fontSize = '225%';
-			document.getElementById('runners_box').style.width = '75%';
 			setTimeout(function(){
 							var text = document.getElementsByTagName("text");
 			for (var i=0; i<text.length; i++){
@@ -209,20 +143,12 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 
 		}
 		else{
-			document.getElementById('map').style.width = '33%';
-			document.getElementById('sidebar').style.width = '66%';
-			document.getElementById('col1').style.width = '49.5%';
-			document.getElementById('col2').style.width = '49.5%';
-			document.getElementById('col1').style.height = '100%';
-			document.getElementById('col2').style.height = '100%';
 			document.getElementById('MarathonName').style.width= '20%';
 			document.getElementById('MarathonName').style.backgroundSize = '100%';
 			document.getElementById('NUlogo').style.display = 'inline-block';
 			document.getElementById('raceTime').style.fontSize = '150%';
 			document.getElementById('clockTime').style.fontSize = '150%';
 			document.getElementById('alertText').style.fontSize = '100%';
-			document.getElementById('info').style.fontSize = '100%';
-			document.getElementById('runners_box').style.width = '35%';
 			setTimeout(function(){
 							var text = document.getElementsByTagName("text");
 			for (var i=0; i<text.length; i++){

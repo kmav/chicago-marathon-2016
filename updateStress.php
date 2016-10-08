@@ -119,16 +119,17 @@ include('php/isMobile.php');
             $txt = "";
             
             $stressPercentage = 1;
+            $stressPercentage = 1 - $station["Stress"]/5;
             
-            if($station["Stress"]==1){
-                $stressPercentage = 1;
-            }
-            elseif($station["Stress"] <= 3){
-                $stressPercentage = 0.75;
-            }
-            else{
-                $stressPercentage = 0;
-            }
+            // if($station["Stress"]==1){
+            //     $stressPercentage = 1;
+            // }
+            // elseif($station["Stress"] <= 3){
+            //     $stressPercentage = 0.75;
+            // }
+            // else{
+            //     $stressPercentage = 0;
+            // }
             
             
             $x = 0;
@@ -147,12 +148,12 @@ include('php/isMobile.php');
                     // $txt = $counter."\t";
                     // $txt = $txt.$x."\t";
                     $txt = "";
-                    $txt = $txt.$profesh[$x].",";
+                    $txt = $txt.$profesh[$x-1].",";
                     $txt = $txt.$x.",";
                     $txt = $txt.$counter.",";
                     
-                    $recruit = $station[$profesh[$x]."_Recruit"];
-                    $type = $station[$profesh[$x]];
+                    $recruit = $station[$profesh[$x-1]."_Recruit"];
+                    $type = $station[$profesh[$x-1]];
                     
                     if ($recruit == 0){
                         $recruitPercentage = 1;

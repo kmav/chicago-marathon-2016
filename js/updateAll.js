@@ -7,7 +7,7 @@ var AidStations = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 var timeMultiplier = 2;
 var yScaleBoth = 0;
 
-var SetHour = 18;
+var SetHour = 14;
 var SetMinute = 0;
 var SetSecond = 3;
 
@@ -157,7 +157,7 @@ function updateClock()
 	// 	SetMinute = currentMinutes;
 	// }
 	
-	// console.log(SetHour);
+	// //(SetHour);
 	
 	var startTime = new Date();
 	startTime.setHours(SetHour);
@@ -208,7 +208,7 @@ function redrawAS(data){
 	//padding
 	var AidStationDataset = [];
 	var AidStationDataset =  data.filter(filterAidStations);
-	console.log(AidStationDataset);
+	//(AidStationDataset);
 	
 	if (AidStationDataset.length<3){
 		AidStationDataset = data.filter(easyFilter);
@@ -381,7 +381,7 @@ function updateDensity()
 		
 		var RaceData = data.filter(filterByMinute);
 		
-		console.log(RaceData);
+		//(RaceData);
 
 		  y.domain([0,d3.max(RaceData,function(d) {
     		return (parseInt((+d.Runners)/1000)+1)*1000;
@@ -494,7 +494,7 @@ function redrawMT(data){
 function displayInfo(data){
     //(data);
     
-    console.log("displayInfo");
+    //("displayInfo");
     
 	var run = data[0].runnersOnCourse;
     var runnersFinished = data[0].runnersFinished;
@@ -538,7 +538,7 @@ function displayInfo(data){
     d3.select("#header")
         .attr("class",function(){
             //(Status);
-            console.log(Status);
+            //(Status);
             switch (+Status){
                 case 0:
                     return 'green';
@@ -564,11 +564,11 @@ function displayInfo(data){
     .text(windspeed + " mph " + winddirec + ", RH: " + humidity + "%");
         
 }
-	console.log(+Status);
+	//(+Status);
     d3.select("#MarathonName")
         .attr("class",function(){
             if ((+Status)==1){
-            	console.log("black logo");
+            	//("black logo");
                 return 'black';
             }
             else{
@@ -645,7 +645,7 @@ function displayInfo(data){
 // }
 // var alertMarker;
 function updateAidStations() {
-	//console.log("updating aid station");
+	////("updating aid station");
 	d3.csv("data/AidStations.csv",redrawMT);
 	//d3.csv("data/AidStations.csv",redrawAS);
 	
@@ -656,7 +656,7 @@ function updateWeather() {
 }
 
 function updateGeneral(){
-	console.log("updateGen");
+	//("updateGen");
 	d3.csv("data/gen_info.csv",displayInfo);
 	// d3.csv("data/gen_info.csv",displayAlert);
 
@@ -677,8 +677,8 @@ function updateTrackers(){
 function filterByMinute(obj){
   var minute = getMinute();
   minute = minute - minute%minuteInterval;
-  // console.log(obj);
-  // console.log(+obj.Minute+" = "+minute);
+  // //(obj);
+  // //(+obj.Minute+" = "+minute);
   return (+obj.Minute==minute);
 }
 
@@ -703,18 +703,18 @@ function updatePage(){
 	//}
 	
 	if (updateAidStationcount==5){
-		console.log("hi");
+		//("hi");
 		updateAidStationcount=0;
 		updateAidStations();
 		updateWeather();
 		updateGeneral();
 	}
 	
-	if (window.location.pathname=="/command.php"){
+	if (window.location.pathname=="/desktop.php"){
 		var RefreshTime = 10;
 	}
 	else{
-		var RefreshTime = 40;
+		var RefreshTime = 30;
 	}
 	if (PageRefresh==RefreshTime){
 		window.location.reload(1);

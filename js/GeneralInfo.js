@@ -8,7 +8,7 @@ function getRunners(data){
     var onCourse_sim = 0;
     var elaspedMinutes = getMinute();
 
-    console.log(elaspedMinutes);
+    //(elaspedMinutes);
     
     if (elaspedMinutes > 0 && elaspedMinutes <= 500){
         
@@ -21,15 +21,15 @@ function getRunners(data){
             
            
            counter++; 
-           //console.log(counter);
+           ////(counter);
         }
         
         var dropsFactor = (0.00001 * elaspedMinutes);
-        //console.log(Math.round(dropsFactor + 0.0075));
+        ////(Math.round(dropsFactor + 0.0075));
         
         dropsFactor = Math.round(dropsFactor);
         
-        console.log(drops)
+        //(drops)
            if (elaspedMinutes > 400) {
                drops = data[250].started - data[250].finished;
            }
@@ -43,7 +43,7 @@ function getRunners(data){
                drops = data[elaspedMinutes/2].started * (0.003 + dropsFactor); //approx 15k mark
            }
            else if (elaspedMinutes > 50){
-               //console.log("Counter:"+counter)
+               ////("Counter:"+counter)
                drops = data[elaspedMinutes/2].started * (0.0005 + dropsFactor);
            }
         
@@ -53,6 +53,7 @@ function getRunners(data){
         finished = data[250].finished;
     }*/
     
+    drops = Math.round(drops);
     onCourse_sim = started_sim - drops - finished_sim;
     
     d3.select("#RunnersStarted")
@@ -86,7 +87,7 @@ function displayInfo(data){
     
     /*d3.select("#RunnersOnCourse")
     .text("On Course: " + run);*/
-    console.log(hospitalTransports)
+    //(hospitalTransports)
     d3.select("#HospitalTransports")
     .text("Hospital Transports: " + hospitalTransports);
     
@@ -114,13 +115,13 @@ function displayInfo(data){
         d3.select("#header")
         .attr("class",function(){
             //(Status);
-            console.log(Status);
+            //(Status);
             switch (+Status){
                 case 0:
                     return 'green';
                     break;
                 case 1:
-                    console.log("yellow alert")
+                    //("yellow alert")
                     return 'yellow';
                     break;
                 case 2:
@@ -219,7 +220,7 @@ alertMarker.addTo(map);
 }
 
 if (shelterDisplay==1){
-    console.log("now I'll put the dots on the map");
+    //("now I'll put the dots on the map");
 
 
 //// shelters
@@ -229,7 +230,7 @@ if (shelterDisplay==1){
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
     
     function project(ll) {
-        //console.log('projecting:');
+        ////('projecting:');
       // our data came from csv, make it Leaflet friendly
       var a = [+ll.lat, +ll.lon]; 
       // convert it to pixel coordinates
@@ -240,7 +241,7 @@ if (shelterDisplay==1){
     d3.csv("data/shelters.csv", function(err, data) {
       var dots = g.selectAll("circle.dot")
         .data(data)
-      console.log("data on shelters:")
+      //("data on shelters:")
       console.table(data);
       dots.enter().append("circle").classed("dot", true)
       .attr("r", 1)

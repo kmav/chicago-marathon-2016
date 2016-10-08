@@ -212,19 +212,19 @@ function draw(data){
       $("#target").html("Simulation on target!");
     }
     
-    console.log(count, aboveCount, belowCount);
+    //(count, aboveCount, belowCount);
  
  /*
     var now = String(minute);
     var later = String(minute+30);
     var datum = dimple.filterData(data,"Minute",[now,later])
     
-    console.log(datum);
+    //(datum);
     */
     
-    console.log(total);
-    console.log(before);
-    console.log(datum);
+    //(total);
+    //(before);
+    //(datum);
   
         
      var myChart = new dimple.chart(svg,total);
