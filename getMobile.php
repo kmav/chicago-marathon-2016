@@ -291,7 +291,7 @@ function updateClock()
 	var nowMs = currentTime.getTime();
 
 	var startTime = new Date();
-	startTime.setHours(5);
+	startTime.setHours(7);
 	startTime.setMinutes(30);
 	startTime.setSeconds(0);
 	startTime.setMilliseconds(0);
