@@ -191,7 +191,8 @@ def GenerateRunners(number_runners):
     
 def main():
 
-    con = mdb.connect(host='localhost',user='mazhang',db='c9')
+    con = mdb.connect(host='localhost',user='root',passwd='mar@1h0niem5', db='chicago2016')   
+    #con = mdb.connect(host='localhost',user='mazhang',db='c9')
     cur = con.cursor()
 
     with con:

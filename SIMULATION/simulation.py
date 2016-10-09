@@ -10,7 +10,8 @@ import sys
 #con = mdb.connect(host='localhost',user='mazhang',db='c9')
 
 #connect to the sql database
-con = mdb.connect(host='mazhang-chicagomarathon2016-1689696', user='mazhang', db='c9')
+#con = mdb.connect(host='mazhang-chicagomarathon2016-1689696', user='mazhang', db='c9')
+con = mdb.connect(host='localhost',user='root',passwd='mar@1h0niem5', db='chicago2016')
 #DictCursor returns a dictionary with keys
 cur = con.cursor(mdb.cursors.DictCursor)
 
@@ -201,7 +202,7 @@ def main():
 		# get corral data
 		# get other things
 
-	sql = "SELECT * FROM MarathonRunners where dropout=0 and minute="+str(minute)
+	sql = "SELECT * FROM MarathonRunners where minute="+str(minute)
 	print sql
 	cur.execute(sql)
 
@@ -332,8 +333,9 @@ def main():
 			#looks like we are taking the slowest runners of that 5k and moving them back on 5k
 			for i in range(moving):
 				#move those to the beginning
-				ahead_sorted[i]['position'] = s*5.00-.001
-				moved.append(ahead_sorted[i])
+				if (i < len(ahead_sorted)):
+					ahead_sorted[i]['position'] = s*5.00-.001
+					moved.append(ahead_sorted[i])
 				#print moved[-1]['position']
 		
 		#now we need to replace them in the real RunnersSorted array
