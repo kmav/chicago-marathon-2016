@@ -125,23 +125,23 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 	function mediaQueries() {
 
 		//First is FC, Second is Desktop
-		if (window.innerWidth < window.innerHeight){
-			document.getElementById('MarathonName').style.width= '400px';
-			document.getElementById('MarathonName').style.backgroundSize =  '80%';
-			document.getElementById('NUlogo').style.display = 'none';
-			document.getElementById('raceTime').style.fontSize = '350%';
-			document.getElementById('clockTime').style.fontSize = '350%';
-			document.getElementById('alertText').style.fontSize = '170%';
-			setTimeout(function(){
-							var text = document.getElementsByTagName("text");
-			for (var i=0; i<text.length; i++){
-				text[i].style.fontSize = '1.7vw';
-			}
-				
-				
-			}, 500);
 
-		}
+                if (window.innerWidth < window.innerHeight){
+                        document.getElementById('MarathonName').style.width= '400px';
+                        document.getElementById('MarathonName').style.backgroundSize =  '80%';
+                        document.getElementById('NUlogo').style.display = 'none';
+                        document.getElementById('raceTime').style.fontSize = '240%';
+                        document.getElementById('clockTime').style.fontSize = '240%';
+                        document.getElementById('alertText').style.fontSize = '170%';
+                        setTimeout(function(){
+                                                        var text = document.getElementsByTagName("text");
+                        for (var i=0; i<text.length; i++){
+                                text[i].style.fontSize = '2.4vw';
+                        }
+
+
+                        }, 500);
+                }
 		else{
 			document.getElementById('MarathonName').style.width= '20%';
 			document.getElementById('MarathonName').style.backgroundSize = '100%';
@@ -152,7 +152,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 			setTimeout(function(){
 							var text = document.getElementsByTagName("text");
 			for (var i=0; i<text.length; i++){
-				text[i].style.fontSize = '1vw';
+				text[i].style.fontSize = '1.5vw';
 			}
 				
 				
@@ -164,6 +164,7 @@ if ($_SESSION['start'] + (2*60*60) < time()) {
 	mediaQueries();
 
 	window.addEventListener("resize", mediaQueries);
+
 
 
 	</script>

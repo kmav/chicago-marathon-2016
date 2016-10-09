@@ -8,8 +8,8 @@ function draw(data){
   minute = minute - minute%minuteInterval;
    (minute);
   
-  var margin = 25;
-  var margin_top=60;
+  var margin = 20;
+  var margin_top= 50;
   var width = $("#densityplotWrap").width()-margin;
   var height= $("#densityplotWrap").height()-margin_top;
 
@@ -19,7 +19,7 @@ function draw(data){
       .attr("height",height)
     .append("g")
       .attr("class","densityChart")
-      .attr("transform", "translate(" + (1*margin) + "," + (-10) + ")");
+      .attr("transform", "translate(" + (1*margin) + "," + (-15) + ")");
       
     // dimple.js chart code
     
@@ -62,38 +62,39 @@ function draw(data){
     var line = myChart.addSeries("Minute",dimple.plot.line);
     
     //line.interpolation = "cardinal";
-    // var legend1 = myChart.addLegend('0.5%', '3%', 350, 20, "right");
+    //var legend1 = myChart.addLegend('0.5%', '3%', 350, 20, "right");
         myChart.draw();
     cleanAxis(x,2);
+    cleanAxis(y,2);
 
     //now
     svg.append("text")
-      .attr("x",width-margin)
-      .attr("y",margin_top)
+      .attr("x",width*.60 + 30)
+      .attr("y",height*.2+10)
       .attr("text-anchor","left")
       .attr("font-size",'12px')
       .text("Now");
       
     //30 min
     svg.append("text")
-      .attr("x",width-45)
-      .attr("y",100)
+      .attr("x",width*.60 + 30)
+      .attr("y",height*.13+10)
       .attr("text-anchor","left")
       .attr("font-size",'1px')
       .text("In 30 minutes");
     
     //blue
     svg.append("rect")
-      .attr("x",width-100)
-      .attr("y",70)
+      .attr("x",width*.60)
+      .attr("y",height*.2)
       .attr("width",20)
       .attr("height",10)
       .attr("fill","rgb(141,180,209)");
     
-    //red
+    //red(in30min)
     svg.append("rect")
-      .attr("x",width-100)
-      .attr("y",80)
+      .attr("x",width*.60)
+      .attr("y",height*.13)
       .attr("width",20)
       .attr("height",10)
       .attr("fill","rgb(241,138,129)");

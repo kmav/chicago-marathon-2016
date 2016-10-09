@@ -148,6 +148,21 @@ if(!isset($_SESSION['login_user'])){
                     <li>The blue circles along the course represent runners designated to hold GPS units.</li>
                     <li>GPS units will track the lead runner, lead female runner, last runner, 
                     as well as designated pacers to contextualize runner density</li>
+                    <li>Legend for the pacers on the map:
+                    <ul>
+                        <li><span style="font-style: italic">LM</span>: Lead Male Runner</li>
+                        <li><span style="font-style: italic">LW</span>: Lead Female Runner</li>
+                        <li><span style="font-style: italic">T</span>:  Final Runner</li>
+                        <li><span style="font-style: italic">LMW</span>: Lead Male Wheelchair</li>
+                        <li><span style="font-style: italic">LFW</span>: Lead Female Wheelchair</li>
+                        <li><span style="font-style: italic">FW</span>: Final Wheelchair</li>
+                        <li><span style="font-style: italic">3:50</span>: 3:50 Pacer</li>
+                        <li><span style="font-style: italic">3:55</span>: 3:55 Pacer</li>
+                        <li><span style="font-style: italic">4:20</span>: 4:20 Pacer</li>
+                        <li><span style="font-style: italic">4:25</span>: 4:25 Pacer</li>
+                        <li><span style="font-style: italic">5:00</span>: 5:00 Pacer</li>
+                        <li><span style="font-style: italic">5:10</span>: 5:10 Pacer</li>
+                    </ul></li>
                     </ul></li>
                 </ul></li>
                 <br>
@@ -212,10 +227,10 @@ if(!isset($_SESSION['login_user'])){
                             No available beds, patients spilling into street; all staff with patients, 
                             but have support (ambulance nearby); supplies getting thin. </li>
  
-                            <li>Stress Level 4 – Feeling much pressure (<span style="color:#ee7600">Dark Orange</span>): 
+                            <li>Stress Level 4 – Feeling much pressure (<span style="color:#D8822D">Dark Orange</span>): 
                             No available beds, patients in street; not enough staff, no support (no ambulance); diminishing supplies.</li>
  
-                            <li>Stress Level 5 – Overwhelmed (Red): 
+                            <li>Stress Level 5 – Overwhelmed (<span style="color:Red">Red</span>): 
                             Too many patients, no available beds and patients crowding street; not enough staff, no support (no ambulance); some supplies depleted.</li>
                         </ul>
                     </ul></li>

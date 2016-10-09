@@ -113,7 +113,7 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
             .text(function(d) {
               return (d.aidStation); 
             })
-              .attr("x", function(d, i) { return ((d.aidStation -1) % 5) * gridSize1 - 2; })
+              .attr("x", function(d, i) { return ((d.aidStation -1) % 5) * gridSize1 - 5; })
               .attr("y", function(d) { 
                 return (d.zone) * gridSize + (gridSize/1.5); 
               })

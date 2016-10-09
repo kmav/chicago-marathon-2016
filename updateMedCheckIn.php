@@ -1,6 +1,5 @@
 <?php 
 include('php/isMobile.php');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +20,6 @@ include('php/isMobile.php');
         
         <?php
         $MedCheckIn = array();
-
         $sql = "SELECT * FROM MedCheckIn";
         $result = $db->query($sql);
         
@@ -65,13 +63,10 @@ include('php/isMobile.php');
         else {
             echo "0 results";
         }
-
-
         //get the values passed to me from the form medicalCheckIn.php
         $counter = 1;
         
         $names = array('Display', 'ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records');
-
         foreach($MedCheckIn as &$station){
             //now check and/or change as needed
             
@@ -81,18 +76,14 @@ include('php/isMobile.php');
                 for ($x = 0; $x < count($names); $x++ ){
                     $station[$names[$x]] = (int)$_POST[$names[$x].$counter];
                 }
-
-
                 $str = "Display".$counter;      
                 $station["Display"] = $_POST[$str];
-
                 if ($station["Display"]==true){
                     $station["Display"]=1;
                 }
                 else{
                     $station["Display"]=0;
                 }
-
             $sql = "UPDATE MedCheckIn
                 SET timeUpdate=NOW(), Display=".$station["Display"].",ATC=".$station["ATC"] .", Attending=".$station["Attending"] .", Res_Fellow=".$station["Res_Fellow"]."
                 ,EMT=".$station["EMT"].",Massage=".$station["Massage"].",PA=".$station["PA"].",PT=".$station["PT"]."
@@ -108,18 +99,14 @@ include('php/isMobile.php');
             }
             $counter++;
         }
-
-
         
         //$txt = "Location,StationType,timeUpdate,ATC,Attending,Res_Fellow,EMT,Massage,PA,PT,RN_NP,DPM,Med_Records,Display,ATC_Recruit,Attending_Recruit,Res_Fellow_Recruit,EMT_Recruit,Massage_Recruit,PA_Recruit,PT_Recruit,RN_NP_Recruit,DPM_Recruit,Med_Records_Recruit,Stress\n";
         $profesh = array('ATC', 'Attending', 'Res_Fellow', 'EMT', 'Massage', 'PA', 'PT', 'RN_NP', 'DPM', 'Med_Records');
-
-        $txt = "aidStation, zone, stress\n";
+        $txt = "professional,day,hour,value,display\n";
         //professional is text (e.g. ATC), day is index of professional (e.g. 0), hour is which station, value is number recruited (or registered)
-        $myfile = fopen("data/allStress.csv","w") or die("unable to open file!");
+        $myfile = fopen("data/MedCheckInTest.csv","w") or die("unable to open file!");
         fwrite($myfile,$txt);
         $counter=1;
-
         foreach($MedCheckIn as $station){
             //ERROR -> for some reason, the last key and location gets changed back to 19 instead of 20
             //fixed it with a counter, but should check on this!
@@ -127,26 +114,33 @@ include('php/isMobile.php');
             //echo $counter;
             //write a new line
             
-            $stressPercentage = $station["Stress"];
             
-            
-            $x = 1;
-            $txt = "";
-            $txt = $txt.$counter.",";
-            
-            $zone = floor(($counter-1) / 5);
-            
-            $txt = $txt.$zone.",";
-
-            $txt = $txt.$stressPercentage."\n";
-            
-
-            fwrite($myfile,$txt);
-            
-            
-
+            for ($x = 0; $x < count($profesh); $x++ ){
+                    // $txt = $counter."\t";
+                    // $txt = $txt.$x."\t";
+                    $txt = "";
+                    $txt = $txt.$profesh[$x].",";
+                    $txt = $txt.$x.",";
+                    $txt = $txt.$counter.",";
+                    
+                    $recruit = $station[$profesh[$x]."_Recruit"];
+                    $type = $station[$profesh[$x]];
+                    
+                    if ($recruit == 0){
+                        $recruitPercentage = 1;
+                    }
+                    else{
+                        $recruitPercentage = $type / $recruit;
+                    }
+                    
+                    
+                    $txt = $txt.$recruitPercentage.",";
+                    $txt = $txt.$station['Display']."\n";
+                    
+                    
+                    fwrite($myfile,$txt);
+            }
         
-
                 $counter++;   
             
         }

@@ -171,7 +171,7 @@ if(!isset($_SESSION['login_user'])){
         <input type="number" name="transports" id="transports" value=0>
         </div>
  
-        <div class="genInfoBox">
+        <div class="genInfoBox" style = "visibility: hidden">
         <div class="Titles"># Runners Started: </div>
         <input type="number" name="started" id="started" value=0>
         </div>
