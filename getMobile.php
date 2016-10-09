@@ -14,7 +14,6 @@
 <body onload="updatePage(); setInterval('updatePage()',1000)">
 <?php
     include('db/connect.php');
-    include('session.php');
 ?>
 
  <ul class='menuHolder nav nav-pills'>
