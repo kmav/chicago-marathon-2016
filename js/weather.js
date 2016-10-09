@@ -7,11 +7,7 @@ function displayWeather(data) {
   var status = data[0].AlertStatus;
 
   $(document).ready(function() {
-    $.simpleWeather({
-      location: 'Chicago, IL',
-      woeid: '',
-      unit: 'f',
-      success: function(weather) {
+
         if (status==1)//alert level yellow 
         {
            html = '<h2 style="color:black"><i class="icon-' + weather.code + '" style="color:black"></i> ' + temp + '&deg;' + ' WBGT' + '</h2>';
@@ -51,12 +47,8 @@ function displayWeather(data) {
         
 
         $("#weather").html(html);
-      },
-      error: function(error) {
-        $("#weather").html('<p>' + error + '</p>');
-      }
-    });
-  });
+      });
+
 
 }
 
