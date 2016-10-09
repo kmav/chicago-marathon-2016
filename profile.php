@@ -46,20 +46,24 @@
             //echo "<br><br><span style='font-weight:normal'> After selecting the display, please allow a few seconds for data to load </span>";
             echo "<a href='desktop.php'><div class='pagelink'>Data Visualization System</div></a>";
             echo "<a href='instructions.php'><div class='pagelink'>Instruction Page</div></a>";
-
-        }
-        else {
-            echo "<a href='desktop.php'><div class='pagelink'>Main Display</div></a>";
             echo "<a href='AllMedCheckIn.php'><div class='pagelink'>Medical Staffing</div></a>";
-            echo "<a href='instructions.php'><div class='pagelink'>Instruction Page</div></a>";
+        }
+        else if ($level_session == 1){
+           // echo "<a href='desktop.php'><div class='pagelink'>Main Display</div></a>";
+            //echo "<a href='AllMedCheckIn.php'><div class='pagelink'>Medical Staffing</div></a>";
+           // echo "<a href='instructions.php'><div class='pagelink'>Instruction Page</div></a>";
 
             //echo "<a href='command.php'><div class='pagelink'>Forward Command Display </div></a>";
-            //echo "<a href='getMobile.php'><div class='pagelink'>Mobile Version</div></a>";
+            echo "<a href='getMobile.php'><div class='pagelink'>Mobile Version</div></a>";
 
         }
         
         //check for authorization to input_medical and input_geninfo.php
         if ($level_session<=0){
+            echo "<a href='desktop.php'><div class='pagelink'>Main Display</div></a>";
+            echo "<a href='AllMedCheckIn.php'><div class='pagelink'>Medical Staffing</div></a>";
+            echo "<a href='instructions.php'><div class='pagelink'>Instruction Page</div></a>";
+            echo "<a href='getMobile.php'><div class='pagelink'>Mobile Version</div></a>";
             echo "<a href='medicalCheckIn.php'><div class='pagelink'>Medical Check-In Input</div></a>";
             echo "<a href='input_medical.php'><div class='pagelink'>Medical Input</div></a>";
             echo " <a href='input_geninfo.php'><div class='pagelink'>General Input</div></a>";

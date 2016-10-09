@@ -22,14 +22,14 @@
  </ul>
 
 
-<h1>Bank of America Chicago Marathon 2015</h1>
+<h1>Bank of America Chicago Marathon 2016</h1>
 <h2>Data Visualization System - Mobile Version</h2>
 
     <div id='timingDiv'>
-        <div id='timeTitle'>Clock Time</div>
-        <div id='clock'>&nbsp</div>        
-        <div id='timeTitle'>Race Time</div>
-        <div id='elapsedTime'>&nbsp</div>
+        <div id = 'clockTime'><div id='timeTitle'>Clock Time</div>
+        <div id='clock'>&nbsp</div></div>        
+        <div id = 'raceTime'><div id='timeTitle'>Race Time</div>
+        <div id='elapsedTime'>&nbsp</div></div>
         <?php $sql = "select Alert,emergencyCheck from GeneralInformation WHERE GeneralInformation.id = (SELECT MAX( id ) FROM GeneralInformation ) ;";
            $result = $db->query($sql);
             if ($result->num_rows>=1){
@@ -80,7 +80,7 @@
 </div>
 
 <script>
-var timeMultiplier=2;
+var timeMultiplier=1;
     //get time now
     function checkTime(i) {
         if (i < 10) {
@@ -291,7 +291,7 @@ function updateClock()
 	var nowMs = currentTime.getTime();
 
 	var startTime = new Date();
-	startTime.setHours(7);
+	startTime.setHours(5);
 	startTime.setMinutes(30);
 	startTime.setSeconds(0);
 	startTime.setMilliseconds(0);

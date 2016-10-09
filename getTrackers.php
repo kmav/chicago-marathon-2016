@@ -191,6 +191,7 @@
                         case $leadWM:
                             $latLWM = $lat;
                             $longLWM = $lon;
+                            echo "Wheelchair $latLWM $longLWM";
                             break;
                         case $leadWF:
                             echo " - Wheelchair woman ";
