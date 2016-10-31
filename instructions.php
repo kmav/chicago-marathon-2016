@@ -244,6 +244,11 @@ if(!isset($_SESSION['login_user'])){
                     </ul></li>
                 </ul></li>
         </ul>
+        
+                <div style="width:80%; margin: 40px auto;">
+        <img src="img/IMG_3361.JPG" style="width: 100%; margin: 0 auto"></img>
+        </div>
+        
 </body>
 
 </html>
