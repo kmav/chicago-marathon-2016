@@ -4,10 +4,9 @@ function getRunners(data){
     var counter = -2;
     var started_sim = 0;
     var drops = 0;
-    var finished_sim = 0;
+    var finished_sim =0;
     var onCourse_sim = 0;
     var elaspedMinutes = getMinute();
-
     //(elaspedMinutes);
     
     if (elaspedMinutes > 0 && elaspedMinutes <= 500){
@@ -31,7 +30,7 @@ function getRunners(data){
         
         //(drops)
            if (elaspedMinutes > 400) {
-               drops = data[250].started - data[250].finished;
+               drops = data[elaspedMinutes/2].started * (0.020 + dropsFactor);
            }
            else if (elaspedMinutes > 350) {
                drops = data[elaspedMinutes/2].started * (0.015 + dropsFactor); //approx 25k mark
@@ -52,9 +51,15 @@ function getRunners(data){
         started = data[250].started;
         finished = data[250].finished;
     }*/
+
+	console.log(finished_sim);
+
+	var started = 41500;
+	var finishers = 40400;
+	//drops = 924;
     
     drops = Math.round(drops);
-    onCourse_sim = started_sim - drops - finished_sim;
+    onCourse_sim = started - drops - finishers;
     
     d3.select("#RunnersStarted")
     .text("Started: " + started_sim);

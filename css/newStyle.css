@@ -15,6 +15,10 @@
 			display: inline-block;
 		}
 
+		.gray {
+			background-color: gray;
+}
+
 		#header{
 			width: 100%;
 			height: 10%;
@@ -508,7 +512,7 @@ h3{
   width: 100%;
   height: 25%;
   position: absolute;
-  bottom: 0;
+  bottom: 90;
   right: 40;
   z-index: 30;
   color: white;
@@ -556,3 +560,18 @@ h4{
   .dimple-custom-axis-title{
   	display: none;
   }
+
+
+#map_legend .circles{
+margin-top: 5px;
+margin-left: 5px;
+position: absolute;
+width: 20px;
+height: 20px;
+text-align: right;
+border-radius: 100%;
+}
+
+.purple{
+background-color: purple;
+}

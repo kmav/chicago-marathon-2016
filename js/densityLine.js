@@ -3,7 +3,7 @@ function draw(data){
   
   "use strict";
   
-  var minute = getMinute();
+  var minute = getMinute()-5;
   
   minute = minute - minute%minuteInterval;
    (minute);
@@ -73,7 +73,7 @@ function draw(data){
       .attr("y",height*.2+10)
       .attr("text-anchor","left")
       .attr("font-size",'12px')
-      .text("Now");
+      .text("In 30 min");
       
     //30 min
     svg.append("text")
@@ -81,12 +81,12 @@ function draw(data){
       .attr("y",height*.13+10)
       .attr("text-anchor","left")
       .attr("font-size",'1px')
-      .text("In 30 minutes");
+      .text("Now.");
     
     //blue
     svg.append("rect")
       .attr("x",width*.60)
-      .attr("y",height*.2)
+      .attr("y",height*.13)
       .attr("width",20)
       .attr("height",10)
       .attr("fill","rgb(141,180,209)");
@@ -94,7 +94,7 @@ function draw(data){
     //red(in30min)
     svg.append("rect")
       .attr("x",width*.60)
-      .attr("y",height*.13)
+      .attr("y",height*.2)
       .attr("width",20)
       .attr("height",10)
       .attr("fill","rgb(241,138,129)");

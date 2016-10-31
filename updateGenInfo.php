@@ -33,7 +33,7 @@
         if ($result->num_rows>0){
             //output data of each row as a variable in php
             while ($row = $result -> fetch_assoc()){
-                
+               print_r($row); 
                 if (((int)$_POST['AlertStatus'])==55){
                     $alertStatus=$row['AlertStatus'];
                 }
@@ -249,7 +249,7 @@
                 else{
                     $shelterGP = 0;
                 }
-                
+                print_r($row); 
                 $latLM = $row['LeadMaleLat'];
                 $longLM = $row['LeadMaleLong'];
                 $latLF = $row['LeadFemaleLat'];

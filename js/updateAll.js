@@ -4,12 +4,13 @@ var PageRefresh = 0;
 var MapRefresh = 0;
 var AidStationIndex = -1;
 var AidStations = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-var timeMultiplier = 2;
+var timeMultiplier = 1;
 var yScaleBoth = 0;
 
-var SetHour = 7;
+var SetHour = 17;
 var SetMinute = 30;
-var SetSecond = 3;
+var SetSecond = 0;
+
 
 
 function getMinute() {
@@ -42,6 +43,8 @@ function getMinute() {
   return (elapsedMinutes*timeMultiplier);
 
 }
+
+
 
 function filterAidStations(obj){
 	//return false;
@@ -711,10 +714,10 @@ function updatePage(){
 	}
 	
 	if (window.location.pathname=="/desktop.php"){
-		var RefreshTime = 30;
+		var RefreshTime = 20;
 	}
 	else{
-		var RefreshTime = 30;
+		var RefreshTime = 20;
 	}
 	if (PageRefresh==RefreshTime){
 		window.location.reload(1);

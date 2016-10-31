@@ -70,7 +70,7 @@ function generateLines() {
             }
             
             if (roadsClosed[i] != 1){
-              switch (Math.floor(runners / 2000)) {
+           	   switch (Math.floor(runners / 500)) {
                   case 0:
                       break;
                   case 1:
@@ -332,7 +332,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].longLWM,rows[0].latLWM]
+          "coordinates": [rows[0].longLWM+10,rows[0].latLWM+10]
         },
         "properties": {
           "icon": {
@@ -347,7 +347,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].longLWF,rows[0].latLWF]
+          "coordinates": [rows[0].longLWF+10,rows[0].latLWF+10]
         },
         "properties": {
           "icon": {
@@ -362,7 +362,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].longFW,rows[0].latFW]
+          "coordinates": [10+rows[0].longFW,rows[0].latFW]
         },
         "properties": {
           "icon": {
@@ -377,7 +377,8 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].longLM,rows[0].latLM]
+          
+"coordinates": [rows[0].longLM+10,rows[0].latLM+10]
         },
         "properties": {
           "icon": {
@@ -392,8 +393,9 @@ function runnerTracking(){
         {
         "type": "Feature",
         "geometry": {
-          "type": "Point",
-          "coordinates": [rows[0].longLF,rows[0].latLF]
+          
+"type": "Point",
+          "coordinates": [rows[0].longLF+10,rows[0].latLF+10]
         },
         "properties": {
           "icon": {
@@ -423,7 +425,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].long350,rows[0].lat350]
+          "coordinates": [10+rows[0].long350,rows[0].lat350]
         },
         "properties": {
           "icon": {
@@ -438,7 +440,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].long355,rows[0].lat355]
+          "coordinates": [10+rows[0].long355,10+rows[0].lat355]
         },
         "properties": {
           "icon": {
@@ -453,12 +455,13 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].long425,rows[0].lat425]
-        },
+          "coordinates": [10+rows[0].long425,rows[0].lat425]
+        
+},
         "properties": {
           "icon": {
             "className": "my-icon icon-dc", // class name to style
-            "html": "4:25", // add content inside the marker
+            "html": "BELL", // add content inside the marker
             "iconSize": null // size of icon, use null to set the size in CSS
           }
         }
@@ -468,12 +471,12 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].long430,rows[0].lat430]
+          "coordinates": [10+rows[0].long430,10+rows[0].lat430]
         },
         "properties": {
           "icon": {
             "className": "my-icon icon-dc", // class name to style
-            "html": "4:30", // add content inside the marker
+            "html": "BELL", // add content inside the marker
             "iconSize": null // size of icon, use null to set the size in CSS
           }
         }
@@ -483,7 +486,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].long500,rows[0].lat500]
+          "coordinates": [10+rows[0].long500,rows[0].lat500]
         },
         "properties": {
           "icon": {
@@ -498,7 +501,7 @@ function runnerTracking(){
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [rows[0].long510,rows[0].lat510]
+          "coordinates": [10+rows[0].long510,10+rows[0].lat510]
         },
         "properties": {
           "icon": {
@@ -523,6 +526,462 @@ function runnerTracking(){
       marker.setIcon(L.divIcon(feature.properties.icon));
     });
 };
+
+
+function plotMiles(){
+  
+  MileMarkers = []
+  MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.625383, 41.891722
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 1
+                    }
+                });
+  
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.627683,41.878193
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 2
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.632369, 41.889376
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 3
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6333822,41.9035057
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 4
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6333822, 41.9160731
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 5
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6357426, 41.9292127
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 6
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6405276, 41.9433073
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 7
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6444973, 41.9423177
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 8
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6423515, 41.9286699
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 9
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6386818, 41.9140931
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 10
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                           -87.63445418, 41.903337
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 11
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.63675, 41.88996
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 12
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6404009,41.8792561
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 13
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.659431, 41.8789799
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 14
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6764821, 41.8777041
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 15
+                    }
+                });
+                
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6583678, 41.87751221
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 16
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6470497, 41.8717013
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 17
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6636198, 41.869297
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 18
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.66608958, 41.85784614
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 19
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.64675015,41.8580442
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 20
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.63893371, 41.850789
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 21
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6318187, 41.845265
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 22
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.62738057, 41.834646
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 23
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6235176, 41.8412845
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 24
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6238295,41.8542866
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 25
+                    }
+                });
+    MileMarkers.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        // coordinates here are in longitude, latitude order because
+                        // x, y is the standard for GeoJSON and many formats
+                        coordinates: [
+                            -87.6225574,41.8674611
+                        ]
+                    },
+                    properties: {
+                        'title': 'Mile Marker',
+                        'marker-size': 'small',
+                        'marker-color': '#520063',
+                        'marker-symbol': 26
+                    }
+                });
+                
+                
+  MM.setGeoJSON(MileMarkers);
+  
+  
+}
+
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnBleW5ldHRpIiwiYSI6IjNjMjQ0NTM4MTE0MmM0ODkwYTA0Mjg0NGYyZGM4MzM5In0.K96jFRdiKaEPadA1IxKoQw';
 
@@ -734,7 +1193,9 @@ var PolylineStyling = generateLines();
 
 
 ASFL = L.mapbox.featureLayer().addTo(map);
+MM = L.mapbox.featureLayer().addTo(map);
 
 //plot aid station markers
-runnerTracking();
 plotAS(0);
+runnerTracking();
+plotMiles();

@@ -11,8 +11,8 @@ if ($mobile==true)
 if(!isset($_SESSION['login_user'])){
     header("location: index.php");
 }
-//check if it's been active for 7 hours, otherwise close it
-if ($_SESSION['start'] + (7*60*60) < time()) {
+//check if it's been active for 10  hours, otherwise close it
+if ($_SESSION['start'] + (10*60*60) < time()) {
      header("location: php/logout.php");
   }
 ?>
@@ -110,11 +110,16 @@ if ($_SESSION['start'] + (7*60*60) < time()) {
 				
 				<div id="map_legend">
 					<p> Runners: </p>
-			        <p>0-2000 <span class="boxes green"></span></p>
-			        <p >2000-4000 <span class="boxes yellow"> </p>
-			        <p>4000-6000 <span class="boxes orange"> </p>
-			        <p>6000+ <span class="boxes red"> </p>
-				</div>
+				<p>Opened Road <span class="boxes gray"></span></p>
+			        <p>0-500 <span class="boxes green"></span></p>
+			        <p >500-1000 <span class="boxes yellow"> </p>
+			        <p>1000-1500 <span class="boxes orange"> </p>
+			        <p>1500+ <span class="boxes red"> </p>
+				<p> Markers: </p>
+				<p> Miles <span class="circles purple"></span></p>
+				<p> Aid Stations <span class="circles green"></span></p>			
+				<p> AS (Closed) <span class="circles gray"></span></p>
+	</div>
 				
 			</div>
 			
@@ -200,7 +205,7 @@ if ($_SESSION['start'] + (7*60*60) < time()) {
                         document.getElementById('info').style.fontSize = '190%';
                         document.getElementById('runners_box').style.width = '65%';
                         document.getElementById('map_legend').style.right = '340';
-                        document.getElementById('map_legend').style.bottom = '-140';
+                        document.getElementById('map_legend').style.bottom = '-70';
                         setTimeout(function(){
                                                         var text = document.getElementsByTagName("text");
                         for (var i=0; i<text.length; i++){
