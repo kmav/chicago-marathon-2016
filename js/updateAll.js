@@ -8,7 +8,7 @@ var timeMultiplier = 1;
 var yScaleBoth = 0;
 
 var SetHour = 17;
-var SetMinute = 30;
+var SetMinute = 0;
 var SetSecond = 0;
 
 
@@ -26,6 +26,14 @@ function getMinute() {
 	startedTime.setMinutes(SetMinute);
 	startedTime.setSeconds(SetSecond);
 	startedTime.setMilliseconds(0);
+	
+	if (currentTime > startedTime + (1000*60*60*6) ){
+		SetHour = currentTime.getHours();
+	}
+	
+	if (currentTime < startedTime){
+		SetHour = currentTime.getHours();
+	}
 
 	var startedMs = startedTime.getTime();
 
@@ -714,7 +722,7 @@ function updatePage(){
 	}
 	
 	if (window.location.pathname=="/desktop.php"){
-		var RefreshTime = 20;
+		var RefreshTime = 50;
 	}
 	else{
 		var RefreshTime = 20;

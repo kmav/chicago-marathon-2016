@@ -28,7 +28,8 @@ if ($_SESSION['start'] + (10*60*60) < time()) {
         <?php include('php/getTreatments.php'); ?>
 
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        
+        <link rel="shortcut icon" href="http://common.northwestern.edu/v8/css/images/northwestern-thumb.jpg" type="image/x-icon" />
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
         <script src="js/dimple.js"></script>
         <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
@@ -111,10 +112,10 @@ if ($_SESSION['start'] + (10*60*60) < time()) {
 				<div id="map_legend">
 					<p> Runners: </p>
 				<p>Opened Road <span class="boxes gray"></span></p>
-			        <p>0-500 <span class="boxes green"></span></p>
-			        <p >500-1000 <span class="boxes yellow"> </p>
-			        <p>1000-1500 <span class="boxes orange"> </p>
-			        <p>1500+ <span class="boxes red"> </p>
+			        <p>0-2000 <span class="boxes green"></span></p>
+			        <p >2000-4000 <span class="boxes yellow"> </p>
+			        <p>4000-600 <span class="boxes orange"> </p>
+			        <p>6000+ <span class="boxes red"> </p>
 				<p> Markers: </p>
 				<p> Miles <span class="circles purple"></span></p>
 				<p> Aid Stations <span class="circles green"></span></p>			
@@ -183,7 +184,7 @@ if ($_SESSION['start'] + (10*60*60) < time()) {
 
 	<script>
 	
-	
+	updateMap();
 
 	function mediaQueries() {
 
@@ -230,6 +231,7 @@ if ($_SESSION['start'] + (10*60*60) < time()) {
 			document.getElementById('alertText').style.fontSize = '100%';
 			document.getElementById('info').style.fontSize = '100%';
 			document.getElementById('runners_box').style.width = '35%';
+	        document.getElementById('map_legend').style.bottom = '140';
 			setTimeout(function(){
 							var text = document.getElementsByTagName("text");
 			for (var i=0; i<text.length; i++){

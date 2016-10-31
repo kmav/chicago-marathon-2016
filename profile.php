@@ -8,6 +8,7 @@
 <head>
 <title>Bank of America Chicago Marathon 2016</title>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="shortcut icon" href="http://common.northwestern.edu/v8/css/images/northwestern-thumb.jpg" type="image/x-icon" />
 
 <link href="css/styled_login.css" rel="stylesheet" type="text/css">
 <script src="js/googleAnalytics.js"></script>

@@ -91,23 +91,30 @@ if(!isset($_SESSION['login_user'])){
         }
         
         
+        
     </style>
     <script src="js/googleAnalytics.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel='stylesheet' type='text/css' href='css/menu.css'>
+        <link rel="shortcut icon" href="http://common.northwestern.edu/v8/css/images/northwestern-thumb.jpg" type="image/x-icon" />
 
 </head>
 
 <body>
-    <?php include('php/header.php'); ?>
-    
-        <h1 style="text-align: center; text-decoration: underline">Data Visualization User Guide</h1>
+
+        <h1 style="text-align: center;">Data Visualization User Guide</h1>
         <h4 style="text-align: center">Below is a list of features supported by our system, and how to interpret the information</h4>
-        <h4 style="text-align: center">We recommend you use <span style="font-weight: bold">Google Chrome with full screen</span> to access the app</h4>
+        <h5 style="text-align: center">Note: Our system is optimized for the 1080 x 1920 and 1920 x 1080 display screens in Forward Command - not for mobile!</h5>
         
-        <ul class="inst-list" style="margin-right: 5%; margin-left:5%">
+        <div style="width:80%; margin: 40px auto;">
+        <img src="img/3.png" style="width: 100%; margin: 0 auto"></img>
+        </div>
+                    
+        <ul class="inst-list" style="margin-right: 10%; margin-left:5%">
+
+            <br>
             <li><span style="font-weight: bold">Top Bar</span>: The color of the top bar reflects the current event alert status level 
             (e.g. if the top bar is green, the alert level is green)</li>
             <li><span style="font-weight: bold">Logos</span>: Click on the BACCM logo to redirect back to the main menu, 
@@ -120,6 +127,7 @@ if(!isset($_SESSION['login_user'])){
             please speak to a member of the data visualization team and we can add it to the display.</li>
             <br>
             <li><span style="font-weight: bold">Course Map</span>:
+            <br>
             <ul>
                 <li><span style = "text-decoration: underline">Mile Segments</span>:
                 <ul>

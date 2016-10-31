@@ -19,6 +19,7 @@ if(isset($_SESSION['login_user']))
 <head>
 <title>Bank of America Chicago Marathon 2016</title>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+        <link rel="shortcut icon" href="http://common.northwestern.edu/v8/css/images/northwestern-thumb.jpg" type="image/x-icon" />
 
 <?php 
     if ($mobile==true){
@@ -43,9 +44,10 @@ if(isset($_SESSION['login_user']))
 <label>Password :</label>
 <input id="password" name="password" placeholder="password" type="password">
 <h4>Login will last: 2 hours</h4>
-<h4>Not registered? Click <a style="color:blue;" href='newuser.php'>here</a> to make an account</h4>
+<h4>Not registered? Click <a style="color:blue;" href='newuser.php'>here</a> to make an account.</h4>
+<h4>Alternatively, if you just want to view the system for demo purposes, use the username 'demo' and password 'simulation' to log in.</h4>
 <input name="submit" type="submit" value=" Login ">
-<a href='getMobile.php'><div class='pagelink'>Mobile Version <span class='small'>(no login required)</span></div></a>
+<!--<a href='getMobile.php'><div class='pagelink'>Mobile Version <span class='small'>(no login required)</span></div></a>-->
 <br>
 <span style="font-weight:normal;"><?php echo $error; ?></span></form>
 </div>

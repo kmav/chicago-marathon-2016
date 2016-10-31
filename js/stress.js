@@ -22,7 +22,7 @@ function filterHour(data){
 
 
 function drawMedCheckIn(data){
-var margin = { top: 50, right: 0, bottom: 0, left:100 },
+var margin = { top: 30, right: 0, bottom: 0, left:100 },
           width = document.getElementById('chart').offsetWidth - margin.left - margin.right,
           height = document.getElementById('chart').offsetHeight,
           gridSize = Math.floor(height / 6 ),
@@ -81,11 +81,33 @@ var margin = { top: 50, right: 0, bottom: 0, left:100 },
   
 
 
-          //   svg.append("text")
-          //   .attr("class", "mono")
-          //   .text(function() { return "Percentage Checked In"; })
-          //   .attr("x", function() { return legendElementWidth * 0 + 35; })
-          //   .attr("y", height + gridSize - 120 );
+          legend.append("rect")
+            .attr("x", function(d, i) { return +(gridSize*i*0.7) })
+            .attr("y", height + gridSize - 150)
+            .attr("width", gridSize*0.5)
+            .attr("height", gridSize / 2)
+            .style("fill", function(d, i) { return colors[i]; });
+            
+            legend.append("text")
+            .attr("x", function(d, i) { return +(gridSize*i*0.7+10) })
+            .attr("y", height + gridSize - 130)
+            .text(function(d, i){ return i; })
+            .style("fill", function(d, i) { 
+              if (i==2){
+                return 'black';
+                }
+              else{
+                return 'white';
+              }
+            });
+            
+            
+            svg.append("text")
+            .text(function() { return "Legend"; })
+            .attr("x", function() { return 80; })
+            .attr("y", height + gridSize - 158 );
+            
+          
             
 
 
